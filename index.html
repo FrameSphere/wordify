@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wordify - Das ultimative Wortratespiel. Rate das Wort in 6 Versuchen!">
+    <title>Wordify - Das Wortratespiel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="settings-group">
+                    <button id="themeToggle" class="icon-btn" aria-label="Theme wechseln">
+                        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path class="sun-icon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                        </svg>
+                    </button>
+                    <select id="languageSelect" class="language-select">
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+            <h1><span class="logo-icon">W</span> Wordify</h1>
+            <p class="subtitle" id="subtitle">Rate das 5-Buchstaben-Wort!</p>
+        </header>
+
+        <div class="game-container">
+            <div class="message" id="message"></div>
+            
+            <div class="board" id="board"></div>
+            
+            <div class="keyboard" id="keyboard"></div>
+            
+            <div class="controls">
+                <button id="newGame" class="btn btn-primary">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
+                    </svg>
+                    <span id="btnNewGame">Neues Spiel</span>
+                </button>
+                <button id="statsBtn" class="btn btn-secondary">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    <span id="btnStats">Statistiken</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Modal -->
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg> <span id="modalTitle">Statistiken</span></h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="gamesPlayed">0</div>
+                        <div class="stat-label" id="labelPlayed">Gespielt</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="winRate">0%</div>
+                        <div class="stat-label" id="labelWinRate">Gewinnrate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label" id="labelStreak">Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="maxStreak">0</div>
+                        <div class="stat-label" id="labelMaxStreak">Max Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p id="footerText">© 2026 Wordify - Ein Wortratespiel powered by <a href="https://frame-sphere.vercel.app" style="text-decoration: none;" id="footerText">FrameSphere</a></p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">
+                <a href="impressum.html" style="color: var(--text-secondary); text-decoration: none; margin: 0 10px; transition: var(--transition);">Impressum</a>
+                <span style="color: var(--text-secondary);">|</span>
+                <a href="datenschutz.html" style="color: var(--text-secondary); text-decoration: none; margin: 0 10px; transition: var(--transition);">Datenschutz</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="words_de.js"></script>
+    <script src="words_en.js"></script>
+    <script src="words_es.js"></script>
+    <script src="words_fr.js"></script>
+    <script src="words_it.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
