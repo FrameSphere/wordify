@@ -15,7 +15,7 @@ const TRANSLATIONS = {
         lost: 'Das Wort war: ',
         newGameStarted: 'Neues Spiel gestartet!',
         gameLimit: 'Limit erreicht! Du hast 5 Spiele in 12h gespielt. Nächstes Spiel in: ',
-        footer: '© 2026 Wordify powered by FrameSphere - Ein Wortratespiel',
+        //footer: '© 2026 Wordify powered by FrameSphere - Ein Wortratespiel',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ü'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ö', 'Ä'],
@@ -37,7 +37,7 @@ const TRANSLATIONS = {
         lost: 'The word was: ',
         newGameStarted: 'New game started!',
         gameLimit: 'Limit reached! You played 5 games in 12h. Next game in: ',
-        footer: '© 2026 Wordify powered by FrameSphere - A Word Guessing Game',
+        //footer: '© 2026 Wordify powered by FrameSphere - A Word Guessing Game',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -59,7 +59,7 @@ const TRANSLATIONS = {
         lost: 'La palabra era: ',
         newGameStarted: '¡Nuevo juego iniciado!',
         gameLimit: '¡Límite alcanzado! Has jugado 5 partidas en 12h. Próximo juego en: ',
-        footer: '© 2026 Wordify powered by FrameSphere - Un Juego de Palabras',
+        //footer: '© 2026 Wordify powered by FrameSphere - Un Juego de Palabras',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ñ'],
@@ -81,7 +81,7 @@ const TRANSLATIONS = {
         lost: 'Le mot était: ',
         newGameStarted: 'Nouveau jeu commencé!',
         gameLimit: 'Limite atteinte! Vous avez joué 5 parties en 12h. Prochain jeu dans: ',
-        footer: '© 2026 Wordify powered by FrameSphere - Un Jeu de Mots',
+        //footer: '© 2026 Wordify powered by FrameSphere - Un Jeu de Mots',
         keys: [
             ['A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['Q', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'],
@@ -103,7 +103,7 @@ const TRANSLATIONS = {
         lost: 'La parola era: ',
         newGameStarted: 'Nuovo gioco iniziato!',
         gameLimit: 'Limite raggiunto! Hai giocato 5 partite in 12h. Prossima partita tra: ',
-        footer: '© 2026 Wordify powered by FrameSphere - Un Gioco di Parole',
+        //footer: '© 2026 Wordify powered by FrameSphere - Un Gioco di Parole',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
