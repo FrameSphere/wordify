@@ -104,6 +104,8 @@ header {
     font-size: 1.4rem;
     transition: var(--transition);
     color: var(--text-primary);
+    touch-action: manipulation;
+    user-select: none;
 }
 
 .icon-btn:hover {
@@ -317,6 +319,7 @@ header h1 {
     transition: var(--transition);
     text-transform: uppercase;
     user-select: none;
+    touch-action: manipulation;
 }
 
 .key:hover {
@@ -371,6 +374,8 @@ header h1 {
     box-shadow: 0 2px 8px var(--shadow);
     min-width: 140px;
     justify-content: center;
+    touch-action: manipulation;
+    user-select: none;
 }
 
 .btn-icon {
@@ -490,6 +495,16 @@ footer {
     margin-top: 30px;
     color: var(--text-secondary);
     font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-link:hover {
+    color: #5865f2;
 }
 
 footer a:hover {
