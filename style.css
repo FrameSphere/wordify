@@ -497,6 +497,17 @@ footer {
     font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
+.footer-legal {
+    margin-top: 10px;
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+}
+
+.footer-separator {
+    margin: 0 10px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
 .footer-link {
     color: var(--text-secondary);
     text-decoration: none;
