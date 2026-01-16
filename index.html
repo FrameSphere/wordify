@@ -2,10 +2,29 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Wordify - Das ultimative Wortratespiel. Rate das Wort in 6 Versuchen!">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <title>Wordify - Das Wortratespiel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordify - Tägliches Wortratespiel | 5-Buchstaben Quiz</title>
+    <meta name="description" content="Rate das 5-Buchstaben-Wort in 6 Versuchen! Wordify ist ein kostenloses Wortratespiel mit täglichen Herausforderungen. Jetzt spielen!">
+    <meta name="keywords" content="Wordify, Wortraten, Wortspiel, Wordle, 5-Buchstaben-Wort, Quiz, Wortratespiel, tägliche Herausforderung">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/favicon.svg">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Wordify - Tägliches Wortratespiel">
+    <meta property="og:description" content="Rate das 5-Buchstaben-Wort in 6 Versuchen! Kostenloses Wortratespiel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordify.pages.dev/">
+    <meta property="og:site_name" content="Wordify">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wordify - Wortratespiel">
+    <meta name="twitter:description" content="Rate das 5-Buchstaben-Wort in 6 Versuchen!">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wordify.pages.dev/">
     <link rel="stylesheet" href="style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005"
      crossorigin="anonymous"></script>
@@ -57,6 +76,29 @@
             </div>
         </div>
 
+        <!-- How to Play Section -->
+        <section class="how-to-play">
+            <h2 class="section-title" id="howToPlayTitle">So funktioniert's</h2>
+            <div class="instructions">
+                <div class="instruction-item">
+                    <span class="instruction-number">1</span>
+                    <p id="instruction1">Gib ein 5-Buchstaben-Wort ein</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">2</span>
+                    <p id="instruction2">Die Farben zeigen, wie nah du dran bist</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">3</span>
+                    <p id="instruction3">Grün = richtig, Gelb = falsche Position</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">4</span>
+                    <p id="instruction4">Du hast 6 Versuche zum Erraten</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Stats Modal -->
         <div id="statsModal" class="modal">
             <div class="modal-content">
@@ -85,9 +127,35 @@
             </div>
         </div>
 
+        <!-- About Modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAboutModal()">&times;</span>
+                <h2 id="aboutTitle" class="modal-title">Über Wordify</h2>
+                <div class="about-content">
+                    <p id="aboutDescription">
+                        <strong>Wordify</strong> ist ein kostenloses <strong>Wortratespiel</strong>, bei dem du <strong>5-Buchstaben-Wörter</strong> in 6 Versuchen erraten musst. Das <strong>tägliche Wortspiel</strong> fordert dein Wissen und deine Logik heraus!
+                    </p>
+                    <h3 id="aboutFeaturesTitle">Features:</h3>
+                    <ul class="about-list">
+                        <li><strong>Tägliche Herausforderung:</strong> Jeden Tag ein neues Wort</li>
+                        <li><strong>5 Sprachen:</strong> Deutsch, Englisch, Spanisch, Französisch, Italienisch</li>
+                        <li><strong>6 Versuche:</strong> Beweise deine Wortgewandtheit</li>
+                        <li><strong>Statistiken:</strong> Verfolge deine Fortschritte</li>
+                        <li><strong>Kostenlos spielen:</strong> Keine Anmeldung erforderlich</li>
+                    </ul>
+                    <p id="aboutChallenge">
+                        Bist du bereit, dein <strong>Vokabular</strong> zu testen? Starte jetzt und werde zum <strong>Wortraten-Experten</strong>!
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <footer>
             <p>© 2026 powered by <a href="https://frame-sphere.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-link">FrameSphere</a></p>
             <p class="footer-legal">
+                <a href="#" class="footer-link" id="aboutLink" onclick="openAboutModal(); return false;">About Wordify</a>
+                <span class="footer-separator">|</span>
                 <a href="impressum.html" class="footer-link">Impressum</a>
                 <span class="footer-separator">|</span>
                 <a href="datenschutz.html" class="footer-link">Datenschutz</a>
@@ -101,5 +169,16 @@
     <script src="words_fr.js"></script>
     <script src="words_it.js"></script>
     <script src="script.js"></script>
+    
+    <!-- About Modal Script -->
+    <script>
+        function openAboutModal() {
+            document.getElementById('aboutModal').style.display = 'flex';
+        }
+        
+        function closeAboutModal() {
+            document.getElementById('aboutModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

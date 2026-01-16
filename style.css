@@ -692,3 +692,145 @@ footer a:hover {
         display: none;
     }
 }
+
+/* ========================================
+   SEO & How to Play Section
+   ======================================== */
+.how-to-play {
+    max-width: 900px;
+    margin: 3rem auto 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 2rem;
+    text-align: center;
+}
+
+.instructions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.instruction-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.instruction-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--correct-bg);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.instruction-item p {
+    margin: 0;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* About Modal Styles */
+.modal-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.about-content {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.about-content p {
+    margin: 1rem 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.about-content strong {
+    color: var(--correct-bg);
+    font-weight: 600;
+}
+
+.about-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2rem 0 1rem;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.about-list li {
+    padding: 0.875rem 0;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+}
+
+.about-list li:last-child {
+    border-bottom: none;
+}
+
+.about-list strong {
+    color: var(--correct-bg);
+}
+
+@media (max-width: 768px) {
+    .how-to-play {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+    
+    .instructions {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .instruction-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+    
+    .instruction-item p {
+        font-size: 0.9rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .about-content h3 {
+        font-size: 1.125rem;
+    }
+}

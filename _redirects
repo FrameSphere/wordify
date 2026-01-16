@@ -4,6 +4,7 @@
 # ===============================
 
 # ---- Static files (serve directly)
+/assets/*      /assets/:splat     200
 /style.css      /style.css       200
 /script.js      /script.js       200
 /words_de.js    /words_de.js     200
