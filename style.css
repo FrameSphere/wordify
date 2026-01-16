@@ -694,29 +694,66 @@ footer a:hover {
 }
 
 /* ========================================
-   SEO & How to Play Section
+   SEO & How to Play Section - COLLAPSIBLE
    ======================================== */
 .how-to-play {
     max-width: 900px;
     margin: 3rem auto 2rem;
-    padding: 2rem;
-    background: var(--card-bg);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
     border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
-.section-title {
+.how-to-play-toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.how-to-play-toggle:hover {
+    background: var(--bg-tertiary);
+}
+
+.how-to-play-toggle .section-title {
+    margin: 0;
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 0 0 2rem;
-    text-align: center;
+    text-align: left;
 }
 
-.instructions {
+.toggle-icon {
+    transition: transform 0.3s ease;
+    color: var(--text-primary);
+}
+
+.how-to-play-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.how-to-play .instructions {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 24px 24px;
+    transition: all 0.3s ease;
+    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
+}
+
+.how-to-play .instructions.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 24px;
 }
 
 .instruction-item {
@@ -725,6 +762,15 @@ footer a:hover {
     align-items: center;
     text-align: center;
     gap: 1rem;
+    padding: 16px;
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.instruction-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .instruction-number {
@@ -733,12 +779,13 @@ footer a:hover {
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: var(--correct-bg);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
     border-radius: 50%;
     font-weight: 700;
     font-size: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
 }
 
 .instruction-item p {

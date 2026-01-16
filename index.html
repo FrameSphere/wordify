@@ -76,10 +76,15 @@
             </div>
         </div>
 
-        <!-- How to Play Section -->
+        <!-- How to Play Section (Collapsible) -->
         <section class="how-to-play">
-            <h2 class="section-title" id="howToPlayTitle">So funktioniert's</h2>
-            <div class="instructions">
+            <button class="how-to-play-toggle" onclick="toggleHowToPlay()" aria-expanded="false">
+                <h2 class="section-title" id="howToPlayTitle">So funktioniert's</h2>
+                <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="instructions collapsed">
                 <div class="instruction-item">
                     <span class="instruction-number">1</span>
                     <p id="instruction1">Gib ein 5-Buchstaben-Wort ein</p>
@@ -178,6 +183,15 @@
         
         function closeAboutModal() {
             document.getElementById('aboutModal').style.display = 'none';
+        }
+        
+        function toggleHowToPlay() {
+            const instructions = document.querySelector('.how-to-play .instructions');
+            const toggle = document.querySelector('.how-to-play-toggle');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            
+            instructions.classList.toggle('collapsed');
+            toggle.setAttribute('aria-expanded', !isExpanded);
         }
     </script>
 </body>
