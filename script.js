@@ -15,6 +15,11 @@ const TRANSLATIONS = {
         lost: 'Das Wort war: ',
         newGameStarted: 'Neues Spiel gestartet!',
         gameLimit: 'Limit erreicht! Du hast 5 Spiele in 12h gespielt. Nächstes Spiel in: ',
+        howToPlayTitle: 'So funktioniert’s',
+        instruction1: 'Gib ein 5-Buchstaben-Wort ein',
+        instruction2: 'Die Farben zeigen, wie nah du dran bist',
+        instruction3: 'Grün = richtig, Gelb = falsche Position',
+        instruction4: 'Du hast 6 Versuche zum Erraten',
         //footer: '© 2026 Wordify powered by FrameSphere - Ein Wortratespiel',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ü'],
@@ -37,6 +42,11 @@ const TRANSLATIONS = {
         lost: 'The word was: ',
         newGameStarted: 'New game started!',
         gameLimit: 'Limit reached! You played 5 games in 12h. Next game in: ',
+        howToPlayTitle: 'How it works',
+        instruction1: 'Enter a 5-letter word',
+        instruction2: 'Colors show how close you are',
+        instruction3: 'Green = correct, Yellow = wrong position',
+        instruction4: 'You have 6 attempts to guess',
         //footer: '© 2026 Wordify powered by FrameSphere - A Word Guessing Game',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -59,6 +69,11 @@ const TRANSLATIONS = {
         lost: 'La palabra era: ',
         newGameStarted: '¡Nuevo juego iniciado!',
         gameLimit: '¡Límite alcanzado! Has jugado 5 partidas en 12h. Próximo juego en: ',
+        howToPlayTitle: 'Cómo funciona',
+        instruction1: 'Ingresa una palabra de 5 letras',
+        instruction2: 'Los colores muestran qué tan cerca estás',
+        instruction3: 'Verde = correcto, Amarillo = posición incorrecta',
+        instruction4: 'Tienes 6 intentos para adivinar',
         //footer: '© 2026 Wordify powered by FrameSphere - Un Juego de Palabras',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -81,6 +96,11 @@ const TRANSLATIONS = {
         lost: 'Le mot était: ',
         newGameStarted: 'Nouveau jeu commencé!',
         gameLimit: 'Limite atteinte! Vous avez joué 5 parties en 12h. Prochain jeu dans: ',
+        howToPlayTitle: 'Comment ça marche',
+        instruction1: 'Entrez un mot de 5 lettres',
+        instruction2: 'Les couleurs montrent à quel point vous êtes proche',
+        instruction3: 'Vert = correct, Jaune = mauvaise position',
+        instruction4: 'Vous avez 6 tentatives pour deviner',
         //footer: '© 2026 Wordify powered by FrameSphere - Un Jeu de Mots',
         keys: [
             ['A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -103,6 +123,11 @@ const TRANSLATIONS = {
         lost: 'La parola era: ',
         newGameStarted: 'Nuovo gioco iniziato!',
         gameLimit: 'Limite raggiunto! Hai giocato 5 partite in 12h. Prossima partita tra: ',
+        howToPlayTitle: 'Come funziona',
+        instruction1: 'Inserisci una parola di 5 lettere',
+        instruction2: 'I colori mostrano quanto sei vicino',
+        instruction3: 'Verde = corretto, Giallo = posizione sbagliata',
+        instruction4: 'Hai 6 tentativi per indovinare',
         //footer: '© 2026 Wordify powered by FrameSphere - Un Gioco di Parole',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -234,7 +259,13 @@ function updateLanguage() {
     document.getElementById('labelWinRate').textContent = t.winRate;
     document.getElementById('labelStreak').textContent = t.streak;
     document.getElementById('labelMaxStreak').textContent = t.maxStreak;
-    document.getElementById('footerText').textContent = t.footer;
+    
+    // Update "So funktioniert's" section
+    document.getElementById('howToPlayTitle').textContent = t.howToPlayTitle;
+    document.getElementById('instruction1').textContent = t.instruction1;
+    document.getElementById('instruction2').textContent = t.instruction2;
+    document.getElementById('instruction3').textContent = t.instruction3;
+    document.getElementById('instruction4').textContent = t.instruction4;
 }
 
 // Initialisierung
