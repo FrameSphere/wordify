@@ -15,6 +15,9 @@ const TRANSLATIONS = {
         lost: 'Das Wort war: ',
         newGameStarted: 'Neues Spiel gestartet!',
         gameLimit: 'Limit erreicht! Du hast 5 Spiele in 12h gespielt. Nächstes Spiel in: ',
+        shareButton: 'Teilen',
+        shareLink: 'Link teilen',
+        linkCopied: '✓ Link kopiert!',
         howToPlayTitle: 'So funktioniert’s',
         instruction1: 'Gib ein 5-Buchstaben-Wort ein',
         instruction2: 'Die Farben zeigen, wie nah du dran bist',
@@ -42,6 +45,9 @@ const TRANSLATIONS = {
         lost: 'The word was: ',
         newGameStarted: 'New game started!',
         gameLimit: 'Limit reached! You played 5 games in 12h. Next game in: ',
+        shareButton: 'Share',
+        shareLink: 'Share Link',
+        linkCopied: '✓ Link copied!',
         howToPlayTitle: 'How it works',
         instruction1: 'Enter a 5-letter word',
         instruction2: 'Colors show how close you are',
@@ -69,6 +75,9 @@ const TRANSLATIONS = {
         lost: 'La palabra era: ',
         newGameStarted: '¡Nuevo juego iniciado!',
         gameLimit: '¡Límite alcanzado! Has jugado 5 partidas en 12h. Próximo juego en: ',
+        shareButton: 'Compartir',
+        shareLink: 'Compartir enlace',
+        linkCopied: '✓ Enlace copiado!',
         howToPlayTitle: 'Cómo funciona',
         instruction1: 'Ingresa una palabra de 5 letras',
         instruction2: 'Los colores muestran qué tan cerca estás',
@@ -96,6 +105,9 @@ const TRANSLATIONS = {
         lost: 'Le mot était: ',
         newGameStarted: 'Nouveau jeu commencé!',
         gameLimit: 'Limite atteinte! Vous avez joué 5 parties en 12h. Prochain jeu dans: ',
+        shareButton: 'Partager',
+        shareLink: 'Partager le lien',
+        linkCopied: '✓ Lien copié!',
         howToPlayTitle: 'Comment ça marche',
         instruction1: 'Entrez un mot de 5 lettres',
         instruction2: 'Les couleurs montrent à quel point vous êtes proche',
@@ -123,6 +135,9 @@ const TRANSLATIONS = {
         lost: 'La parola era: ',
         newGameStarted: 'Nuovo gioco iniziato!',
         gameLimit: 'Limite raggiunto! Hai giocato 5 partite in 12h. Prossima partita tra: ',
+        shareButton: 'Condividi',
+        shareLink: 'Condividi link',
+        linkCopied: '✓ Link copiato!',
         howToPlayTitle: 'Come funziona',
         instruction1: 'Inserisci una parola di 5 lettere',
         instruction2: 'I colori mostrano quanto sei vicino',
@@ -560,6 +575,7 @@ function showShareModal(won, elapsedTime) {
     const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
     
     const shareText = `Wordify ${attempts}/6 in ${timeStr}\n\n${emojiGrid}\n\n🎮 wordify.pages.dev`;
+    const shareUrl = window.location.href;
     
     // Modal HTML erstellen
     const modal = document.createElement('div');
@@ -571,10 +587,10 @@ function showShareModal(won, elapsedTime) {
             <div class="share-grid">${emojiGrid}</div>
             <div class="share-buttons">
                 <button class="share-btn share-btn-primary" onclick="shareResults(\`${shareText.replace(/`/g, '\\`')}\`)">
-                    📤 Teilen
+                    📤 ${t.shareButton}
                 </button>
-                <button class="share-btn share-btn-secondary" onclick="copyResults(\`${shareText.replace(/`/g, '\\`')}\`)">
-                    📋 Kopieren
+                <button class="share-btn share-btn-secondary" onclick="copyLink(\`${shareUrl}\`)">
+                    🔗 ${t.shareLink}
                 </button>
             </div>
             <button class="share-btn share-btn-secondary" style="margin-top:10px;width:100%" onclick="closeShareModal()">❌ Schließen</button>
@@ -605,7 +621,18 @@ async function shareResults(text) {
 async function copyResults(text) {
     try {
         await navigator.clipboard.writeText(text);
-        showMessage('✓ In Zwischenablage kopiert!', 'success');
+        const t = TRANSLATIONS[currentLanguage];
+        showMessage(t.linkCopied, 'success');
+    } catch (err) {
+        showMessage('❌ Fehler beim Kopieren', 'error');
+    }
+}
+
+async function copyLink(url) {
+    try {
+        await navigator.clipboard.writeText(url);
+        const t = TRANSLATIONS[currentLanguage];
+        showMessage(t.linkCopied, 'success');
     } catch (err) {
         showMessage('❌ Fehler beim Kopieren', 'error');
     }
