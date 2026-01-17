@@ -268,6 +268,9 @@ function updateLanguage() {
     document.getElementById('instruction4').textContent = t.instruction4;
 }
 
+// Timer Instanz
+let timer = null;
+
 // Initialisierung
 function init(checkLimit = false) {
     const t = TRANSLATIONS[currentLanguage];
@@ -288,6 +291,12 @@ function init(checkLimit = false) {
     currentRow = 0;
     currentTile = 0;
     gameOver = false;
+    
+    // Timer starten
+    if (!timer) timer = new GameTimer();
+    timer.reset();
+    timer.start();
+    
     createBoard();
     createKeyboard();
     updateStats();
@@ -383,6 +392,7 @@ function submitGuess() {
     
     if (guess === targetWord) {
         gameOver = true;
+        const elapsedTime = timer.stop();
         showMessage(t.won, 'success');
         stats.gamesPlayed++;
         stats.gamesWon++;
@@ -390,13 +400,16 @@ function submitGuess() {
         stats.maxStreak = Math.max(stats.maxStreak, stats.currentStreak);
         saveStats();
         updateStats();
+        setTimeout(() => showShareModal(true, elapsedTime), 500);
     } else if (currentRow === 5) {
         gameOver = true;
+        const elapsedTime = timer.stop();
         showMessage(t.lost + targetWord, 'error');
         stats.gamesPlayed++;
         stats.currentStreak = 0;
         saveStats();
         updateStats();
+        setTimeout(() => showShareModal(false, elapsedTime), 500);
     } else {
         currentRow++;
         currentTile = 0;
@@ -513,6 +526,95 @@ window.addEventListener('click', (e) => {
         modal.style.display = 'none';
     }
 });
+
+// ========== SHARE MODAL FUNKTIONALITÄT ==========
+
+function generateEmojiGrid() {
+    const board = document.getElementById('board');
+    const rows = board.querySelectorAll('.row');
+    let grid = '';
+    
+    rows.forEach((row, rowIndex) => {
+        if (rowIndex >= currentRow) return;
+        const tiles = row.querySelectorAll('.tile');
+        let rowStr = '';
+        tiles.forEach(tile => {
+            const state = tile.dataset.state || tile.classList.contains('correct') ? 'correct' : 
+                         tile.classList.contains('present') ? 'present' : 'absent';
+            if (state === 'correct') rowStr += '🟩';
+            else if (state === 'present') rowStr += '🟨';
+            else rowStr += '⬜';
+        });
+        grid += rowStr + '\n';
+    });
+    
+    return grid.trim();
+}
+
+function showShareModal(won, elapsedTime) {
+    const t = TRANSLATIONS[currentLanguage];
+    const emojiGrid = generateEmojiGrid();
+    const attempts = won ? currentRow : 'X';
+    const mins = Math.floor(elapsedTime / 60);
+    const secs = elapsedTime % 60;
+    const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+    
+    const shareText = `Wordify ${attempts}/6 in ${timeStr}\n\n${emojiGrid}\n\n🎮 wordify.pages.dev`;
+    
+    // Modal HTML erstellen
+    const modal = document.createElement('div');
+    modal.className = 'share-modal active';
+    modal.innerHTML = `
+        <div class="share-content">
+            <h2>🎉 ${won ? t.won : t.lost + targetWord}</h2>
+            <div class="share-stats">${attempts}/6 in ${timeStr} ⏱️</div>
+            <div class="share-grid">${emojiGrid}</div>
+            <div class="share-buttons">
+                <button class="share-btn share-btn-primary" onclick="shareResults(\`${shareText.replace(/`/g, '\\`')}\`)">
+                    📤 Teilen
+                </button>
+                <button class="share-btn share-btn-secondary" onclick="copyResults(\`${shareText.replace(/`/g, '\\`')}\`)">
+                    📋 Kopieren
+                </button>
+            </div>
+            <button class="share-btn share-btn-secondary" style="margin-top:10px;width:100%" onclick="closeShareModal()">❌ Schließen</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeShareModal();
+    });
+}
+
+async function shareResults(text) {
+    if (navigator.share) {
+        try {
+            await navigator.share({ text });
+            showMessage('✓ Geteilt!', 'success');
+        } catch (err) {
+            if (err.name !== 'AbortError') {
+                copyResults(text);
+            }
+        }
+    } else {
+        copyResults(text);
+    }
+}
+
+async function copyResults(text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        showMessage('✓ In Zwischenablage kopiert!', 'success');
+    } catch (err) {
+        showMessage('❌ Fehler beim Kopieren', 'error');
+    }
+}
+
+function closeShareModal() {
+    const modal = document.querySelector('.share-modal');
+    if (modal) modal.remove();
+}
 
 // Spiel starten
 init();

@@ -77,6 +77,15 @@ header {
     margin-bottom: 30px;
 }
 
+.timer-display {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
 .header-top {
     display: flex;
     justify-content: flex-end;
@@ -487,6 +496,77 @@ header h1 {
     font-size: clamp(0.75rem, 2vw, 0.9rem);
     color: var(--text-secondary);
     font-weight: 500;
+}
+
+/* Share Modal */
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.share-modal.active {
+    display: flex;
+}
+
+.share-content {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.share-grid {
+    font-family: monospace;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 1.5rem 0;
+    white-space: pre;
+}
+
+.share-stats {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    color: var(--text-secondary);
+}
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.share-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.share-btn:hover {
+    transform: scale(1.05);
+}
+
+.share-btn-primary {
+    background: #6aaa64;
+    color: white;
+}
+
+.share-btn-secondary {
+    background: var(--tile-border);
+    color: var(--text-primary);
 }
 
 /* Footer */
