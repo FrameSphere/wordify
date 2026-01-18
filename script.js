@@ -153,12 +153,22 @@ const TRANSLATIONS = {
 };
 
 // Wortlisten-Mapping
+// WORD_LISTS: Alle gültigen Wörter für Eingabe-Validierung
 const WORD_LISTS = {
     de: WORDS_DE,
     en: WORDS_EN,
     es: WORDS_ES,
     fr: WORDS_FR,
     it: WORDS_IT
+};
+
+// QUEST_LISTS: Wörter die als Lösung drankommen können
+const QUEST_LISTS = {
+    de: WORDS_DE_QUEST,
+    en: WORDS_EN_QUEST,
+    es: WORDS_ES_QUEST,
+    fr: WORDS_FR_QUEST,
+    it: WORDS_IT_QUEST
 };
 
 // Spielzustand
@@ -240,6 +250,12 @@ const closeModal = document.querySelector('.close');
 const themeToggle = document.getElementById('themeToggle');
 const languageSelect = document.getElementById('languageSelect');
 
+// Share Button Event Listener
+const shareBtn = document.getElementById('shareBtn');
+shareBtn.addEventListener('click', () => {
+    showShareModal(false, timer ? timer.getElapsedTime() : 0);
+});
+
 // Theme Toggle
 themeToggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
@@ -300,8 +316,9 @@ function init(checkLimit = false) {
         addGameToHistory();
     }
     
-    const words = WORD_LISTS[currentLanguage];
-    targetWord = words[Math.floor(Math.random() * words.length)];
+    // Zielwort aus Quest-Liste wählen (Lösungswörter)
+    const questWords = QUEST_LISTS[currentLanguage];
+    targetWord = questWords[Math.floor(Math.random() * questWords.length)];
     console.log('Zielwort:', targetWord); // Für Debugging
     currentRow = 0;
     currentTile = 0;
@@ -415,7 +432,6 @@ function submitGuess() {
         stats.maxStreak = Math.max(stats.maxStreak, stats.currentStreak);
         saveStats();
         updateStats();
-        setTimeout(() => showShareModal(true, elapsedTime), 500);
     } else if (currentRow === 5) {
         gameOver = true;
         const elapsedTime = timer.stop();
@@ -424,7 +440,6 @@ function submitGuess() {
         stats.currentStreak = 0;
         saveStats();
         updateStats();
-        setTimeout(() => showShareModal(false, elapsedTime), 500);
     } else {
         currentRow++;
         currentTile = 0;
@@ -544,56 +559,57 @@ window.addEventListener('click', (e) => {
 
 // ========== SHARE MODAL FUNKTIONALITÄT ==========
 
-function generateEmojiGrid() {
-    const board = document.getElementById('board');
-    const rows = board.querySelectorAll('.row');
-    let grid = '';
-    
-    rows.forEach((row, rowIndex) => {
-        if (rowIndex >= currentRow) return;
-        const tiles = row.querySelectorAll('.tile');
-        let rowStr = '';
-        tiles.forEach(tile => {
-            const state = tile.dataset.state || tile.classList.contains('correct') ? 'correct' : 
-                         tile.classList.contains('present') ? 'present' : 'absent';
-            if (state === 'correct') rowStr += '🟩';
-            else if (state === 'present') rowStr += '🟨';
-            else rowStr += '⬜';
-        });
-        grid += rowStr + '\n';
-    });
-    
-    return grid.trim();
-}
-
 function showShareModal(won, elapsedTime) {
     const t = TRANSLATIONS[currentLanguage];
-    const emojiGrid = generateEmojiGrid();
-    const attempts = won ? currentRow : 'X';
     const mins = Math.floor(elapsedTime / 60);
     const secs = elapsedTime % 60;
     const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
     
-    const shareText = `Wordify ${attempts}/6 in ${timeStr}\n\n${emojiGrid}\n\n🎮 wordify.pages.dev`;
     const shareUrl = window.location.href;
+    const shareTitle = won ? `Ich habe Wordify in ${currentRow} Versuchen gelöst!` : 'Spiel Wordify - Das 5-Buchstaben Wortratespiel!';
+    const shareText = `Wordify - Das tägliche Wortratespiel! Spiele jetzt auf ${shareUrl}`;
     
     // Modal HTML erstellen
     const modal = document.createElement('div');
     modal.className = 'share-modal active';
     modal.innerHTML = `
         <div class="share-content">
-            <h2>🎉 ${won ? t.won : t.lost + targetWord}</h2>
-            <div class="share-stats">${attempts}/6 in ${timeStr} ⏱️</div>
-            <div class="share-grid">${emojiGrid}</div>
-            <div class="share-buttons">
-                <button class="share-btn share-btn-primary" onclick="shareResults(\`${shareText.replace(/`/g, '\\`')}\`)">
-                    📤 ${t.shareButton}
+            <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">${t.shareButton || 'Teilen'}</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">Teile Wordify mit deinen Freunden!</p>
+            <div class="share-buttons" style="display: flex; flex-direction: column; gap: 12px;">
+                <button class="share-btn share-btn-primary" onclick="copyLink('${shareUrl}')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <span>${t.shareLink || 'Link kopieren'}</span>
                 </button>
-                <button class="share-btn share-btn-secondary" onclick="copyLink(\`${shareUrl}\`)">
-                    🔗 ${t.shareLink}
+                <button class="share-btn share-btn-secondary" onclick="shareWhatsApp('${encodeURIComponent(shareText)}', '${encodeURIComponent(shareUrl)}')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-btn share-btn-secondary" onclick="shareFacebook('${encodeURIComponent(shareUrl)}')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-btn share-btn-secondary" onclick="shareTwitter('${encodeURIComponent(shareTitle)}', '${encodeURIComponent(shareUrl)}')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                    </svg>
+                    <span>Twitter / X</span>
                 </button>
             </div>
-            <button class="share-btn share-btn-secondary" style="margin-top:10px;width:100%" onclick="closeShareModal()">❌ Schließen</button>
+            <button class="share-btn share-btn-secondary" style="margin-top:16px;width:100%;border: 2px solid var(--border-color);" onclick="closeShareModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <span>Schließen</span>
+            </button>
         </div>
     `;
     
@@ -601,31 +617,6 @@ function showShareModal(won, elapsedTime) {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeShareModal();
     });
-}
-
-async function shareResults(text) {
-    if (navigator.share) {
-        try {
-            await navigator.share({ text });
-            showMessage('✓ Geteilt!', 'success');
-        } catch (err) {
-            if (err.name !== 'AbortError') {
-                copyResults(text);
-            }
-        }
-    } else {
-        copyResults(text);
-    }
-}
-
-async function copyResults(text) {
-    try {
-        await navigator.clipboard.writeText(text);
-        const t = TRANSLATIONS[currentLanguage];
-        showMessage(t.linkCopied, 'success');
-    } catch (err) {
-        showMessage('❌ Fehler beim Kopieren', 'error');
-    }
 }
 
 async function copyLink(url) {
@@ -636,6 +627,21 @@ async function copyLink(url) {
     } catch (err) {
         showMessage('❌ Fehler beim Kopieren', 'error');
     }
+}
+
+function shareWhatsApp(text, url) {
+    const whatsappUrl = `https://wa.me/?text=${text}%20${url}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+function shareFacebook(url) {
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(facebookUrl, '_blank');
+}
+
+function shareTwitter(text, url) {
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+    window.open(twitterUrl, '_blank');
 }
 
 function closeShareModal() {

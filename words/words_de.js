@@ -1,0 +1,402 @@
+// Deutsche 5-Buchstaben-Wörter
+const WORDS_DE = [
+    'AALEN', 'ABEND', 'ABGAS', 'ABHOB', 'ABKAM', 'ABRUF', 'ABZOG',
+    'ACHTE', 'ACKER', 'ADLER', 'ADRES', 'AEROB', 'AFFEN', 'AGAVE',
+    'AHNEN', 'AKTEN', 'ALARM', 'ALBUM', 'ALGEN', 'ALIEN',
+    'ALTEN', 'AMPEL', 'ANBAU', 'ANFANG', 'ANGST', 'ANKER', 'ANLIE',
+    'ANSAG', 'ANTON', 'ANZOG', 'APFEL', 'ARMEN', 'AROMA',
+    'ARTEN', 'AßEST', 'ATMEN', 'AUGEN', 'AUSEN', 'AUSMA',
+    'ÄRMEL', 'ÄTHER',
+
+    'AALIG', 'AASEN', 'ABBIT', 'ABBRI', 'ABDEI', 'ABFUG', 'ABHUB',
+    'ABJAG', 'ABLAG', 'ABNAG', 'ABRAG', 'ABSAH', 'ABSOG',
+    'ABTAN', 'ABTAT', 'ABWAR', 'ABWEG', 'ABZOG',
+    'ACHTS', 'ADLIG', 'AFTER', 'AGIER', 'AHNTE',
+    'AKKUS', 'AKTIV', 'ALGEN', 'ALPIN', 'ALTAR',
+    'AMMER', 'AMOUR', 'AMPER', 'ANBOT', 'ANDER',
+    'ANGAB', 'ANHUB', 'ANLAS', 'ANLUG', 'ANNÄH',
+    'ANSAH', 'ANTRI', 'ANZUG', 'APART', 'APFEL',
+    'ARBEI', 'ARGON', 'ARMUT', 'AROMA',
+    'ARTIG', 'ASCHEN', 'ASTIG',
+    'ATLAS', 'AUDIO', 'AUFZOG',
+    'AUSMA', 'ÄNGST', 'ÄUGTE',
+
+    //B
+    
+    'BAUCH', 'BAUER', 'BAUME', 'BÄREN', 'BÄUME', 'BEGIN', 'BEIDE',
+    'BEINE', 'BERGE', 'BESEN', 'BETEN', 'BETON', 'BLICK', 'BLUME',
+    'BLUTS', 'BOGEN', 'BOMBE', 'BÖDEN', 'BÖGEN', 'BRAND', 'BRAUN',
+    'BREIT', 'BRETT', 'BRIEF', 'BRING', 'BRUCH', 'BRUST', 'BUCHE',
+    'BUDEN', 'BÜHNE', 'BUNTE', 'BUTTE',
+
+    'BACKE', 'BADET', 'BAKED', 'BANDE', 'BARKE', 'BASIS', 'BATZE',
+    'BEAMT', 'BEDAR', 'BEETE', 'BEGIN', 'BEHUT', 'BELAG', 'BERUF',
+    'BETAG', 'BETEN', 'BIEGE', 'BILDE', 'BINDT', 'BINDE', 'BITTE',
+    'BLAUE', 'BLIEB', 'BLOCK', 'BLOND', 'BODEN', 'BOHRT', 'BONUS',
+    'BRACH', 'BRATE', 'BRING', 'BRUCH', 'BÜCKE', 'BÜGEL',
+
+    'BACKT', 'BÄDER', 'BANGE', 'BARON', 'BASTA', 'BEGRÜ', 'BEISS',
+    'BELEG', 'BESIT', 'BEUGE', 'BIEGT', 'BILAN', 'BINST', 'BIRKE',
+    'BITTE', 'BLAßE', 'BLEIB', 'BLIES', 'BLIND', 'BLITZ',
+    'BOHNE', 'BORNE', 'BRÄTE', 'BRAUE', 'BRECH', 'BRILL',
+    'BROTÄ', 'BRÜHE', 'BUKET', 'BÜSSE', 'BÜSTE',
+
+    'BADEN', 'BAHNT', 'BALLT', 'BANGE', 'BEGAB', 'BEHOB', 'BELUD',
+    'BENUT', 'BERÄT', 'BESTE', 'BEWAR', 'BIEST', 'BINDE',
+    'BLÄST', 'BLIEB', 'BOHRT', 'BÖSIG', 'BRAST', 'BRÜST',
+    'BUHLE', 'BÜGLE', 'BÜSST',
+
+    //C
+
+    'CABIN', 'CACHE', 'CAMPF', 'CHAOS', 'CHECK', 'CHIPS', 'CHOKE',
+    'CHORS', 'CLAIM', 'CLASH', 'CLICK', 'CLIPS', 'CLOWN', 'COACH',
+    'COMIC', 'CORPS', 'COUCH', 'CRACK', 'CREME', 'CREDO',
+
+    'CANON', 'CARDS', 'CARGO', 'CASUS', 'CENTER', 'CHAIR', 'CHINA',
+    'CHOKE', 'CIRCA', 'CLEAN', 'CLUBS', 'CODES', 'COINS', 'COLA',
+    'COUNT', 'COUPE', 'CRASH', 'CRIME', 'CROSS', 'CURRY',
+
+    'CHART', 'CHEFS', 'CHILI', 'CHIPS', 'CHORS', 'CLICK', 'CLONE',
+    'CLOSE', 'COBOL', 'COLON', 'COMBI', 'COMET', 'COVER', 'CRANE',
+    'CRIME', 'CUBES',
+
+    'CANOE', 'CAPRI', 'CHAIR', 'CHAMP', 'CHATS', 'CHECK', 'CHEMI',
+    'CHOKE', 'CHORD', 'CIRCE', 'CIVIL', 'CLEAN', 'CLOWN', 'COBRA',
+    'COLTS', 'COMBO', 'COMET', 'COUPE', 'CRISP', 'CURLY',
+
+    //D
+    'DACHS', 'DADUR', 'DÄMON', 'DANKE', 'DARAN', 'DARAU', 'DARIN',
+    'DATEN', 'DAUER', 'DECKE', 'DEINE', 'DENEN', 'DENKE', 'DENKT',
+    'DICHT', 'DINER', 'DINGE', 'DIREK', 'DORNE', 'DRACH',
+    'DRAHT', 'DRECK', 'DREHT', 'DRING', 'DRUCK', 'DURCH',
+
+    'DABEI', 'DAGAB', 'DAHIN', 'DAMIT', 'DANEB', 'DARF', 'DARST',
+    'DATUM', 'DAZUS', 'DECKT', 'DEINE', 'DELTA', 'DENNO',
+    'DEPOT', 'DEVIS', 'DICKE', 'DIESE', 'DINGT', 'DIRNE',
+    'DIVER', 'DOKUS', 'DOLCH', 'DOPPE', 'DORIS', 'DRAMA',
+    'DREIE', 'DRIFT', 'DRING', 'DROHT', 'DÜNGE',
+
+    'DACKE', 'DÄMMT', 'DAMPF', 'DANKT', 'DARAB', 'DARUM', 'DATIV',
+    'DEHNT', 'DENKT', 'DERBE', 'DESIN', 'DEUTE', 'DICKE',
+    'DIEBE', 'DIEST', 'DINOS', 'DOPPE', 'DORFT', 'DÖRRE',
+    'DRAUF', 'DREIN', 'DRING', 'DRÖHN', 'DRÜCK',
+
+    'DACHT', 'DÄRME', 'DASST', 'DECKS', 'DEKOR', 'DELLE',
+    'DENKT', 'DEREN', 'DESKS', 'DEUTS', 'DICKE', 'DIENT',
+    'DINGE', 'DOLLE', 'DOPPE', 'DORNS', 'DRAUS',
+    'DREHT', 'DRILL', 'DRUCK', 'DÜNNE', 
+
+    //E
+    'EBENE', 'ECKEN', 'EDLER', 'EIGEN', 'EIMER', 'EINEN', 'EINER',
+    'EINIG', 'EISEN', 'ELEND', 'ELFEN', 'EMAIL', 'EMOJI',
+    'ENDEN', 'ENGEL', 'ENORM', 'ERNTE', 'ESSEN', 'ETAGE',
+
+    'ECHOS', 'EDELT', 'EHREN', 'EILEN', 'EINIG', 'EINTR',
+    'EITEL', 'EKLIG', 'ELITE', 'EMAIL', 'EMPOR', 'ENDET',
+    'ENGEN', 'ERDEN', 'ERFOL', 'ERGAB', 'ERHOB', 'ERKEN',
+    'ERWAR', 'ESSIG',
+
+    'EBENS', 'ECHTE', 'ECKIG', 'EDELE', 'EHRER', 'EIGNE',
+    'EILTE', 'EINBA', 'EINEN', 'EINSE', 'EINZÄ',
+    'EKZEM', 'ELFTE', 'EMSIG', 'ENDIG', 'ENGST',
+    'ERBIT', 'ERFUH', 'ERGIB', 'ERLOG', 'ERSET', 'ERZOG',
+
+    'EDELS', 'EHRTE', 'EIGNE', 'EILIG', 'EINKE',
+    'EISIG', 'ELTER', 'EMDET', 'ENDST', 'ENDET',
+    'ERBAU', 'ERDEN', 'ERFÜL', 'ERHAT', 'ERHOB',
+    'ERKAM', 'ERLAG', 'ERLIT', 'ERNST', 'ERTRÄ',
+
+    'EBNEN', 'ECKTE', 'EDLES', 'EHRST', 'EIGNT',
+    'EILST', 'EINIG', 'EINSA', 'EINZOG',
+    'EKELN', 'ELCHE', 'ENDTE', 'ENGST',
+    'ERBOT', 'ERFUH', 'ERHOB', 'ERKOM', 'ERLUD',
+    'ERWAR', 'ESSIG', 'ESSST'
+
+    //F
+    ,'FABRI', 'FACHT', 'FADEN', 'FALLE', 'FALTE', 'FARBE', 'FASTE',
+    'FAHRT', 'FAHRE', 'FALLE', 'FANGT', 'FARBE', 'FASST',
+    'FEIGE', 'FEIER', 'FELDE', 'FELLE', 'FELSE', 'FERNE', 'FESTE',
+    'FETTE', 'FIELE', 'FIETE', 'FIGUR', 'FILME', 'FISCH', 'FITTE',
+    'FLACH', 'FLAUM', 'FLAUE', 'FLIEG', 'FLOCK', 'FOLGE', 'FORME',
+    'FORTE', 'FRAGE', 'FRANK', 'FRIED', 'FRONT', 'FRUST', 'FÜLLE',
+
+    'FABEL', 'FACHT', 'FADEN', 'FALLT', 'FARBE', 'FASTE',
+    'FAHRT', 'FAHRE', 'FALLE', 'FANGT', 'FARBE', 'FASST',
+    'FEIGE', 'FEIER', 'FELDE', 'FELLE', 'FELSE', 'FERNE',
+    'FESTE', 'FETTE', 'FIELE', 'FIGUR', 'FILME', 'FISCH', 'FITTE',
+    'FLACH', 'FLAUM', 'FLAUE', 'FLIEG', 'FLOCK', 'FOLGE', 'FORME',
+    'FORTE', 'FRAGE', 'FRIED', 'FRONT', 'FRUST', 'FÜLLE',
+
+    'FANAT', 'FANGS', 'FARBE', 'FASST', 'FAULE', 'FEHLE',
+    'FEIGE', 'FEIND', 'FERNE', 'FESTE', 'FETTE', 'FIELE',
+    'FIGUR', 'FILME', 'FISCH', 'FITTE', 'FLACH', 'FLAUM',
+    'FLAUE', 'FLIEG', 'FOLGE', 'FORME', 'FRAGE', 'FRIED',
+    'FRONT', 'FRUST', 'FÜLLE',
+
+    //G
+    'GABEL', 'GÄNSE', 'GASEN', 'GASTS', 'GAUGE', 'GEBEN', 'GEBOT',
+    'GEDEN', 'GEDRU', 'GELBE', 'GELD', 'GELEN', 'GELTE', 'GENAU',
+    'GENDE', 'GENIE', 'GENOM', 'GERAD', 'GERBE', 'GEREI', 'GESCH',
+    'GESEN', 'GESTE', 'GETAN', 'GIBST', 'GIGAN', 'GIPFEL', 'GLANZ',
+    'GLAUB', 'GLEIS', 'GLIED', 'GLÜCK', 'GNEIS', 'GOLDE', 'GOTTE',
+    'GRABE', 'GRABS', 'GRASS', 'GRAUS', 'GREIF', 'GRIFF', 'GRILL',
+    'GRUND', 'GRÜNE', 'GUBEN', 'GUTEN',
+
+    'GÄNSE', 'GABEL', 'GAGEN', 'GALLS', 'GAMBE', 'GANGS', 'GARDE',
+    'GASEN', 'GASTS', 'GEBEN', 'GEBOT', 'GEDEN', 'GELBE', 'GELEN',
+    'GELTE', 'GENAU', 'GENDE', 'GENOM', 'GERAD', 'GERBE', 'GESCH',
+    'GESEN', 'GESTE', 'GETAN', 'GIBST', 'GIPFEL', 'GLANZ', 'GLAUB',
+    'GLEIS', 'GLIED', 'GLÜCK', 'GOLDE', 'GOTTE', 'GRABE', 'GRABS',
+    'GRASS', 'GRAUS', 'GREIF', 'GRIFF', 'GRILL', 'GRUND', 'GRÜNE',
+
+    'GABEL', 'GÄNSE', 'GAGTE', 'GALOP', 'GAMBE', 'GANGS', 'GAREN',
+    'GASEN', 'GASTS', 'GEBEN', 'GEBOT', 'GEDEN', 'GELBE', 'GELEN',
+    'GELTE', 'GENAU', 'GENDE', 'GENOM', 'GERAD', 'GERBE', 'GESCH',
+    'GESEN', 'GESTE', 'GETAN', 'GIBST', 'GIPFEL', 'GLANZ', 'GLAUB',
+    'GLEIS', 'GLIED', 'GLÜCK', 'GRABE', 'GRABS', 'GRASS', 'GRAUS',
+    'GREIF', 'GRIFF', 'GRILL', 'GRUND', 'GRÜNE',
+
+    //H
+    'HABEN', 'HAFEN', 'HAGEN', 'HÄLTE', 'HÄMME', 'HANDL', 'HANDE',
+    'HÄNDE', 'HÄNGT', 'HARDE', 'HÄRTE', 'HASSO', 'HÄUTE', 'HEBEN',
+    'HEIDE', 'HEISS', 'HELEN', 'HELLE', 'HEMDT', 'HENNE', 'HERAN',
+    'HERDE', 'HERST', 'HERUM', 'HERZE', 'HILFE', 'HINAB', 'HINZU',
+    'HOBEN', 'HOHEI', 'HOLDE', 'HOLZT', 'HÖHEN', 'HÖLLE', 'HORCH',
+    'HORST', 'HORTE', 'HUBEN', 'HÜGEL', 'HÜLLE', 'HUNDE', 'HUNGR',
+
+    'HÄUTE', 'HABEN', 'HAFEN', 'HAGEN', 'HALLE', 'HANDL', 'HANDE',
+    'HÄNDE', 'HÄNGT', 'HARDE', 'HÄRTE', 'HEBEN', 'HEIDE', 'HEISS',
+    'HELLE', 'HEMDT', 'HENNE', 'HERAN', 'HERDE', 'HERUM', 'HERZE',
+    'HILFE', 'HINAB', 'HINZU', 'HOBEN', 'HOHEI', 'HOLDE', 'HOLZT',
+    'HÖHEN', 'HÖLLE', 'HORCH', 'HORST', 'HORTE', 'HUBEN', 'HÜGEL',
+    'HÜLLE', 'HUNDE', 'HUNGR', 'HURTE',
+
+    'HABEN', 'HAFEN', 'HALTE', 'HANDL', 'HÄNDE', 'HÄNGT', 'HARDE',
+    'HÄRTE', 'HEBEN', 'HEIDE', 'HEISS', 'HELLE', 'HENNE', 'HERAN',
+    'HERDE', 'HERUM', 'HERZE', 'HILFE', 'HINAB', 'HINZU', 'HOLDE',
+    'HOLZT', 'HÖHEN', 'HÖLLE', 'HORCH', 'HORST', 'HORTE', 'HUBEN',
+    'HÜGEL', 'HÜLLE', 'HUNDE', 'HUNGR', 'HURTE',
+
+    //I
+    'IDEAL', 'IDEEI', 'IDOLE', 'IGELN', 'ILIEN', 'IMMER', 'INDRA',
+    'INFOs', 'INGOS', 'INSEL', 'INTAK', 'INTER', 'INTRO', 'INVAS',
+    'IRONI', 'ISLAM', 'ISTEN', 'ITERS', 'ITEMS', 'IVORY', 'IZONE',
+
+    'IDEAL', 'IDEEI', 'IGELN', 'IMMER', 'INFOs', 'INSEL', 'INTAK',
+    'INTER', 'INTRO', 'INVAS', 'IRONI', 'ISTEN', 'ITEMS',
+
+    'IDYLL', 'IDEAL', 'IDEEI', 'IGELN', 'IMMER', 'INSEL', 'INTER',
+    'INTRO', 'IRONI', 'ISLAM', 'ISTEN', 'ITEMS', 'IVORY',
+
+    //J
+    'JACKE', 'JAGEN', 'JAGST', 'JAHRE', 'JAMBE', 'JANKE', 'JAPAN',
+    'JASPE', 'JAUCH', 'JAUNE', 'JEANS', 'JEDEN', 'JEDER', 'JEHEN',
+    'JEMAN', 'JETZT', 'JIDDI', 'JOGGE', 'JOLLE', 'JUNGE', 'JURTE',
+    'JUXEN', 'JÜNGE', 'JÜNGT', 'JÄGER', 'JÄHNE', 'JÄHST', 'JÖRGS',
+
+    'JACKE', 'JAGEN', 'JAHRE', 'JAMBE', 'JANKE', 'JAPAN', 'JAUCH',
+    'JEANS', 'JEDEN', 'JEDER', 'JETZT', 'JOLLE', 'JUNGE', 'JURTE',
+    'JUXEN', 'JÜNGE', 'JÄGER', 'JÄHNE', 'JÄHST',
+
+    //K
+    'KABEL', 'KÄFIG', 'KÄLTE', 'KANTE', 'KAPPE', 'KARTE', 'KASSE',
+    'KAUST', 'KAUEN', 'KAUME', 'KEGEL', 'KEHLE', 'KELLE', 'KENNE',
+    'KERZE', 'KETTE', 'KIESE', 'KILDE', 'KLEID', 'KLICK', 'KLIMA',
+    'KLING', 'KLUGS', 'KNABE', 'KNALL', 'KNICK', 'KNOTE', 'KOALA',
+    'KOBRA', 'KOGEL', 'KOHLE', 'KOKOS', 'KOMMA', 'KONTA', 'KOPFE',
+    'KORBE', 'KORNE', 'KRAFT', 'KRANK', 'KRONE', 'KRUGS', 'KUNDE',
+    'KUNST', 'KURVE', 'KÜCHE', 'KÜMME', 'KÜSTE',
+
+    'KABEL', 'KANTE', 'KAPPE', 'KARTE', 'KASSE', 'KAUEN', 'KEGEL',
+    'KEHLE', 'KELLE', 'KENNE', 'KERZE', 'KETTE', 'KIESE', 'KLEID',
+    'KLICK', 'KLIMA', 'KLING', 'KNABE', 'KNALL', 'KNICK', 'KNOTE',
+    'KOALA', 'KOBRA', 'KOGEL', 'KOHLE', 'KOKOS', 'KOMMA', 'KONTA',
+    'KOPFE', 'KORBE', 'KRAFT', 'KRANK', 'KRONE', 'KRUGS', 'KUNDE',
+    'KUNST', 'KURVE', 'KÜCHE', 'KÜMME', 'KÜSTE', 
+    
+    //L
+    'LADEN', 'LAGER', 'LAMPE', 'LANDE', 'LANZE', 'LÄUFE', 'LÄUFT',
+    'LEBEN', 'LEBEN', 'LEDEN', 'LEGEN', 'LEHRE', 'LEIST', 'LEITE',
+    'LEUCH', 'LEUTE', 'LICHT', 'LIEBE', 'LIEGT', 'LINIE', 'LITER',
+    'LOBEN', 'LOCKE', 'LOGEN', 'LOHNE', 'LÖTEN', 'LOTSE', 'LUNGE',
+    'LUSTE', 'LUXUS', 'LYRIK',
+
+    'LADEN', 'LAGER', 'LAMPE', 'LANDE', 'LANZE', 'LÄUFE', 'LÄUFT',
+    'LEBEN', 'LEGEN', 'LEHRE', 'LEIST', 'LEITE', 'LEUCH', 'LEUTE',
+    'LICHT', 'LIEBE', 'LIEGT', 'LINIE', 'LITER', 'LOBEN', 'LOCKE',
+    'LOGEN', 'LOHNE', 'LÖTEN', 'LOTSE', 'LUNGE', 'LUSTE', 'LUXUS',
+    'LYRIK',
+
+    'LADEN', 'LAMPE', 'LANDE', 'LEBEN', 'LEGEN', 'LEHRE', 'LEIST',
+    'LEUTE', 'LICHT', 'LIEBE', 'LINIE', 'LOBEN', 'LOCKE', 'LOGEN',
+    'LOHNE', 'LOTSE', 'LUNGE', 'LUSTE', 'LYRIK',
+    
+    //M
+    'MACHE', 'MACHT', 'MAGEN', 'MAISE', 'MAJOR', 'MAUER', 'MÄRCH',
+    'MÄRTE', 'MAßEN', 'MAßIG', 'MEDIZ', 'MEILE', 'MEINE', 'MEIST',
+    'MELDE', 'MENGE', 'MERKE', 'METTE', 'MIEZE', 'MILCH', 'MINDE',
+    'MINUS', 'MINTS', 'MITTE', 'MÖBEL', 'MÖGEN', 'MORGEN', 'MOTTE',
+    'MÜNZE', 'MÜNDE', 'MÜSSE', 'MUSIK', 'MUTIG', 'MYRTE',
+
+    'MACHE', 'MACHT', 'MAGEN', 'MAUER', 'MÄRCH', 'MÄRTE', 'MAßEN',
+    'MAßIG', 'MEINE', 'MEIST', 'MELDE', 'MENGE', 'MERKE', 'METTE',
+    'MIEZE', 'MILCH', 'MINDE', 'MITTE', 'MÖBEL', 'MÖGEN', 'MORGEN',
+    'MOTTE', 'MÜNDE', 'MÜSSE', 'MUSIK', 'MUTIG', 'MYRTE',
+
+    'MACHE', 'MAGEN', 'MAUER', 'MEINE', 'MEIST', 'MELDE', 'MENGE',
+    'MERKE', 'MIEZE', 'MILCH', 'MITTE', 'MÖBEL', 'MÖGEN', 'MORGEN',
+    'MUSIK', 'MUTIG',
+
+    //N
+    'NABEN', 'NACHT', 'NADEN', 'NAHEN', 'NAHME', 'NAIVE', 'NAMEN',
+    'NANOS', 'NÄHEN', 'NÄHME', 'NÄHST', 'NASES', 'NASCH', 'NASSE',
+    'NATUR', 'NÄTIG', 'NEBEN', 'NECKE', 'NEHME', 'NEIGE', 'NEUES',
+    'NEUNS', 'NEUST', 'NEVEN', 'NICHT', 'NIEDE', 'NIEST', 'NINJA',
+    'NOBEL', 'NOCHS', 'NORMA', 'NOTEN', 'NOVEN', 'NUDEL', 'NUMMER',
+    'NURSE', 'NÜCHT', 'NÜSSE', 'NÜTZT',
+
+    'NABEN', 'NACHT', 'NADEN', 'NAHEN', 'NAHME', 'NAMEN', 'NÄHEN',
+    'NÄHME', 'NÄHST', 'NASES', 'NASCH', 'NATUR', 'NEBEN', 'NEHME',
+    'NEUES', 'NEUNS', 'NICHT', 'NOBEL', 'NOTEN', 'NUDEL', 'NUMMER',
+    'NURSE', 'NÜCHT', 'NÜSSE', 'NÜTZT',
+
+    'NABEN', 'NACHT', 'NAHEN', 'NAIVE', 'NAMEN', 'NÄHEN', 'NASES',
+    'NATUR', 'NEBEN', 'NEHME', 'NEUES', 'NEUNS', 'NICHT', 'NOBEL',
+    'NOTEN', 'NUDEL', 'NUMMER', 'NURSE', 'NÜCHT', 'NÜSSE', 
+    
+    //O
+    'OBERE', 'OBJEK', 'OBLIG', 'OBOEN', 'OCHSE', 'ODERN', 'ODEME',
+    'OFFEN', 'OFENI', 'OHREN', 'OHLIG', 'OLIVE', 'OMMEN', 'OPFER',
+    'OPTIK', 'ORANG', 'ORDEN', 'ORFEN', 'ORTEI', 'OSTEN', 'OZONE',
+    'OBLIG', 'OCHSE', 'OFFEN', 'OHREN', 'OLIVE', 'OMMEN', 'OPFER',
+    'ORDEN', 'ORTEI', 'OSTEN', 'OZONE', 'OBERE', 'ODERN', 'ODEME',
+    'OPTIK', 'ORANG', 'ORFEN', 'OBOEN', 'OFENI', 'OHLIG',
+    'OBERE', 'OBJEK', 'OCHSE', 'OFFEN', 'OHREN', 'OLIVE',
+    'OPFER', 'ORDEN', 'ORTEI', 'OSTEN', 'OZONE',
+    
+    //P
+    'PACKE', 'PADEN', 'PAGAN', 'PAKET', 'PALME', 'PANNE', 'PAPPE',
+    'PARTE', 'PARTS', 'PASTE', 'PAUSE', 'PAVIL', 'PECHS', 'PEDAL',
+    'PEITS', 'PELTE', 'PERLE', 'PETER', 'PFLAN', 'PFOTE', 'PHASE',
+    'PILOT', 'PINKE', 'PINNE', 'PINSE', 'PISSE', 'PITTE', 'PLAN', 
+    'PLAGE', 'PLANE', 'PLAST', 'PLATZ', 'PLÄNE', 'PLETS', 'PLUME',
+    'POKER', 'POLAR', 'POLIS', 'PORTO', 'POSSE', 'POWEN', 'PRALL',
+    'PRAXE', 'PREIS', 'PROBE', 'PROFI', 'PRÜFE',
+
+    'PACKE', 'PAKET', 'PALME', 'PANNE', 'PAPPE', 'PARTE', 'PASTE',
+    'PAUSE', 'PECHS', 'PEDAL', 'PELTE', 'PERLE', 'PFOTE', 'PHASE',
+    'PILOT', 'PINKE', 'PINNE', 'PLAN', 'PLAGE', 'PLANE', 'PLAST',
+    'PLATZ', 'PLÄNE', 'PLUME', 'POKER', 'POLAR', 'PORTO', 'POSSE',
+    'PRALL', 'PRAXE', 'PREIS', 'PROBE', 'PROFI', 'PRÜFE',
+    
+    //Q
+    'QUALM', 'QUARK', 'QUASI', 'QUETS', 'QUELL', 'QUERE', 'QUETS',
+    'QUILT', 'QUIRK', 'QUOTA', 'QUOLL', 'QUOTE', 'QUETS', 'QUASI',
+    'QUAKE', 'QUADR', 'QUELL', 'QUOTA', 'QUASI', 'QUILT', 'QUAKE',
+    'QUELL', 'QUOTE', 'QUOLL', 'QUARK', 'QUETS', 'QUAKE', 'QUADR',
+    'QUASI', 'QUETS', 'QUOLL', 'QUILT',
+    
+    //R
+    'RADAR', 'RADIO', 'RAGEN', 'RAHME', 'RAHMT', 'RAISE', 'RAMPE',
+    'RANCH', 'RANGE', 'RANKT', 'RAPPE', 'RASEN', 'RASSE', 'RASTE',
+    'RAUCH', 'RAUHE', 'RAUMS', 'RAUNE', 'REICH', 'REIFE', 'REISE',
+    'REKTE', 'RELAX', 'REMIT', 'REGEN', 'REIHE', 'REIST', 'REIZE',
+    'RENNE', 'RENTE', 'RESPE', 'RESTE', 'RETTE', 'REUEN', 'REUTE',
+    'RICHT', 'RINDE', 'RISSE', 'RITZE', 'ROBIN', 'RODEL', 'ROHEN',
+    'ROLLT', 'ROMAN', 'RONDE', 'ROSEN', 'ROTEN', 'ROTES', 'ROUTE',
+    'RUHEM', 'RUHEN', 'RUHIG', 'RUMPF', 'RUNDE', 'RÜCKE', 'RÜDEN',
+    'RÜGEN', 'RÜHRE', 'RÜSTI',
+
+    'RADAR', 'RADIO', 'RAGEN', 'RAHME', 'RAHMT', 'RAMPE', 'RANGE',
+    'RANKT', 'RAPPE', 'RASEN', 'RASSE', 'RASTE', 'RAUCH', 'RAUHE',
+    'RAUMS', 'RAUNE', 'REICH', 'REISE', 'REGEN', 'REIHE', 'REIST',
+    'REIZE', 'RENNE', 'RENTE', 'RESTE', 'RETTE', 'RICHT', 'RINDE',
+    'RISSE', 'RITZE', 'RODEL', 'ROHEN', 'ROLLT', 'ROMAN', 'RONDE',
+    'ROSEN', 'ROTEN', 'ROUTE', 'RUHEM', 'RUHEN', 'RUHIG', 'RUMPF',
+    'RUNDE', 'RÜCKE', 'RÜDEN', 'RÜGEN', 'RÜHRE', 'RÜSTI',
+    
+    //S
+    'SABBE', 'SACHE', 'SAGEN', 'SAHNE', 'SALBE', 'SALON', 'SAMEN',
+    'SANDT', 'SANDS', 'SAPPE', 'SARDE', 'SÄUFE', 'SÄUGE', 'SAUEN',
+    'SAUGE', 'SAUMS', 'SAUNA', 'SCHAR', 'SCHEI', 'SCHEL', 'SCHER',
+    'SCHLU', 'SCHMA', 'SCHOB', 'SCHOT', 'SCHUB', 'SCHUH', 'SCHUL',
+    'SCHUR', 'SCHUSS', 'SCHWAN', 'SCHWAR', 'SCHWEI', 'SCHWIM', 'SCHWUR',
+    'SEGEN', 'SEHEN', 'SEIDE', 'SEILS', 'SEITE', 'SEMME', 'SENDE',
+    'SENSE', 'SENSE', 'SENKE', 'SENSE', 'SENTI', 'SEPEL', 'SERIE',
+    'SERUM', 'SETZE', 'SEULE', 'SEXTE', 'SICHT', 'SIEBE', 'SIEHT',
+    'SIELE', 'SIGNE', 'SILBE', 'SILKE', 'SILOS', 'SILTE', 'SITTE',
+    'SITZE', 'SIXTE', 'SKALA', 'SKILL', 'SLANG', 'SMOGS', 'SNACK',
+    'SNOBE', 'SOBEN', 'SODEN', 'SOFAS', 'SOFTS', 'SOHLE', 'SOLAR',
+    'SOLAR', 'SOLEM', 'SOLID', 'SOLTE', 'SONNE', 'SONST', 'SORGE',
+    'SORRY', 'SOTTE', 'SPALT', 'SPASS', 'SPATZ', 'SPEER', 'SPEED',
+    'SPEISE', 'SPEND', 'SPERK', 'SPIEL', 'SPIKE', 'SPINE', 'SPION',
+    'SPITZ', 'SPLIT', 'SPORT', 'SPOTT', 'SPRIT', 'SPUKS', 'SPURE',
+    'SQUARE', 'STAAT', 'STADT', 'STAGE', 'STÄBE', 'STÄDT', 'STADT',
+    'STAGE', 'STAND', 'STANG', 'STARK', 'STASS', 'STATT', 'STEAK',
+    'STEIN', 'STERN', 'STETE', 'STICH', 'STIEB', 'STIFT', 'STILL',
+    'STOFF', 'STOLZ', 'STORF', 'STORY', 'STUBE', 'STUFE', 'STUND',
+    'STURM', 'STUTE', 'STÜCK', 'STÜHL', 'STÜRM',
+
+    //T
+    'TABAK', 'TACHE', 'TAGEN', 'TAHLE', 'TAKEN', 'TALEN', 'TANNE',
+    'TANTE', 'TAPPE', 'TARIF', 'TASTE', 'TAUCH', 'TAUCH', 'TAUBE',
+    'TAUCH', 'TAUFE', 'TAUMS', 'TATEN', 'TATZE', 'TAUCH', 'TEBEN',
+    'TEICH', 'TEILE', 'TEILS', 'TELLE', 'TEMPO', 'TENNE', 'TEPP', 
+    'TERRA', 'TERNE', 'TESTE', 'TEUER', 'TEXTS', 'THALE', 'THEKE',
+    'THEMA', 'THUNS', 'TICKET', 'TIERE', 'TIGER', 'TILDE', 'TISCH',
+    'TITEL', 'TITZE', 'TODEN', 'TOKEN', 'TOMTE', 'TOPAS', 'TOPFE',
+    'TORTE', 'TOTAL', 'TOUCH', 'TRAGE', 'TRAUM', 'TRAUF', 'TRÄGE',
+    'TRÄNE', 'TREFF', 'TREIB', 'TREUE', 'TRENN', 'TRIFF', 'TRINK',
+    'TRIUM', 'TROCK', 'TROST', 'TROTZ', 'TRUGS', 'TRUNK', 'TRUST',
+    'TUNTE', 'TUNTE', 'TUNTE', 'TURME', 'TURNI', 'TÜREN', 'TÜTTE',
+
+    //U
+    'UBUNG', 'UDUEN', 'ULMEN', 'UMBAU', 'UMGEB', 'UMHAL', 'UMHER',
+    'UMSET', 'UMSON', 'UMSTE', 'UMWEL', 'UMZUG', 'UNFALL', 'UNGED',
+    'UNGLÜ', 'UNION', 'UNTER', 'UNTEN', 'UNTER', 'URBAN', 'URGEN',
+    'USCHI', 'USSEL', 'USUS', 'UTILE', 'UTOPI', 'UTZIG', 'UZURO',
+    'ULMEN', 'UMHAL', 'UMHER', 'UMSET', 'UMSON', 'UMSTE', 'UMZUG',
+    'UNTER', 'UNTEN', 'UNTER', 'URGEN', 'UTILE', 'UTOPI', 'UZURO',
+    'UBUNG', 'UMBAU', 'UNION', 'USCHI', 'USSEL',
+
+    //V
+    'VAGEN', 'VAKUM', 'VALLE', 'VANNE', 'VARIO', 'VATER', 'VAULT',
+    'VEBEN', 'VEDER', 'VEGAN', 'VEHLE', 'VELLE', 'VENEN', 'VENTI',
+    'VERBA', 'VERDE', 'VERDI', 'VEREI', 'VERKA', 'VERLA', 'VERSO',
+    'VERUM', 'VESPA', 'VESTE', 'VIELS', 'VIELE', 'VILLA', 'VINCE',
+    'VINYL', 'VIRUS', 'VISIT', 'VITAL', 'VITUS', 'VOILA', 'VOLUM',
+    'VORAN', 'VORNE', 'VORST', 'VORTE', 'VOTUM', 'VULKA', 'VURST',
+    'VAGEN', 'VAKUM', 'VALLE', 'VATER', 'VAULT', 'VENEN', 'VENTI',
+    'VERBA', 'VERDE', 'VERDI', 'VEREI', 'VERSO', 'VERUM', 'VESPA',
+    'VESTE', 'VIELS', 'VIELE', 'VILLA', 'VINYL', 'VIRUS', 'VISIT',
+    'VITAL', 'VORAN', 'VORNE', 'VORST', 'VORTE', 'VOTUM',
+
+    //W
+    'WACHE', 'WACHT', 'WAGEN', 'WAHLE', 'WAHRT', 'WAHRE', 'WAIDE',
+    'WAHLT', 'WAHNE', 'WAIST', 'WALDE', 'WALZE', 'WANDE', 'WANGE',
+    'WANKE', 'WANNE', 'WARDE', 'WAREN', 'WARFE', 'WÄRME', 'WASCH',
+    'WASSE', 'WASSR', 'WATTE', 'WEGEL', 'WEHEN', 'WEIHE', 'WEISE',
+    'WEITE', 'WEKEN', 'WELLE', 'WELTE', 'WERDE', 'WERFT', 'WERTS',
+    'WERTE', 'WESEN', 'WETTE', 'WIEGE', 'WIESE', 'WIEST', 'WILDE',
+    'WILLE', 'WIMPE', 'WINDE', 'WINNE', 'WINZE', 'WIRKE', 'WIRTS',
+    'WISCH', 'WISSN', 'WITZE', 'WOCHE', 'WOHNE', 'WOHNT', 'WOLLE',
+    'WOMIT', 'WORAU', 'WORIN', 'WORST', 'WORTE', 'WÜSTE', 'WÜRFE',
+    'WÜSTE', 'WÄRME',
+
+    //X
+    'XENON', 'XENIA', 'XYSTI', 'XENON', 'XYSTO', 'XERES', 'XYSTE',
+    'XENIA', 'XENON', 'XYSTI', 'XERES', 'XYSTE', 'XYSTO', 'XERON',
+
+    //Y
+    'YACHT', 'YARDS', 'YERNA', 'YIPPI', 'YOGAS', 'YOGIS', 'YOUTH',
+    'YUPPI', 'YUNGS', 'YVORY', 'YACHT', 'YOGAS', 'YOGIS', 'YOUTH',
+    'YUPPI', 'YVORY',
+    //Z
+    'ZACKE', 'ZAHLE', 'ZÄHNE', 'ZALTE', 'ZANGE', 'ZAPFE', 'ZARTE',
+    'ZÄRTE', 'ZAUBE', 'ZAUBR', 'ZEHEN', 'ZEILE', 'ZEIGE', 'ZEITE',
+    'ZELLE', 'ZENGE', 'ZEPPE', 'ZERST', 'ZETTE', 'ZIEHE', 'ZIELE',
+    'ZIEHT', 'ZINNE', 'ZIRPE', 'ZITTE', 'ZITZE', 'ZOCKE', 'ZOEGE',
+    'ZONNE', 'ZORNE', 'ZUFUH', 'ZUGEN', 'ZULAU', 'ZULIE', 'ZUMEN',
+    'ZUNGE', 'ZURUF', 'ZURÜC', 'ZUVOR', 'ZWANG', 'ZWILL', 'ZWING',
+    'ZWIRN', 'ZYLKE', 'ZYLON'
+];
