@@ -1,5 +1,5 @@
-// French 5-letter words
-const WORDS_FR = [
+// French 5-letter words (Quest/Solution words)
+const WORDS_FR_QUEST = [
     'ABATS', 'ABCES', 'ABIME', 'ABOIS', 'ABORD', 'ABOUT', 'ABOYE', 'ABRAS', 'ABREE', 'ABRES',
     'ABRIE', 'ABRIS', 'ABUSA', 'ABUSE', 'ACCES', 'ACCRU', 'ACCUL', 'ACCUS', 'ACERA', 'ACERE',
     'ACERS', 'ACETA', 'ACETE', 'ACHAB', 'ACHAT', 'ACHEB', 'ACHEE', 'ACHER', 'ACHES', 'ACHET',

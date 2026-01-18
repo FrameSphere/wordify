@@ -1,5 +1,5 @@
-// Spanish 5-letter words
-const WORDS_ES = [
+// Spanish 5-letter words (Quest/Solution words)
+const WORDS_ES_QUEST = [
     'ABAJO', 'ABEJA', 'ABETO', 'ABONO', 'ABRIR', 'ACASO', 'ACERA', 'ACERO', 'ACIDA', 'ACIDO',
     'ACTOS', 'ACTUA', 'ACUSA', 'ADOBE', 'ADORO', 'AEREO', 'AGAVE', 'AGITA', 'AGORA', 'AGRAZ',
     'AGRIA', 'AGRIO', 'AGUAS', 'AGUDA', 'AGUDO', 'AGUJA', 'AHORA', 'AIRES', 'AJENO', 'AJUAR',

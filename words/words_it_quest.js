@@ -1,5 +1,5 @@
-// Italian 5-letter words
-const WORDS_IT = [
+// Italian 5-letter words (Quest/Solution words)
+const WORDS_IT_QUEST = [
     'ABACO', 'ABATE', 'ABETI', 'ABETE', 'ABETO', 'ABILI', 'ABITA', 'ABITO', 'ABUSI', 'ABUSO',
     'ACERO', 'ACETI', 'ACETO', 'ACIDA', 'ACIDO', 'ACINI', 'ACINO', 'ACQUA', 'ACQUE', 'ACUTA',
     'ACUTI', 'ACUTO', 'ADAGI', 'ADAIO', 'ADAMO', 'ADAMO', 'ADAPT', 'ADATT', 'ADDON', 'ADESC',

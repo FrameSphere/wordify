@@ -1,5 +1,5 @@
-// Deutsche 5-Buchstaben-Wörter
-const WORDS_DE = [
+// Deutsche 5-Buchstaben-Wörter (Quest/Lösungswörter)
+const WORDS_DE_QUEST = [
     'APFEL', 'BÄREN', 'BLUME', 'BRAND', 'BRIEF', 'BRUST', 'BUTTER', 'DAMPF', 'DATEN', 'DAUER',
     'DECKE', 'DENKT', 'DICHT', 'DINGE', 'DONAU', 'DRECK', 'DRUCK', 'EBENE', 'ECKEN', 'EIGEN',
     'EINEN', 'EISEN', 'ENGEL', 'ENKEL', 'ERNST', 'ETAGE', 'FAHRT', 'FALLE', 'FARBE', 'FEHLE',
