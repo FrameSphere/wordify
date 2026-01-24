@@ -201,7 +201,7 @@ const WORDS_EN = [
     
     //N
     'NABOB', 'NAIVE', 'NAMED', 'NANNY', 'NARCS', 'NASAL', 'NAVEL',
-    'NEEDS', 'NEIGH', 'NEONS', 'NERDY', 'NERVE', 'NEVER', 'NEWER',
+    'NEEDS', 'NORTH', 'NEONS', 'NERDY', 'NERVE', 'NEVER', 'NEWER',
     'NEWLY', 'NICER', 'NINJA', 'NOBLE', 'NOISE', 'NOOSE', 'NORMS',
     'NOTED', 'NOTES', 'NOVEL', 'NUDGE', 'NURSE', 'NUTTY', 'NYLON',
     'NABOB', 'NAIVE', 'NAMED', 'NANNY', 'NARCS', 'NASAL', 'NAVEL',
@@ -211,6 +211,7 @@ const WORDS_EN = [
     'NABOB', 'NAMED', 'NANNY', 'NEEDS', 'NEVER', 'NEWLY', 'NINJA',
     'NOBLE', 'NOISE', 'NOTES', 'NOVEL', 'NUDGE', 'NURSE', 'NUTTY',
     'NICER', 'NAVEL', 'NASAL', 'NERDY', 'NORMS', 'NAIVE', 'NEIGH',
+    'NAMES',
     
     //O
     'OASIS', 'OATHS', 'OBESE', 'OCCUR', 'OCEAN', 'OFFER', 'OFTEN',
@@ -313,7 +314,7 @@ const WORDS_EN = [
     'TINNY', 'TIRED', 'TITAN', 'TODAY', 'TOKYO', 'TOMBS', 'TONES',
     'TOOKS', 'TOOLS', 'TOOTH', 'TOPIC', 'TOTAL', 'TOUCH', 'TOUGH',
     'TOWER', 'TOXIC', 'TRACE', 'TRACK', 'TRADE', 'TRAIL', 'TRAIN',
-    'TRAMP', 'TRAPS', 'TRASH', 'TRUST', 'TRUTH',
+    'TRAMP', 'TRAPS', 'TRASH', 'TRUST', 'TRUTH', 'Terms',
 
     //U
     'UBIQU', 'ULTRA', 'UNCLE', 'UNDER', 'UNDUE', 'UNION', 'UNITY',
