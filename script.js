@@ -1,4 +1,70 @@
-// Übersetzungen
+// ========== TOP SHARE MODAL (Header Button) ==========
+
+function showTopShareModal(elapsedTime) {
+    const t = TRANSLATIONS[currentLanguage];
+    const mins = Math.floor(elapsedTime / 60);
+    const secs = elapsedTime % 60;
+    const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+    
+    const shareUrl = window.location.href;
+    const langMessages = {
+        de: `Wordify - Das tägliche Wortratespiel!`,
+        en: `Wordify - The Daily Word Guessing Game!`,
+        es: `Wordify - ¡El juego diario de adivinanza de palabras!`,
+        fr: `Wordify - Le jeu quotidien de devinettes de mots!`,
+        it: `Wordify - Il gioco quotidiano di indovinelli di parole!`
+    };
+    
+    const shareTitle = langMessages[currentLanguage] || langMessages.de;
+    const shareText = `${shareTitle}\n🎮 ${shareUrl}`;
+    
+    // Modal HTML für Share-Optionen
+    const shareModal = document.createElement('div');
+    shareModal.className = 'share-modal-overlay';
+    shareModal.id = 'topShareModal';
+    shareModal.innerHTML = `
+        <div class="share-modal-content">
+            <button class="close-share-modal" onclick="closeTopShareModal()">&times;</button>
+            <h3>${t.shareButton}</h3>
+            <p>${t.shareLink}</p>
+            
+            <div class="share-options">
+                <button class="share-option" onclick="copyShareText('${shareText.replace(/'/g, "\\'")}')"> n                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    ${t.shareLink}
+                </button>
+                <button class="share-option" onclick="shareToWhatsApp('${encodeURIComponent(shareText)}', '${encodeURIComponent(shareUrl)}')"> n                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    WhatsApp
+                </button>
+                <button class="share-option" onclick="shareToFacebook('${encodeURIComponent(shareUrl)}')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                    Facebook
+                </button>
+                <button class="share-option" onclick="shareToTwitter('${encodeURIComponent(shareTitle)}', '${encodeURIComponent(shareUrl)}')"> n                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                    </svg>
+                    Twitter / X
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(shareModal);
+    shareModal.addEventListener('click', (e) => {
+        if (e.target === shareModal) closeTopShareModal();
+    });
+}
+
+function closeTopShareModal() {
+    const modal = document.getElementById('topShareModal');
+    if (modal) modal.remove();
+}// Übersetzungen
 const TRANSLATIONS = {
     de: {
         subtitle: 'Rate das 5-Buchstaben-Wort!',
@@ -283,7 +349,7 @@ const languageSelect = document.getElementById('languageSelect');
 // Share Button Event Listener
 const shareBtn = document.getElementById('shareBtn');
 shareBtn.addEventListener('click', () => {
-    showShareModal(false, timer ? timer.getElapsedTime() : 0);
+    showTopShareModal(timer ? timer.getElapsedTime() : 0);
 });
 
 // Theme Toggle
@@ -916,10 +982,10 @@ function shareToTwitter(text, url) {
     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
 }
 
-function closeShareModalNew() {
+function closeShareModal() {
+    // Schließt BEIDE Share Modals - aus Win/Fail oder vom Header
     const modal = document.querySelector('.share-modal-overlay');
     if (modal) modal.remove();
-    closeWinModal();
 }
 
 // ========== FAIL MODAL FUNKTIONALITÄT ==========
