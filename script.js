@@ -648,8 +648,9 @@ function shareTwitter(text, url) {
 }
 
 function closeShareModal() {
-    const modal = document.querySelector('.share-modal');
+    const modal = document.querySelector('.share-modal-overlay');
     if (modal) modal.remove();
+    // Nicht das Win Modal schließen, nur das Share Modal
 }
 
 // ========== WIN MODAL FUNKTIONALITÄT ==========
@@ -725,7 +726,11 @@ function showWinModal(attempts, timeInSeconds, word) {
     modal.innerHTML = `
         <div class="win-modal">
             <div class="win-header">
-                <h2 class="win-emoji">${emoji}</h2>
+                <div class="win-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
                 <h1 class="win-title">Gratuliere!</h1>
                 <p class="win-text">${congratsText}</p>
             </div>
