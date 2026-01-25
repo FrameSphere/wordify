@@ -23,7 +23,10 @@ const TRANSLATIONS = {
         instruction2: 'Die Farben zeigen, wie nah du dran bist',
         instruction3: 'Grün = richtig, Gelb = falsche Position',
         instruction4: 'Du hast 6 Versuche zum Erraten',
-        //footer: '© 2026 Wordify powered by FrameSphere - Ein Wortratespiel',
+        congratulations: 'Gratuliere!',
+        theWord: 'Das Wort:',
+        attempts: 'Versuche',
+        time: 'Zeit',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ü'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ö', 'Ä'],
@@ -53,7 +56,10 @@ const TRANSLATIONS = {
         instruction2: 'Colors show how close you are',
         instruction3: 'Green = correct, Yellow = wrong position',
         instruction4: 'You have 6 attempts to guess',
-        //footer: '© 2026 Wordify powered by FrameSphere - A Word Guessing Game',
+        congratulations: 'Congratulations!',
+        theWord: 'The Word:',
+        attempts: 'Attempts',
+        time: 'Time',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -83,7 +89,10 @@ const TRANSLATIONS = {
         instruction2: 'Los colores muestran qué tan cerca estás',
         instruction3: 'Verde = correcto, Amarillo = posición incorrecta',
         instruction4: 'Tienes 6 intentos para adivinar',
-        //footer: '© 2026 Wordify powered by FrameSphere - Un Juego de Palabras',
+        congratulations: '¡Felicitaciones!',
+        theWord: 'La Palabra:',
+        attempts: 'Intentos',
+        time: 'Tiempo',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ñ'],
@@ -113,7 +122,10 @@ const TRANSLATIONS = {
         instruction2: 'Les couleurs montrent à quel point vous êtes proche',
         instruction3: 'Vert = correct, Jaune = mauvaise position',
         instruction4: 'Vous avez 6 tentatives pour deviner',
-        //footer: '© 2026 Wordify powered by FrameSphere - Un Jeu de Mots',
+        congratulations: 'Félicitations!',
+        theWord: 'Le Mot:',
+        attempts: 'Tentatives',
+        time: 'Temps',
         keys: [
             ['A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['Q', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'],
@@ -143,7 +155,10 @@ const TRANSLATIONS = {
         instruction2: 'I colori mostrano quanto sei vicino',
         instruction3: 'Verde = corretto, Giallo = posizione sbagliata',
         instruction4: 'Hai 6 tentativi per indovinare',
-        //footer: '© 2026 Wordify powered by FrameSphere - Un Gioco di Parole',
+        congratulations: 'Complimenti!',
+        theWord: 'La Parola:',
+        attempts: 'Tentativi',
+        time: 'Tempo',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -731,23 +746,23 @@ function showWinModal(attempts, timeInSeconds, word) {
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                 </div>
-                <h1 class="win-title">Gratuliere!</h1>
+                <h1 class="win-title">${t.congratulations}</h1>
                 <p class="win-text">${congratsText}</p>
             </div>
             
             <div class="win-stats">
                 <div class="win-stat">
-                    <div class="stat-label">${t.played || 'Versuche'}</div>
+                    <div class="stat-label">${t.attempts}</div>
                     <div class="stat-value">${attempts}/6</div>
                 </div>
                 <div class="win-stat">
-                    <div class="stat-label">⏱️ Zeit</div>
+                    <div class="stat-label">${t.time} ⏱️</div>
                     <div class="stat-value">${timeStr}</div>
                 </div>
             </div>
             
             <div class="win-word">
-                <p class="win-word-label">Das Wort:</p>
+                <p class="win-word-label">${t.theWord}</p>
                 <p class="win-word-value">${word.toUpperCase()}</p>
             </div>
             
