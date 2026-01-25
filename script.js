@@ -27,6 +27,9 @@ const TRANSLATIONS = {
         theWord: 'Das Wort:',
         attempts: 'Versuche',
         time: 'Zeit',
+        gameOver: 'Spiel vorbei!',
+        tryAgain: 'Erneut versuchen',
+        nextOneBetter: 'Die nächste wird besser!',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ü'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ö', 'Ä'],
@@ -60,6 +63,9 @@ const TRANSLATIONS = {
         theWord: 'The Word:',
         attempts: 'Attempts',
         time: 'Time',
+        gameOver: 'Game Over!',
+        tryAgain: 'Try Again',
+        nextOneBetter: 'The next one will be better!',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -93,6 +99,9 @@ const TRANSLATIONS = {
         theWord: 'La Palabra:',
         attempts: 'Intentos',
         time: 'Tiempo',
+        gameOver: '¡Juego terminado!',
+        tryAgain: 'Intentar de nuevo',
+        nextOneBetter: '¡La próxima será mejor!',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ñ'],
@@ -126,6 +135,9 @@ const TRANSLATIONS = {
         theWord: 'Le Mot:',
         attempts: 'Tentatives',
         time: 'Temps',
+        gameOver: 'Partie terminée!',
+        tryAgain: 'Réessayer',
+        nextOneBetter: 'La prochaine sera meilleure!',
         keys: [
             ['A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['Q', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'],
@@ -159,6 +171,9 @@ const TRANSLATIONS = {
         theWord: 'La Parola:',
         attempts: 'Tentativi',
         time: 'Tempo',
+        gameOver: 'Gioco finito!',
+        tryAgain: 'Riprova',
+        nextOneBetter: 'Il prossimo sarà migliore!',
         keys: [
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
             ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -453,11 +468,14 @@ function submitGuess() {
     } else if (currentRow === 5) {
         gameOver = true;
         const elapsedTime = timer.stop();
-        showMessage(t.lost + targetWord, 'error');
         stats.gamesPlayed++;
         stats.currentStreak = 0;
         saveStats();
         updateStats();
+        // Fail Modal anzeigen
+        setTimeout(() => {
+            showFailModal(targetWord);
+        }, 1500); // Nach Animationen
     } else {
         currentRow++;
         currentTile = 0;
@@ -902,6 +920,70 @@ function closeShareModalNew() {
     const modal = document.querySelector('.share-modal-overlay');
     if (modal) modal.remove();
     closeWinModal();
+}
+
+// ========== FAIL MODAL FUNKTIONALITÄT ==========
+
+function showFailModal(word) {
+    const t = TRANSLATIONS[currentLanguage];
+    
+    // Modal HTML erstellen
+    const modal = document.createElement('div');
+    modal.className = 'fail-modal-overlay';
+    modal.innerHTML = `
+        <div class="fail-modal">
+            <div class="fail-header">
+                <div class="fail-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                </div>
+                <h1 class="fail-title">${t.gameOver}</h1>
+                <p class="fail-text">${t.nextOneBetter}</p>
+            </div>
+            
+            <div class="fail-word">
+                <p class="fail-word-label">${t.theWord}</p>
+                <p class="fail-word-value">${word.toUpperCase()}</p>
+            </div>
+            
+            <div class="fail-actions">
+                <button class="fail-btn fail-btn-primary" onclick="startNewGameFromFailModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
+                    </svg>
+                    <span>${t.tryAgain}</span>
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Schließen bei Klick außerhalb
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeFailModal();
+        }
+    });
+}
+
+function startNewGameFromFailModal() {
+    closeFailModal();
+    const t = TRANSLATIONS[currentLanguage];
+    if (init(true)) {
+        showMessage(t.newGameStarted, 'success');
+    }
+}
+
+function closeFailModal() {
+    const modal = document.querySelector('.fail-modal-overlay');
+    if (modal) {
+        modal.classList.add('closing');
+        setTimeout(() => modal.remove(), 300);
+    }
 }
 
 // Spiel starten
