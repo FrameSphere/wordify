@@ -771,7 +771,7 @@ function showWinModal(attempts, timeInSeconds, word) {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
                     </svg>
-                    <span>Neues Spiel</span>
+                    <span>${t.newGame}</span>
                 </button>
                 <button class="win-btn win-btn-secondary" onclick="shareWinResult(${attempts}, ${timeInSeconds})">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -781,7 +781,7 @@ function showWinModal(attempts, timeInSeconds, word) {
                         <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                         <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                     </svg>
-                    <span>Teilen</span>
+                    <span>${t.shareButton}</span>
                 </button>
             </div>
         </div>
