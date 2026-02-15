@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta -->
+    <title>5 Buchstaben Worträtsel – Wordify täglich spielen</title>
+    <meta name="description" content="Spiele das tägliche 5-Buchstaben Worträtsel kostenlos. Errate das Wort in 6 Versuchen. Deutsch, Englisch und mehr. Ohne Anmeldung online spielen!">
+    <meta name="keywords" content="5 Buchstaben Worträtsel, Wordle Deutsch, Wortspiel kostenlos, tägliches Worträtsel, Wordify">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wordify.pages.dev/de/">
+    
+    <!-- hreflang für alle Sprachen -->
+    <link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/">
+    <link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/">
+    <link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/">
+    <link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/">
+    <link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/">
+    <link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/favicon.svg">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="5 Buchstaben Worträtsel – Wordify">
+    <meta property="og:description" content="Spiele das tägliche 5-Buchstaben Worträtsel kostenlos. Errate das Wort in 6 Versuchen.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordify.pages.dev/de/">
+    <meta property="og:image" content="https://wordify.pages.dev/assets/og-wordify.png">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Wordify",
+        "description": "Tägliches 5-Buchstaben Worträtsel kostenlos spielen",
+        "url": "https://wordify.pages.dev/de/",
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "inLanguage": "de",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Game Container -->
+    <div class="container">
+        <header>
+            <!-- Timer Display -->
+            <div class="timer-display">
+                ⏱️ <span id="timer">0:00</span>
+            </div>
+            <div class="header-top">
+                <div class="settings-group">
+                    <button id="shareBtn" class="icon-btn" aria-label="Spiel teilen" title="Spiel teilen">
+                        <svg class="share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                    </button>
+                    <button id="themeToggle" class="icon-btn" aria-label="Theme wechseln">
+                        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path class="sun-icon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                        </svg>
+                    </button>
+                    <select id="languageSelect" class="language-select">
+                        <option value="de" selected>🇩🇪 Deutsch</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+            <h2><span class="logo-icon">W</span> Wordify</h2>
+            <p class="subtitle" id="subtitle">Rate das 5-Buchstaben-Wort!</p>
+        </header>
+
+        <div class="game-container">
+            <div class="message" id="message"></div>
+            
+            <div class="board" id="board"></div>
+            
+            <div class="keyboard" id="keyboard"></div>
+            
+            <div class="controls">
+                <button id="newGame" class="btn btn-primary">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
+                    </svg>
+                    <span id="btnNewGame">Neues Spiel</span>
+                </button>
+                <button id="statsBtn" class="btn btn-secondary">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    <span id="btnStats">Statistiken</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- How to Play Section (Collapsible) -->
+        <section class="how-to-play">
+            <button class="how-to-play-toggle" onclick="toggleHowToPlay()" aria-expanded="false">
+                <h3 class="section-title" id="howToPlayTitle">So funktioniert's</h3>
+                <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="instructions collapsed">
+                <div class="instruction-item">
+                    <span class="instruction-number">1</span>
+                    <p id="instruction1">Gib ein 5-Buchstaben-Wort ein</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">2</span>
+                    <p id="instruction2">Die Farben zeigen, wie nah du dran bist</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">3</span>
+                    <p id="instruction3">Grün = richtig, Gelb = falsche Position</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">4</span>
+                    <p id="instruction4">Du hast 6 Versuche zum Erraten</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Modal -->
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3><span id="modalTitle">Statistiken</span></h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="gamesPlayed">0</div>
+                        <div class="stat-label" id="labelPlayed">Gespielt</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="winRate">0%</div>
+                        <div class="stat-label" id="labelWinRate">Gewinnrate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label" id="labelStreak">Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="maxStreak">0</div>
+                        <div class="stat-label" id="labelMaxStreak">Max Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAboutModal()">&times;</span>
+                <h3 id="aboutTitle" class="modal-title">Über Wordify</h3>
+                <div class="about-content">
+                    <p id="aboutDescription">
+                        <strong>Wordify</strong> ist ein kostenloses <strong>Wortratespiel</strong>, bei dem du <strong>5-Buchstaben-Wörter</strong> in 6 Versuchen erraten musst.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Header Section -->
+    <div class="seo-header">
+        <h1>5 Buchstaben Worträtsel – Täglich kostenlos spielen</h1>
+        <p class="seo-intro">
+            Wordify ist das tägliche Worträtsel-Spiel, bei dem du ein <strong>5-Buchstaben-Wort</strong> in nur 6 Versuchen erraten musst. 
+            Trainiere dein Vokabular und spiele jeden Tag eine neue Herausforderung – komplett <strong>kostenlos und ohne Anmeldung</strong>!
+        </p>
+    </div>
+
+    <!-- SEO Content Section - COLLAPSIBLE -->
+    <div class="seo-content">
+        <button class="seo-toggle" onclick="toggleSEOContent()" aria-expanded="false">
+            <h2 class="seo-toggle-title">📚 Mehr über Wordify erfahren</h2>
+            <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
+        
+        <div class="seo-sections collapsed">
+        <section class="seo-section">
+            <h2>Was ist Wordify? Das tägliche 5-Buchstaben Worträtsel</h2>
+            <p>
+                Wordify ist ein <strong>kostenloses Online-Wortspiel</strong>, das dein Vokabular und deine logischen Fähigkeiten herausfordert. 
+                Jeden Tag erwartet dich ein neues <strong>5-Buchstaben-Wort</strong>, das du in maximal 6 Versuchen erraten musst. 
+                Das Besondere: Nach jedem Versuch erhältst du visuelles Feedback durch Farben.
+            </p>
+            <p>
+                <strong>Grüne Buchstaben</strong> zeigen dir, dass der Buchstabe korrekt ist und an der richtigen Position steht. 
+                <strong>Gelbe Buchstaben</strong> bedeuten, dass der Buchstabe im Wort vorkommt, aber an der falschen Stelle ist. 
+                Graue Buchstaben sind nicht im gesuchten Wort enthalten.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Warum Wordify spielen?</h2>
+            <p>
+                Wordify bietet dir mehrere Vorteile, die das Spiel zu einem idealen Zeitvertreib machen:
+            </p>
+            <p>
+                <strong>Tägliche Herausforderung:</strong> Jeden Tag wartet ein neues Wort auf dich. Das hält das Spiel frisch und motivierend.
+            </p>
+            <p>
+                <strong>Kostenlos spielbar:</strong> Du brauchst keine Anmeldung und zahlst keinen Cent. Einfach die Webseite öffnen und loslegen.
+            </p>
+            <p>
+                <strong>Mehrsprachig:</strong> Neben Deutsch kannst du auch auf Englisch, Spanisch, Französisch und Italienisch spielen.
+            </p>
+            <p>
+                <strong>Gehirntraining:</strong> Das Raten von Wörtern trainiert dein Gedächtnis, deine Konzentration und erweitert deinen Wortschatz.
+            </p>
+            <p>
+                <strong>Überall spielbar:</strong> Wordify funktioniert auf jedem Gerät – egal ob Smartphone, Tablet oder Computer.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Wie spiele ich Wordify?</h2>
+            <p>
+                Das Spielprinzip von Wordify ist einfach, aber herausfordernd:
+            </p>
+            <p>
+                <strong>Schritt 1:</strong> Gib ein beliebiges deutsches Wort mit 5 Buchstaben ein. Das Wort muss gültig sein und in unserem Wörterbuch vorkommen.
+            </p>
+            <p>
+                <strong>Schritt 2:</strong> Drücke Enter und beobachte die Farbänderungen. Grün bedeutet richtige Position, Gelb bedeutet richtiger Buchstabe aber falsche Position, Grau bedeutet der Buchstabe kommt nicht vor.
+            </p>
+            <p>
+                <strong>Schritt 3:</strong> Nutze das Feedback, um deine nächsten Versuche zu optimieren. Du hast insgesamt 6 Versuche, um das richtige Wort zu finden.
+            </p>
+            <p>
+                <strong>Schritt 4:</strong> Hast du das Wort erraten? Gratulation! Du kannst dein Ergebnis teilen oder ein neues Spiel starten.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Tipps und Strategien für Wordify</h2>
+            <p>
+                Mit der richtigen Strategie kannst du deine Erfolgsquote bei Wordify deutlich verbessern:
+            </p>
+            <p>
+                <strong>Starte mit häufigen Buchstaben:</strong> Verwende im ersten Versuch ein Wort mit häufigen Buchstaben wie E, N, R, S und T. 
+                Beispiele sind STERN, RATEN oder NOTEN.
+            </p>
+            <p>
+                <strong>Vermeide Wiederholungen:</strong> Nutze jeden Versuch, um neue Buchstaben zu testen, anstatt bereits ausgeschlossene Buchstaben zu wiederholen.
+            </p>
+            <p>
+                <strong>Achte auf Vokale:</strong> Deutsche Wörter enthalten meist mindestens einen Vokal. Teste früh Vokale wie A, E, I, O, U.
+            </p>
+            <p>
+                <strong>Nutze gelbe Hinweise klug:</strong> Wenn ein Buchstabe gelb angezeigt wird, weißt du, dass er im Wort vorkommt. 
+                Probiere verschiedene Positionen aus.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Wordify in 5 Sprachen spielen</h2>
+            <p>
+                Wordify ist nicht nur auf Deutsch verfügbar. Du kannst auch in anderen Sprachen spielen und so deinen Wortschatz in mehreren Sprachen erweitern:
+            </p>
+            <p>
+                <strong>Deutsch:</strong> Das klassische 5-Buchstaben Worträtsel mit deutschen Wörtern.
+            </p>
+            <p>
+                <strong>English:</strong> Play the daily word puzzle in English and improve your vocabulary.
+            </p>
+            <p>
+                <strong>Español:</strong> Juega el rompecabezas de palabras diario en español.
+            </p>
+            <p>
+                <strong>Français:</strong> Jouez au jeu de mots quotidien en français.
+            </p>
+            <p>
+                <strong>Italiano:</strong> Gioca al gioco di parole quotidiano in italiano.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Häufig gestellte Fragen zu Wordify</h2>
+            <p>
+                <strong>Muss ich mich registrieren, um Wordify zu spielen?</strong> 
+                Nein, Wordify ist komplett kostenlos und ohne Anmeldung spielbar. Einfach die Webseite öffnen und losspielen.
+            </p>
+            <p>
+                <strong>Wie oft kann ich Wordify spielen?</strong> 
+                Du kannst jederzeit neue Spiele starten. Es gibt ein Limit von 5 Spielen pro 12 Stunden, um ein faires Spielerlebnis zu gewährleisten.
+            </p>
+            <p>
+                <strong>Kann ich Wordify auf dem Handy spielen?</strong> 
+                Ja! Wordify ist für alle Geräte optimiert – Smartphone, Tablet und Desktop.
+            </p>
+            <p>
+                <strong>Gibt es ein tägliches Wort?</strong> 
+                Ja, jeden Tag gibt es ein neues Wort, das für alle Spieler gleich ist.
+            </p>
+        </section>
+        </div>
+    </div>
+
+        <footer>
+            <p>© 2026 powered by <a href="https://frame-sphere.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-link">FrameSphere</a></p>
+            <p class="footer-legal">
+                <a href="#" class="footer-link" id="aboutLink" onclick="openAboutModal(); return false;">About Wordify</a>
+                <span class="footer-separator">|</span>
+                <a href="/impressum.html" class="footer-link">Impressum</a>
+                <span class="footer-separator">|</span>
+                <a href="/datenschutz.html" class="footer-link">Datenschutz</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Wortlisten -->
+    <script>
+        // Set language to German on page load
+        localStorage.setItem('wordifyLanguage', 'de');
+    </script>
+    <script src="/words/words_de.js"></script>
+    <script src="/words/words_en.js"></script>
+    <script src="/words/words_es.js"></script>
+    <script src="/words/words_fr.js"></script>
+    <script src="/words/words_it.js"></script>
+    <script src="/words/words_de_quest.js"></script>
+    <script src="/words/words_en_quest.js"></script>
+    <script src="/words/words_es_quest.js"></script>
+    <script src="/words/words_fr_quest.js"></script>
+    <script src="/words/words_it_quest.js"></script>
+    <script src="/share-timer.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

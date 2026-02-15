@@ -1,21 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- German -->
   <url>
-    <loc>https://wordify.pages.dev/</loc>
-    <lastmod>2026-01-14</lastmod>
+    <loc>https://wordify.pages.dev/de/</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
   </url>
+
+  <!-- English -->
+  <url>
+    <loc>https://wordify.pages.dev/en/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!-- Spanish -->
+  <url>
+    <loc>https://wordify.pages.dev/es/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!-- French -->
+  <url>
+    <loc>https://wordify.pages.dev/fr/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!-- Italian -->
+  <url>
+    <loc>https://wordify.pages.dev/it/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!-- Main page -->
+  <url>
+    <loc>https://wordify.pages.dev/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal pages -->
   <url>
     <loc>https://wordify.pages.dev/impressum.html</loc>
-    <lastmod>2026-01-14</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
     <loc>https://wordify.pages.dev/datenschutz.html</loc>
-    <lastmod>2026-01-14</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>

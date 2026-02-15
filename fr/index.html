@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Jeu de mots quotidien – Devinez le mot de 5 lettres</title>
+    <meta name="description" content="Jouez au puzzle de mots de 5 lettres gratuitement. Devinez le mot en 6 essais. Français, anglais et plus. Jouez en ligne sans inscription!">
+    
+    <link rel="canonical" href="https://wordify.pages.dev/fr/">
+    
+    <link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/">
+    <link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/">
+    <link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/">
+    <link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/">
+    <link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/">
+    <link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/">
+    
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    
+    <meta property="og:title" content="Jeu de mots quotidien – Wordify">
+    <meta property="og:description" content="Jouez au puzzle de mots de 5 lettres gratuitement.">
+    <meta property="og:url" content="https://wordify.pages.dev/fr/">
+    <meta property="og:image" content="https://wordify.pages.dev/assets/og-wordify.png">
+    
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="timer-display">⏱️ <span id="timer">0:00</span></div>
+            <div class="header-top">
+                <div class="settings-group">
+                    <button id="shareBtn" class="icon-btn">
+                        <svg class="share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                    </button>
+                    <button id="themeToggle" class="icon-btn">
+                        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path class="sun-icon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                        </svg>
+                    </button>
+                    <select id="languageSelect" class="language-select">
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr" selected>🇫🇷 Français</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+            <h2><span class="logo-icon">W</span> Wordify</h2>
+            <p class="subtitle" id="subtitle">Devinez le mot de 5 lettres!</p>
+        </header>
+
+        <div class="game-container">
+            <div class="message" id="message"></div>
+            <div class="board" id="board"></div>
+            <div class="keyboard" id="keyboard"></div>
+            <div class="controls">
+                <button id="newGame" class="btn btn-primary"><svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/></svg><span id="btnNewGame">Nouveau Jeu</span></button>
+                <button id="statsBtn" class="btn btn-secondary"><span id="btnStats">Statistiques</span></button>
+            </div>
+        </div>
+
+        <section class="how-to-play">
+            <button class="how-to-play-toggle" onclick="toggleHowToPlay()"><h3 class="section-title" id="howToPlayTitle">Comment ça marche</h3></button>
+            <div class="instructions collapsed">
+                <div class="instruction-item"><span class="instruction-number">1</span><p id="instruction1">Entrez un mot de 5 lettres</p></div>
+                <div class="instruction-item"><span class="instruction-number">2</span><p id="instruction2">Les couleurs montrent à quel point vous êtes proche</p></div>
+            </div>
+        </section>
+
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3><span id="modalTitle">Statistiques</span></h3>
+                <div class="stats-grid">
+                    <div class="stat-item"><div class="stat-value" id="gamesPlayed">0</div><div class="stat-label" id="labelPlayed">Joués</div></div>
+                    <div class="stat-item"><div class="stat-value" id="winRate">0%</div><div class="stat-label" id="labelWinRate">Taux</div></div>
+                    <div class="stat-item"><div class="stat-value" id="currentStreak">0</div><div class="stat-label" id="labelStreak">Série</div></div>
+                    <div class="stat-item"><div class="stat-value" id="maxStreak">0</div><div class="stat-label" id="labelMaxStreak">Max</div></div>
+                </div>
+            </div>
+        </div>
+
+       <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAboutModal()">&times;</span>
+                <h3 id="aboutTitle" class="modal-title">À propos de Wordify</h3>
+                <div class="about-content">
+                    <p id="aboutDescription">
+                        <strong>Wordify</strong> est un <strong>jeu de mots gratuit</strong> où vous devez deviner des <strong>mots de 5 lettres</strong> en 6 essais.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="seo-header">
+        <h1>Jeu de mots quotidien de 5 lettres – Jouez gratuitement en ligne</h1>
+        <p class="seo-intro">
+            Wordify est le jeu de puzzle de mots quotidien où vous devinez un <strong>mot de 5 lettres</strong> en seulement 6 essais. 
+            Entraînez votre vocabulaire et jouez à un nouveau défi chaque jour – complètement <strong>gratuit et sans inscription</strong>!
+        </p>
+    </div>
+
+    <div class="seo-content">
+        <button class="seo-toggle" onclick="toggleSEOContent()" aria-expanded="false">
+            <h2 class="seo-toggle-title">📚 En savoir plus sur Wordify</h2>
+            <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
+        <div class="seo-sections collapsed">
+        <section class="seo-section">
+            <h2>Qu'est-ce que Wordify? Le jeu de mots quotidien de 5 lettres</h2>
+            <p>Wordify est un <strong>jeu de mots en ligne gratuit</strong> qui défie votre vocabulaire et vos capacités logiques. Chaque jour, un nouveau <strong>mot de 5 lettres</strong> vous attend et vous avez un maximum de 6 essais pour le deviner. La particularité: après chaque essai, vous recevez des commentaires visuels par le biais de couleurs. Les <strong>lettres vertes</strong> indiquent que la lettre est correcte et à la bonne position. Les <strong>lettres jaunes</strong> signifient que la lettre apparaît dans le mot mais est à la mauvaise position.</p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Pourquoi jouer à Wordify?</h2>
+            <p><strong>Défi quotidien:</strong> Un nouveau mot vous attend chaque jour. Cela garde le jeu frais et motivant. <strong>Gratuit à jouer:</strong> Vous n'avez pas besoin de vous inscrire et vous ne payez pas un centime. <strong>Multilingue:</strong> En plus du français, vous pouvez également jouer en anglais, allemand, espagnol et italien. <strong>Entraînement cérébral:</strong> Deviner des mots entraîne votre mémoire, votre concentration et élargit votre vocabulaire.</p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Jouez à Wordify en 5 langues</h2>
+            <p>Wordify n'est pas seulement disponible en français. Vous pouvez également jouer dans d'autres langues et élargir votre vocabulaire dans plusieurs langues: <strong>Français,</strong> <strong>English,</strong> <strong>Deutsch,</strong> <strong>Español,</strong> <strong>Italiano.</strong></p>
+        </section>
+        </div>
+    </div>
+
+        <footer>
+            <p>© 2026 powered by <a href="https://frame-sphere.vercel.app" target="_blank" class="footer-link">FrameSphere</a></p>
+            <p class="footer-legal">
+                <a href="#" class="footer-link" id="aboutLink" onclick="openAboutModal(); return false;">About Wordify</a>
+                <span class="footer-separator">|</span>
+                <a href="/impressum.html" class="footer-link">Impressum</a> 
+                <span class="footer-separator">|</span>
+                <a href="/datenschutz.html" class="footer-link">Confidentialité</a>
+            </p>
+        </footer>
+    </div>
+
+
+
+    <script>localStorage.setItem('wordifyLanguage', 'fr');</script>
+    <script src="/words/words_de.js"></script>
+    <script src="/words/words_en.js"></script>
+    <script src="/words/words_es.js"></script>
+    <script src="/words/words_fr.js"></script>
+    <script src="/words/words_it.js"></script>
+    <script src="/words/words_de_quest.js"></script>
+    <script src="/words/words_en_quest.js"></script>
+    <script src="/words/words_es_quest.js"></script>
+    <script src="/words/words_fr_quest.js"></script>
+    <script src="/words/words_it_quest.js"></script>
+    <script src="/share-timer.js"></script>
+    <script src="/script.js"></script>
+    <script>function closeAboutModal(){document.getElementById('aboutModal').style.display='none';}function toggleHowToPlay(){const i=document.querySelector('.how-to-play .instructions'),t=document.querySelector('.how-to-play-toggle');i.classList.toggle('collapsed');t.setAttribute('aria-expanded',t.getAttribute('aria-expanded')==='true'?'false':'true');}function toggleSEOContent(){const s=document.querySelector('.seo-sections'),t=document.querySelector('.seo-toggle');s.classList.toggle('collapsed');t.setAttribute('aria-expanded',t.getAttribute('aria-expanded')==='true'?'false':'true');}</script>
+</body>
+</html>

@@ -169,7 +169,7 @@ const WORDS_DE = [
     'HELLE', 'HEMDT', 'HENNE', 'HERAN', 'HERDE', 'HERUM', 'HERZE',
     'HILFE', 'HINAB', 'HINZU', 'HOBEN', 'HOHEI', 'HOLDE', 'HOLZT',
     'HÖHEN', 'HÖLLE', 'HORCH', 'HORST', 'HORTE', 'HUBEN', 'HÜGEL',
-    'HÜLLE', 'HUNDE', 'HUNGR', 'HURTE',
+    'HÜLLE', 'HUNDE', 'HUNGR', 'HURTE', 'HALLO',
 
     'HABEN', 'HAFEN', 'HALTE', 'HANDL', 'HÄNDE', 'HÄNGT', 'HARDE',
     'HÄRTE', 'HEBEN', 'HEIDE', 'HEISS', 'HELLE', 'HENNE', 'HERAN',
@@ -212,7 +212,7 @@ const WORDS_DE = [
     'KLICK', 'KLIMA', 'KLING', 'KNABE', 'KNALL', 'KNICK', 'KNOTE',
     'KOALA', 'KOBRA', 'KOGEL', 'KOHLE', 'KOKOS', 'KOMMA', 'KONTA',
     'KOPFE', 'KORBE', 'KRAFT', 'KRANK', 'KRONE', 'KRUGS', 'KUNDE',
-    'KUNST', 'KURVE', 'KÜCHE', 'KÜMME', 'KÜSTE', 
+    'KUNST', 'KURVE', 'KÜCHE', 'KÜMME', 'KÜSTE', 'KLEIN',
     
     //L
     'LADEN', 'LAGER', 'LAMPE', 'LANDE', 'LANZE', 'LÄUFE', 'LÄUFT',

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta -->
+    <title>Daily 5 Letter Word Game – Play Wordify Online</title>
+    <meta name="description" content="Play the daily 5-letter word puzzle for free. Guess the word in 6 tries. English, German, and more. Play online without registration!">
+    <meta name="keywords" content="5 letter word game, Wordle English, word puzzle free, daily word game, Wordify">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wordify.pages.dev/en/">
+    
+    <!-- hreflang for all languages -->
+    <link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/">
+    <link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/">
+    <link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/">
+    <link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/">
+    <link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/">
+    <link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/favicon.svg">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Daily 5 Letter Word Game – Wordify">
+    <meta property="og:description" content="Play the daily 5-letter word puzzle for free. Guess the word in 6 tries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordify.pages.dev/en/">
+    <meta property="og:image" content="https://wordify.pages.dev/assets/og-wordify.png">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Wordify",
+        "description": "Play daily 5-letter word puzzle for free",
+        "url": "https://wordify.pages.dev/en/",
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "inLanguage": "en",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Game Container -->
+    <div class="container">
+        <header>
+            <div class="timer-display">
+                ⏱️ <span id="timer">0:00</span>
+            </div>
+            <div class="header-top">
+                <div class="settings-group">
+                    <button id="shareBtn" class="icon-btn" aria-label="Share game" title="Share game">
+                        <svg class="share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                    </button>
+                    <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+                        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path class="sun-icon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                        </svg>
+                    </button>
+                    <select id="languageSelect" class="language-select">
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="en" selected>🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+            <h2><span class="logo-icon">W</span> Wordify</h2>
+            <p class="subtitle" id="subtitle">Guess the 5-letter word!</p>
+        </header>
+
+        <div class="game-container">
+            <div class="message" id="message"></div>
+            <div class="board" id="board"></div>
+            <div class="keyboard" id="keyboard"></div>
+            
+            <div class="controls">
+                <button id="newGame" class="btn btn-primary">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
+                    </svg>
+                    <span id="btnNewGame">New Game</span>
+                </button>
+                <button id="statsBtn" class="btn btn-secondary">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    <span id="btnStats">Statistics</span>
+                </button>
+            </div>
+        </div>
+
+        <section class="how-to-play">
+            <button class="how-to-play-toggle" onclick="toggleHowToPlay()" aria-expanded="false">
+                <h3 class="section-title" id="howToPlayTitle">How it works</h3>
+                <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="instructions collapsed">
+                <div class="instruction-item">
+                    <span class="instruction-number">1</span>
+                    <p id="instruction1">Enter a 5-letter word</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">2</span>
+                    <p id="instruction2">Colors show how close you are</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">3</span>
+                    <p id="instruction3">Green = correct, Yellow = wrong position</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">4</span>
+                    <p id="instruction4">You have 6 attempts to guess</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3><span id="modalTitle">Statistics</span></h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="gamesPlayed">0</div>
+                        <div class="stat-label" id="labelPlayed">Played</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="winRate">0%</div>
+                        <div class="stat-label" id="labelWinRate">Win Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label" id="labelStreak">Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="maxStreak">0</div>
+                        <div class="stat-label" id="labelMaxStreak">Max Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAboutModal()">&times;</span>
+                <h3 id="aboutTitle" class="modal-title">About Wordify</h3>
+                <div class="about-content">
+                    <p id="aboutDescription">
+                        <strong>Wordify</strong> is a free <strong>word puzzle game</strong> where you guess <strong>5-letter words</strong> in 6 tries.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+            <!-- SEO Header Section -->
+    <div class="seo-header">
+        <h1>Daily 5 Letter Word Game – Play Free Online</h1>
+        <p class="seo-intro">
+            Wordify is the daily word puzzle game where you guess a <strong>5-letter word</strong> in just 6 tries. 
+            Train your vocabulary and play a new challenge every day – completely <strong>free and without registration</strong>!
+        </p>
+    </div>
+
+    <!-- SEO Content Section - COLLAPSIBLE -->
+    <div class="seo-content">
+        <button class="seo-toggle" onclick="toggleSEOContent()" aria-expanded="false">
+            <h2 class="seo-toggle-title">📚 Learn more about Wordify</h2>
+            <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
+        
+        <div class="seo-sections collapsed">
+        <section class="seo-section">
+            <h2>What is Wordify? The Daily 5-Letter Word Puzzle</h2>
+            <p>
+                Wordify is a <strong>free online word game</strong> that challenges your vocabulary and logical thinking skills. 
+                Every day, a new <strong>5-letter word</strong> awaits you, and you have a maximum of 6 tries to guess it. 
+                The unique feature: After each guess, you receive visual feedback through colors.
+            </p>
+            <p>
+                <strong>Green letters</strong> indicate that the letter is correct and in the right position. 
+                <strong>Yellow letters</strong> mean the letter appears in the word but is in the wrong position. 
+                Gray letters are not in the target word at all.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Why Play Wordify?</h2>
+            <p>
+                Wordify offers several advantages that make the game an ideal pastime:
+            </p>
+            <p>
+                <strong>Daily Challenge:</strong> A new word awaits you every day. This keeps the game fresh and motivating.
+            </p>
+            <p>
+                <strong>Free to Play:</strong> You don't need to register and you don't pay a cent. Simply open the website and start playing.
+            </p>
+            <p>
+                <strong>Multilingual:</strong> Besides English, you can also play in German, Spanish, French, and Italian.
+            </p>
+            <p>
+                <strong>Brain Training:</strong> Guessing words trains your memory, concentration, and expands your vocabulary.
+            </p>
+            <p>
+                <strong>Play Anywhere:</strong> Wordify works on any device – whether smartphone, tablet, or computer.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>How to Play Wordify?</h2>
+            <p>
+                The game principle of Wordify is simple but challenging:
+            </p>
+            <p>
+                <strong>Step 1:</strong> Enter any English word with 5 letters. The word must be valid and exist in our dictionary.
+            </p>
+            <p>
+                <strong>Step 2:</strong> Press Enter and observe the color changes. Green means correct position, Yellow means correct letter but wrong position, Gray means the letter doesn't appear.
+            </p>
+            <p>
+                <strong>Step 3:</strong> Use the feedback to optimize your next guesses. You have a total of 6 tries to find the correct word.
+            </p>
+            <p>
+                <strong>Step 4:</strong> Did you guess the word? Congratulations! You can share your result or start a new game.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Tips and Strategies for Wordify</h2>
+            <p>
+                With the right strategy, you can significantly improve your success rate at Wordify:
+            </p>
+            <p>
+                <strong>Start with common letters:</strong> Use a word with common letters like E, A, R, S, and T in your first try. 
+                Examples are TEARS, STARE, or AROSE.
+            </p>
+            <p>
+                <strong>Avoid repetitions:</strong> Use each try to test new letters instead of repeating already excluded letters.
+            </p>
+            <p>
+                <strong>Pay attention to vowels:</strong> English words usually contain at least one vowel. Test vowels like A, E, I, O, U early.
+            </p>
+            <p>
+                <strong>Use yellow hints wisely:</strong> When a letter is shown in yellow, you know it appears in the word. 
+                Try different positions.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Play Wordify in 5 Languages</h2>
+            <p>
+                Wordify is not only available in English. You can also play in other languages and expand your vocabulary in multiple languages:
+            </p>
+            <p>
+                <strong>English:</strong> The classic 5-letter word puzzle with English words.
+            </p>
+            <p>
+                <strong>Deutsch:</strong> Spiele das tägliche Worträtsel auf Deutsch.
+            </p>
+            <p>
+                <strong>Español:</strong> Juega el rompecabezas de palabras diario en español.
+            </p>
+            <p>
+                <strong>Français:</strong> Jouez au jeu de mots quotidien en français.
+            </p>
+            <p>
+                <strong>Italiano:</strong> Gioca al gioco di parole quotidiano in italiano.
+            </p>
+        </section>
+
+        <section class="seo-section">
+            <h2>Frequently Asked Questions about Wordify</h2>
+            <p>
+                <strong>Do I need to register to play Wordify?</strong> 
+                No, Wordify is completely free and playable without registration. Simply open the website and start playing.
+            </p>
+            <p>
+                <strong>How often can I play Wordify?</strong> 
+                You can start new games at any time. There is a limit of 5 games per 12 hours to ensure a fair gaming experience.
+            </p>
+            <p>
+                <strong>Can I play Wordify on my phone?</strong> 
+                Yes! Wordify is optimized for all devices – smartphone, tablet, and desktop.
+            </p>
+            <p>
+                <strong>Is there a daily word?</strong> 
+                Yes, every day there is a new word that is the same for all players.
+            </p>
+        </section>
+        </div>
+    </div>
+
+        <footer>
+            <p>© 2026 powered by <a href="https://frame-sphere.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-link">FrameSphere</a></p>
+            <p class="footer-legal">
+                <a href="#" class="footer-link" id="aboutLink" onclick="openAboutModal(); return false;">About Wordify</a>
+                <span class="footer-separator">|</span>
+                <a href="/impressum.html" class="footer-link">Impressum</a>
+                <span class="footer-separator">|</span>
+                <a href="/datenschutz.html" class="footer-link">Privacy</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Word Lists -->
+    <script>
+        localStorage.setItem('wordifyLanguage', 'en');
+    </script>
+    <script src="/words/words_de.js"></script>
+    <script src="/words/words_en.js"></script>
+    <script src="/words/words_es.js"></script>
+    <script src="/words/words_fr.js"></script>
+    <script src="/words/words_it.js"></script>
+    <script src="/words/words_de_quest.js"></script>
+    <script src="/words/words_en_quest.js"></script>
+    <script src="/words/words_es_quest.js"></script>
+    <script src="/words/words_fr_quest.js"></script>
+    <script src="/words/words_it_quest.js"></script>
+    <script src="/share-timer.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

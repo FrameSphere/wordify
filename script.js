@@ -29,13 +29,13 @@ function showTopShareModal(elapsedTime) {
             <p>${t.shareLink}</p>
             
             <div class="share-options">
-                <button class="share-option" onclick="copyShareText('${shareText.replace(/'/g, "\\'")}')"> n                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="share-option" onclick="copyShareText('${shareText.replace(/'/g, "\\'")}')">                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                     </svg>
                     ${t.shareLink}
                 </button>
-                <button class="share-option" onclick="shareToWhatsApp('${encodeURIComponent(shareText)}', '${encodeURIComponent(shareUrl)}')"> n                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="share-option" onclick="shareToWhatsApp('${encodeURIComponent(shareText)}', '${encodeURIComponent(shareUrl)}')">                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                     </svg>
                     WhatsApp
@@ -46,7 +46,7 @@ function showTopShareModal(elapsedTime) {
                     </svg>
                     Facebook
                 </button>
-                <button class="share-option" onclick="shareToTwitter('${encodeURIComponent(shareTitle)}', '${encodeURIComponent(shareUrl)}')"> n                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="share-option" onclick="shareToTwitter('${encodeURIComponent(shareTitle)}', '${encodeURIComponent(shareUrl)}')">                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
                     </svg>
                     Twitter / X
@@ -84,7 +84,7 @@ const TRANSLATIONS = {
         shareButton: 'Teilen',
         shareLink: 'Link teilen',
         linkCopied: '✓ Link kopiert!',
-        howToPlayTitle: 'So funktioniert’s',
+        howToPlayTitle: "So funktioniert's",
         instruction1: 'Gib ein 5-Buchstaben-Wort ein',
         instruction2: 'Die Farben zeigen, wie nah du dran bist',
         instruction3: 'Grün = richtig, Gelb = falsche Position',
@@ -360,19 +360,12 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('wordifyTheme', newTheme);
 });
 
-// Sprache wechseln
+// Sprache wechseln - mit URL-Redirect
 languageSelect.value = currentLanguage;
 languageSelect.addEventListener('change', (e) => {
-    currentLanguage = e.target.value;
-    localStorage.setItem('wordifyLanguage', currentLanguage);
-    stats = JSON.parse(localStorage.getItem(`wordifyStats_${currentLanguage}`)) || {
-        gamesPlayed: 0,
-        gamesWon: 0,
-        currentStreak: 0,
-        maxStreak: 0
-    };
-    updateLanguage();
-    init();
+    const newLanguage = e.target.value;
+    // Redirect zur richtigen Sprachseite
+    window.location.href = `/${newLanguage}/`;
 });
 
 // UI-Texte aktualisieren
@@ -621,6 +614,33 @@ function updateStats() {
     document.getElementById('winRate').textContent = winRate + '%';
     document.getElementById('currentStreak').textContent = stats.currentStreak;
     document.getElementById('maxStreak').textContent = stats.maxStreak;
+}
+
+//Open About Wordify Modal
+function openAboutModal() {
+    document.getElementById('aboutModal').style.display = 'flex';
+}
+
+function closeAboutModal() {
+    document.getElementById('aboutModal').style.display = 'none';
+}
+
+function toggleHowToPlay() {
+    const instructions = document.querySelector('.how-to-play .instructions');
+    const toggle = document.querySelector('.how-to-play-toggle');
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    
+    instructions.classList.toggle('collapsed');
+    toggle.setAttribute('aria-expanded', !isExpanded);
+}
+
+function toggleSEOContent() {
+    const sections = document.querySelector('.seo-sections');
+    const toggle = document.querySelector('.seo-toggle');
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    
+    sections.classList.toggle('collapsed');
+    toggle.setAttribute('aria-expanded', !isExpanded);
 }
 
 // Event Listeners
@@ -913,8 +933,26 @@ function shareWinResult(attempts, timeInSeconds) {
         it: `Wordify ${attempts}/6 in ${timeStr} ⏱️`
     };
     
+    const shareDescriptions = {
+        de: 'Teile deinen Erfolg!',
+        en: 'Share your success!',
+        es: '¡Comparte tu éxito!',
+        fr: 'Partagez votre succès!',
+        it: 'Condividi il tuo successo!'
+    };
+    
+    const copyLinkTexts = {
+        de: 'Link kopieren',
+        en: 'Copy link',
+        es: 'Copiar enlace',
+        fr: 'Copier le lien',
+        it: 'Copia link'
+    };
+    
     const shareTitle = langMessages[currentLanguage] || langMessages.de;
     const shareText = `${shareTitle}\n🎮 wordify.pages.dev`;
+    const shareDescription = shareDescriptions[currentLanguage] || shareDescriptions.de;
+    const copyLinkText = copyLinkTexts[currentLanguage] || copyLinkTexts.de;
     
     // Modal HTML für Share-Optionen
     const shareModal = document.createElement('div');
@@ -922,8 +960,8 @@ function shareWinResult(attempts, timeInSeconds) {
     shareModal.innerHTML = `
         <div class="share-modal-content">
             <button class="close-share-modal" onclick="closeShareModal()">&times;</button>
-            <h3>${t.shareButton || 'Teilen'}</h3>
-            <p>Teile deinen Erfolg!</p>
+            <h3>${t.shareButton}</h3>
+            <p>${shareDescription}</p>
             
             <div class="share-options">
                 <button class="share-option" onclick="copyShareText('${shareText.replace(/'/g, "\\'")}')">
@@ -931,7 +969,7 @@ function shareWinResult(attempts, timeInSeconds) {
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                     </svg>
-                    Link kopieren
+                    ${copyLinkText}
                 </button>
                 <button class="share-option" onclick="shareToWhatsApp('${encodeURIComponent(shareText)}', '${encodeURIComponent(shareUrl)}')">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

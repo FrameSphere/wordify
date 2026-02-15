@@ -1,245 +1,178 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordify - Tägliches Wortratespiel | 5-Buchstaben Quiz</title>
-    <meta name="description" content="Rate das 5-Buchstaben-Wort in 6 Versuchen! Wordify ist ein kostenloses Wortratespiel mit täglichen Herausforderungen. Jetzt spielen!">
-    <meta name="keywords" content="Wordify, Wortraten, Wortspiel, Wordle, 5-Buchstaben-Wort, Quiz, Wortratespiel, tägliche Herausforderung">
+    <title>Wordify - Daily Word Puzzle Game | 5 Languages</title>
+    <meta name="description" content="Play Wordify - the daily 5-letter word puzzle game in German, English, Spanish, French, and Italian. Free and without registration!">
     
-    <!-- Favicon -->
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/">
+    <link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/">
+    <link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/">
+    <link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/">
+    <link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/">
+    <link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/">
+    
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <link rel="apple-touch-icon" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Wordify - Tägliches Wortratespiel">
-    <meta property="og:description" content="Rate das 5-Buchstaben-Wort in 6 Versuchen! Kostenloses Wortratespiel.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://wordify.pages.dev/">
-    <meta property="og:site_name" content="Wordify">
-    <meta property="og:image" content="https://wordify.pages.dev/assets/og-wordify.png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
-    <meta property="og:image:type" content="image/png">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:image" content="https://wordify.pages.dev/assets/og-wordify.png">
-    <meta name="twitter:title" content="Wordify - Wortratespiel">
-    <meta name="twitter:description" content="Rate das 5-Buchstaben-Wort in 6 Versuchen!">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://wordify.pages.dev/">
-    
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Wordify",
-    "alternateName": "Wortratespiel",
-    "url": "https://wordify.pages.dev/",
-    "description": "Rate das 5-Buchstaben-Wort in 6 Versuchen! Kostenloses Wortratespiel in 5 Sprachen.",
-    "applicationCategory": "Game",
-    "operatingSystem": "Web Browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-    },
-    "image": "https://wordify.pages.dev/assets/og-wordify.png",
-    "inLanguage": ["de", "en", "es", "fr", "it"]
-    }
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005"
-     crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: var(--bg-primary);
+        }
+        
+        .language-chooser {
+            max-width: 500px;
+            width: 100%;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px var(--shadow-lg);
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .chooser-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.3);
+        }
+        
+        .chooser-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        
+        .chooser-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .languages {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .lang-btn {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .lang-btn:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .flag {
+            font-size: 1.8rem;
+        }
+        
+        .auto-redirect {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .language-chooser {
+                padding: 35px 25px;
+            }
+            
+            .chooser-logo {
+                width: 64px;
+                height: 64px;
+                font-size: 2rem;
+            }
+            
+            .chooser-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <!-- Timer Display -->
-            <div class="timer-display">
-                ⏱️ <span id="timer">0:00</span>
-            </div>
-            <div class="header-top">
-                <div class="settings-group">
-                    <button id="shareBtn" class="icon-btn" aria-label="Spiel teilen" title="Spiel teilen">
-                        <svg class="share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="18" cy="5" r="3"></circle>
-                            <circle cx="6" cy="12" r="3"></circle>
-                            <circle cx="18" cy="19" r="3"></circle>
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                        </svg>
-                    </button>
-                    <button id="themeToggle" class="icon-btn" aria-label="Theme wechseln">
-                        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path class="sun-icon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                            <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                        </svg>
-                    </button>
-                    <select id="languageSelect" class="language-select">
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="en">🇬🇧 English</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="it">🇮🇹 Italiano</option>
-                    </select>
-                </div>
-            </div>
-            <h1><span class="logo-icon">W</span> Wordify</h1>
-            <p class="subtitle" id="subtitle">Rate das 5-Buchstaben-Wort!</p>
-        </header>
-
-        <div class="game-container">
-            <div class="message" id="message"></div>
-            
-            <div class="board" id="board"></div>
-            
-            <div class="keyboard" id="keyboard"></div>
-            
-            <div class="controls">
-                <button id="newGame" class="btn btn-primary">
-                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
-                    </svg>
-                    <span id="btnNewGame">Neues Spiel</span>
-                </button>
-                <button id="statsBtn" class="btn btn-secondary">
-                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 20V10M12 20V4M6 20v-6"/>
-                    </svg>
-                    <span id="btnStats">Statistiken</span>
-                </button>
-            </div>
+    <div class="language-chooser">
+        <div class="chooser-logo">W</div>
+        <h1 class="chooser-title">Wordify</h1>
+        <p class="chooser-subtitle">Choose your language to play the daily 5-letter word puzzle</p>
+        
+        <div class="languages">
+            <a href="/de/" class="lang-btn">
+                <span class="flag">🇩🇪</span>
+                <span>Deutsch</span>
+            </a>
+            <a href="/en/" class="lang-btn">
+                <span class="flag">🇬🇧</span>
+                <span>English</span>
+            </a>
+            <a href="/es/" class="lang-btn">
+                <span class="flag">🇪🇸</span>
+                <span>Español</span>
+            </a>
+            <a href="/fr/" class="lang-btn">
+                <span class="flag">🇫🇷</span>
+                <span>Français</span>
+            </a>
+            <a href="/it/" class="lang-btn">
+                <span class="flag">🇮🇹</span>
+                <span>Italiano</span>
+            </a>
         </div>
-
-        <!-- How to Play Section (Collapsible) -->
-        <section class="how-to-play">
-            <button class="how-to-play-toggle" onclick="toggleHowToPlay()" aria-expanded="false">
-                <h2 class="section-title" id="howToPlayTitle">So funktioniert's</h2>
-                <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-            <div class="instructions collapsed">
-                <div class="instruction-item">
-                    <span class="instruction-number">1</span>
-                    <p id="instruction1">Gib ein 5-Buchstaben-Wort ein</p>
-                </div>
-                <div class="instruction-item">
-                    <span class="instruction-number">2</span>
-                    <p id="instruction2">Die Farben zeigen, wie nah du dran bist</p>
-                </div>
-                <div class="instruction-item">
-                    <span class="instruction-number">3</span>
-                    <p id="instruction3">Grün = richtig, Gelb = falsche Position</p>
-                </div>
-                <div class="instruction-item">
-                    <span class="instruction-number">4</span>
-                    <p id="instruction4">Du hast 6 Versuche zum Erraten</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Modal -->
-        <div id="statsModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                        <path d="M18 20V10M12 20V4M6 20v-6"/>
-                    </svg> <span id="modalTitle">Statistiken</span></h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="gamesPlayed">0</div>
-                        <div class="stat-label" id="labelPlayed">Gespielt</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="winRate">0%</div>
-                        <div class="stat-label" id="labelWinRate">Gewinnrate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="currentStreak">0</div>
-                        <div class="stat-label" id="labelStreak">Streak</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="maxStreak">0</div>
-                        <div class="stat-label" id="labelMaxStreak">Max Streak</div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="auto-redirect">
+            <small>Auto-redirecting based on your browser language...</small>
         </div>
-
-        <!-- About Modal -->
-        <div id="aboutModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeAboutModal()">&times;</span>
-                <h2 id="aboutTitle" class="modal-title">Über Wordify</h2>
-                <div class="about-content">
-                    <p id="aboutDescription">
-                        <strong>Wordify</strong> ist ein kostenloses <strong>Wortratespiel</strong>, bei dem du <strong>5-Buchstaben-Wörter</strong> in 6 Versuchen erraten musst. Das <strong>tägliche Wortspiel</strong> fordert dein Wissen und deine Logik heraus!
-                    </p>
-                    <h3 id="aboutFeaturesTitle">Features:</h3>
-                    <ul class="about-list">
-                        <li><strong>Tägliche Herausforderung:</strong> Jeden Tag ein neues Wort</li>
-                        <li><strong>5 Sprachen:</strong> Deutsch, Englisch, Spanisch, Französisch, Italienisch</li>
-                        <li><strong>6 Versuche:</strong> Beweise deine Wortgewandtheit</li>
-                        <li><strong>Statistiken:</strong> Verfolge deine Fortschritte</li>
-                        <li><strong>Kostenlos spielen:</strong> Keine Anmeldung erforderlich</li>
-                    </ul>
-                    <p id="aboutChallenge">
-                        Bist du bereit, dein <strong>Vokabular</strong> zu testen? Starte jetzt und werde zum <strong>Wortraten-Experten</strong>!
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2026 powered by <a href="https://frame-sphere.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-link">FrameSphere</a></p>
-            <p class="footer-legal">
-                <a href="#" class="footer-link" id="aboutLink" onclick="openAboutModal(); return false;">About Wordify</a>
-                <span class="footer-separator">|</span>
-                <a href="impressum.html" class="footer-link">Impressum</a>
-                <span class="footer-separator">|</span>
-                <a href="datenschutz.html" class="footer-link">Datenschutz</a>
-            </p>
-        </footer>
     </div>
-
-    <!-- Wortlisten: Validierung -->
-    <script src="words/words_de.js"></script>
-    <script src="words/words_en.js"></script>
-    <script src="words/words_es.js"></script>
-    <script src="words/words_fr.js"></script>
-    <script src="words/words_it.js"></script>
     
-    <!-- Wortlisten: Quest (Lösungswörter) -->
-    <script src="words/words_de_quest.js"></script>
-    <script src="words/words_en_quest.js"></script>
-    <script src="words/words_es_quest.js"></script>
-    <script src="words/words_fr_quest.js"></script>
-    <script src="words/words_it_quest.js"></script>
-    
-    <script src="share-timer.js"></script>
-    <script src="script.js"></script>
-    
-    <!-- About Modal Script -->
     <script>
-        function openAboutModal() {
-            document.getElementById('aboutModal').style.display = 'flex';
-        }
+        // Auto-redirect based on browser language
+        const userLang = (navigator.language || navigator.userLanguage).slice(0, 2).toLowerCase();
+        const supportedLanguages = ['de', 'en', 'es', 'fr', 'it'];
         
-        function closeAboutModal() {
-            document.getElementById('aboutModal').style.display = 'none';
-        }
+        // Check if we should auto-redirect (only on first visit)
+        const hasVisited = sessionStorage.getItem('languageSelected');
         
-        function toggleHowToPlay() {
-            const instructions = document.querySelector('.how-to-play .instructions');
-            const toggle = document.querySelector('.how-to-play-toggle');
-            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-            
-            instructions.classList.toggle('collapsed');
-            toggle.setAttribute('aria-expanded', !isExpanded);
+        if (!hasVisited && supportedLanguages.includes(userLang)) {
+            // Wait 1.5 seconds before redirecting
+            setTimeout(() => {
+                sessionStorage.setItem('languageSelected', 'true');
+                window.location.href = `/${userLang}/`;
+            }, 1500);
+        } else if (!hasVisited) {
+            // Default to English if language not supported
+            setTimeout(() => {
+                sessionStorage.setItem('languageSelected', 'true');
+                window.location.href = '/en/';
+            }, 1500);
         }
     </script>
 </body>
