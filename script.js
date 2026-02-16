@@ -80,7 +80,7 @@ const TRANSLATIONS = {
         won: 'Gewonnen!',
         lost: 'Das Wort war: ',
         newGameStarted: 'Neues Spiel gestartet!',
-        gameLimit: 'Limit erreicht! Du hast 5 Spiele in 12h gespielt. Nächstes Spiel in: ',
+        gameLimit: 'Limit erreicht! Du hast 15 Spiele in 12h gespielt. Nächstes Spiel in: ',
         shareButton: 'Teilen',
         shareLink: 'Link teilen',
         linkCopied: '✓ Link kopiert!',
@@ -116,7 +116,7 @@ const TRANSLATIONS = {
         won: 'You won!',
         lost: 'The word was: ',
         newGameStarted: 'New game started!',
-        gameLimit: 'Limit reached! You played 5 games in 12h. Next game in: ',
+        gameLimit: 'Limit reached! You played 15 games in 12h. Next game in: ',
         shareButton: 'Share',
         shareLink: 'Share Link',
         linkCopied: '✓ Link copied!',
@@ -152,7 +152,7 @@ const TRANSLATIONS = {
         won: '¡Ganaste!',
         lost: 'La palabra era: ',
         newGameStarted: '¡Nuevo juego iniciado!',
-        gameLimit: '¡Límite alcanzado! Has jugado 5 partidas en 12h. Próximo juego en: ',
+        gameLimit: '¡Límite alcanzado! Has jugado 15 partidas en 12h. Próximo juego en: ',
         shareButton: 'Compartir',
         shareLink: 'Compartir enlace',
         linkCopied: '✓ Enlace copiado!',
@@ -188,7 +188,7 @@ const TRANSLATIONS = {
         won: 'Vous avez gagné!',
         lost: 'Le mot était: ',
         newGameStarted: 'Nouveau jeu commencé!',
-        gameLimit: 'Limite atteinte! Vous avez joué 5 parties en 12h. Prochain jeu dans: ',
+        gameLimit: 'Limite atteinte! Vous avez joué 15 parties en 12h. Prochain jeu dans: ',
         shareButton: 'Partager',
         shareLink: 'Partager le lien',
         linkCopied: '✓ Lien copié!',
@@ -224,7 +224,7 @@ const TRANSLATIONS = {
         won: 'Hai vinto!',
         lost: 'La parola era: ',
         newGameStarted: 'Nuovo gioco iniziato!',
-        gameLimit: 'Limite raggiunto! Hai giocato 5 partite in 12h. Prossima partita tra: ',
+        gameLimit: 'Limite raggiunto! Hai giocato 15 partite in 12h. Prossima partita tra: ',
         shareButton: 'Condividi',
         shareLink: 'Condividi link',
         linkCopied: '✓ Link copiato!',
@@ -280,8 +280,8 @@ let stats = JSON.parse(localStorage.getItem(`wordifyStats_${currentLanguage}`)) 
     maxStreak: 0
 };
 
-// Spiellimit: 5 Spiele pro 12 Stunden
-const GAMES_LIMIT = 5;
+// Spiellimit: 15 Spiele pro 12 Stunden
+const GAMES_LIMIT = 15;
 const TIME_WINDOW = 12 * 60 * 60 * 1000; // 12 Stunden in Millisekunden
 
 function getGameHistory() {
