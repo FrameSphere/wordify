@@ -212,7 +212,8 @@ const WORDS_DE = [
     'KLICK', 'KLIMA', 'KLING', 'KNABE', 'KNALL', 'KNICK', 'KNOTE',
     'KOALA', 'KOBRA', 'KOGEL', 'KOHLE', 'KOKOS', 'KOMMA', 'KONTA',
     'KOPFE', 'KORBE', 'KRAFT', 'KRANK', 'KRONE', 'KRUGS', 'KUNDE',
-    'KUNST', 'KURVE', 'KÜCHE', 'KÜMME', 'KÜSTE', 'KLEIN',
+    'KUNST', 'KURVE', 'KÜCHE', 'KÜMME', 'KÜSTE', 'KLEIN', 'KATZE',
+    
     
     //L
     'LADEN', 'LAGER', 'LAMPE', 'LANDE', 'LANZE', 'LÄUFE', 'LÄUFT',
@@ -225,7 +226,7 @@ const WORDS_DE = [
     'LEBEN', 'LEGEN', 'LEHRE', 'LEIST', 'LEITE', 'LEUCH', 'LEUTE',
     'LICHT', 'LIEBE', 'LIEGT', 'LINIE', 'LITER', 'LOBEN', 'LOCKE',
     'LOGEN', 'LOHNE', 'LÖTEN', 'LOTSE', 'LUNGE', 'LUSTE', 'LUXUS',
-    'LYRIK',
+    'LYRIK', 'LEGAT',
 
     'LADEN', 'LAMPE', 'LANDE', 'LEBEN', 'LEGEN', 'LEHRE', 'LEIST',
     'LEUTE', 'LICHT', 'LIEBE', 'LINIE', 'LOBEN', 'LOCKE', 'LOGEN',
@@ -235,16 +236,16 @@ const WORDS_DE = [
     'MACHE', 'MACHT', 'MAGEN', 'MAISE', 'MAJOR', 'MAUER', 'MÄRCH',
     'MÄRTE', 'MAßEN', 'MAßIG', 'MEDIZ', 'MEILE', 'MEINE', 'MEIST',
     'MELDE', 'MENGE', 'MERKE', 'METTE', 'MIEZE', 'MILCH', 'MINDE',
-    'MINUS', 'MINTS', 'MITTE', 'MÖBEL', 'MÖGEN', 'MORGEN', 'MOTTE',
+    'MINUS', 'MINTS', 'MITTE', 'MÖBEL', 'MÖGEN', 'MOTTE',
     'MÜNZE', 'MÜNDE', 'MÜSSE', 'MUSIK', 'MUTIG', 'MYRTE',
 
     'MACHE', 'MACHT', 'MAGEN', 'MAUER', 'MÄRCH', 'MÄRTE', 'MAßEN',
     'MAßIG', 'MEINE', 'MEIST', 'MELDE', 'MENGE', 'MERKE', 'METTE',
-    'MIEZE', 'MILCH', 'MINDE', 'MITTE', 'MÖBEL', 'MÖGEN', 'MORGEN',
+    'MIEZE', 'MILCH', 'MINDE', 'MITTE', 'MÖBEL', 'MÖGEN',
     'MOTTE', 'MÜNDE', 'MÜSSE', 'MUSIK', 'MUTIG', 'MYRTE',
 
     'MACHE', 'MAGEN', 'MAUER', 'MEINE', 'MEIST', 'MELDE', 'MENGE',
-    'MERKE', 'MIEZE', 'MILCH', 'MITTE', 'MÖBEL', 'MÖGEN', 'MORGEN',
+    'MERKE', 'MIEZE', 'MILCH', 'MITTE', 'MÖBEL', 'MÖGEN',
     'MUSIK', 'MUTIG',
 
     //N
@@ -252,17 +253,17 @@ const WORDS_DE = [
     'NANOS', 'NÄHEN', 'NÄHME', 'NÄHST', 'NASES', 'NASCH', 'NASSE',
     'NATUR', 'NÄTIG', 'NEBEN', 'NECKE', 'NEHME', 'NEIGE', 'NEUES',
     'NEUNS', 'NEUST', 'NEVEN', 'NICHT', 'NIEDE', 'NIEST', 'NINJA',
-    'NOBEL', 'NOCHS', 'NORMA', 'NOTEN', 'NOVEN', 'NUDEL', 'NUMMER',
+    'NOBEL', 'NOCHS', 'NORMA', 'NOTEN', 'NOVEN', 'NUDEL',
     'NURSE', 'NÜCHT', 'NÜSSE', 'NÜTZT',
 
     'NABEN', 'NACHT', 'NADEN', 'NAHEN', 'NAHME', 'NAMEN', 'NÄHEN',
     'NÄHME', 'NÄHST', 'NASES', 'NASCH', 'NATUR', 'NEBEN', 'NEHME',
-    'NEUES', 'NEUNS', 'NICHT', 'NOBEL', 'NOTEN', 'NUDEL', 'NUMMER',
+    'NEUES', 'NEUNS', 'NICHT', 'NOBEL', 'NOTEN', 'NUDEL',
     'NURSE', 'NÜCHT', 'NÜSSE', 'NÜTZT',
 
     'NABEN', 'NACHT', 'NAHEN', 'NAIVE', 'NAMEN', 'NÄHEN', 'NASES',
     'NATUR', 'NEBEN', 'NEHME', 'NEUES', 'NEUNS', 'NICHT', 'NOBEL',
-    'NOTEN', 'NUDEL', 'NUMMER', 'NURSE', 'NÜCHT', 'NÜSSE', 
+    'NOTEN', 'NUDEL', 'NURSE', 'NÜCHT', 'NÜSSE', 
     
     //O
     'OBERE', 'OBJEK', 'OBLIG', 'OBOEN', 'OCHSE', 'ODERN', 'ODEME',
@@ -320,7 +321,7 @@ const WORDS_DE = [
     'SANDT', 'SANDS', 'SAPPE', 'SARDE', 'SÄUFE', 'SÄUGE', 'SAUEN',
     'SAUGE', 'SAUMS', 'SAUNA', 'SCHAR', 'SCHEI', 'SCHEL', 'SCHER',
     'SCHLU', 'SCHMA', 'SCHOB', 'SCHOT', 'SCHUB', 'SCHUH', 'SCHUL',
-    'SCHUR', 'SCHUSS', 'SCHWAN', 'SCHWAR', 'SCHWEI', 'SCHWIM', 'SCHWUR',
+    'SCHUR',
     'SEGEN', 'SEHEN', 'SEIDE', 'SEILS', 'SEITE', 'SEMME', 'SENDE',
     'SENSE', 'SENSE', 'SENKE', 'SENSE', 'SENTI', 'SEPEL', 'SERIE',
     'SERUM', 'SETZE', 'SEULE', 'SEXTE', 'SICHT', 'SIEBE', 'SIEHT',
@@ -329,9 +330,9 @@ const WORDS_DE = [
     'SNOBE', 'SOBEN', 'SODEN', 'SOFAS', 'SOFTS', 'SOHLE', 'SOLAR',
     'SOLAR', 'SOLEM', 'SOLID', 'SOLTE', 'SONNE', 'SONST', 'SORGE',
     'SORRY', 'SOTTE', 'SPALT', 'SPASS', 'SPATZ', 'SPEER', 'SPEED',
-    'SPEISE', 'SPEND', 'SPERK', 'SPIEL', 'SPIKE', 'SPINE', 'SPION',
+    'SPEND', 'SPERK', 'SPIEL', 'SPIKE', 'SPINE', 'SPION',
     'SPITZ', 'SPLIT', 'SPORT', 'SPOTT', 'SPRIT', 'SPUKS', 'SPURE',
-    'SQUARE', 'STAAT', 'STADT', 'STAGE', 'STÄBE', 'STÄDT', 'STADT',
+    'STAAT', 'STADT', 'STAGE', 'STÄBE', 'STÄDT', 'STADT',
     'STAGE', 'STAND', 'STANG', 'STARK', 'STASS', 'STATT', 'STEAK',
     'STEIN', 'STERN', 'STETE', 'STICH', 'STIEB', 'STIFT', 'STILL',
     'STOFF', 'STOLZ', 'STORF', 'STORY', 'STUBE', 'STUFE', 'STUND',
@@ -343,7 +344,7 @@ const WORDS_DE = [
     'TAUCH', 'TAUFE', 'TAUMS', 'TATEN', 'TATZE', 'TAUCH', 'TEBEN',
     'TEICH', 'TEILE', 'TEILS', 'TELLE', 'TEMPO', 'TENNE', 'TEPP', 
     'TERRA', 'TERNE', 'TESTE', 'TEUER', 'TEXTS', 'THALE', 'THEKE',
-    'THEMA', 'THUNS', 'TICKET', 'TIERE', 'TIGER', 'TILDE', 'TISCH',
+    'THEMA', 'THUNS', 'TIERE', 'TIGER', 'TILDE', 'TISCH',
     'TITEL', 'TITZE', 'TODEN', 'TOKEN', 'TOMTE', 'TOPAS', 'TOPFE',
     'TORTE', 'TOTAL', 'TOUCH', 'TRAGE', 'TRAUM', 'TRAUF', 'TRÄGE',
     'TRÄNE', 'TREFF', 'TREIB', 'TREUE', 'TRENN', 'TRIFF', 'TRINK',
@@ -381,7 +382,7 @@ const WORDS_DE = [
     'WILLE', 'WIMPE', 'WINDE', 'WINNE', 'WINZE', 'WIRKE', 'WIRTS',
     'WISCH', 'WISSN', 'WITZE', 'WOCHE', 'WOHNE', 'WOHNT', 'WOLLE',
     'WOMIT', 'WORAU', 'WORIN', 'WORST', 'WORTE', 'WÜSTE', 'WÜRFE',
-    'WÜSTE', 'WÄRME',
+    'WÜSTE', 'WÄRME', 'WURST',
 
     //X
     'XENON', 'XENIA', 'XYSTI', 'XENON', 'XYSTO', 'XERES', 'XYSTE',
