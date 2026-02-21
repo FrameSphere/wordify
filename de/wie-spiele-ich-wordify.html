@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wie spiele ich Wordify? Schritt-für-Schritt Anleitung | Wordify</title>
+    <meta name="description" content="Wie spiele ich Wordify? Vollständige Anleitung für Anfänger und Fortgeschrittene – Spielregeln, Tastatursteuerung, Farbsystem und viele nützliche Tipps erklärt.">
+    <meta name="keywords" content="Wordify spielen Anleitung, Wordify Spielregeln, Wie funktioniert Wordify, Wordify Anleitung Deutsch, Worträtsel spielen">
+    <link rel="canonical" href="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <meta property="og:title" content="Wie spiele ich Wordify? Schritt-für-Schritt Anleitung">
+    <meta property="og:description" content="Vollständige Spielanleitung für Wordify – so spielst du das tägliche Worträtsel.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html">
+    <meta property="og:image" content="https://wordify.pages.dev/assets/og-wordify.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Wie spiele ich Wordify?",
+      "description": "Schritt-für-Schritt Anleitung für das tägliche 5-Buchstaben Worträtsel Wordify",
+      "url": "https://wordify.pages.dev/de/wie-spiele-ich-wordify.html",
+      "inLanguage": "de",
+      "step": [
+        {"@type": "HowToStep", "name": "Wort eingeben", "text": "Gib ein gültiges deutsches 5-Buchstaben-Wort über die Bildschirmtastatur oder deine Hardware-Tastatur ein."},
+        {"@type": "HowToStep", "name": "Enter drücken", "text": "Drücke Enter, um dein Wort einzureichen. Das Farbfeedback erscheint sofort."},
+        {"@type": "HowToStep", "name": "Farben auswerten", "text": "Grün = richtige Position, Gelb = falscher Platz, Grau = nicht im Wort."},
+        {"@type": "HowToStep", "name": "Nächsten Versuch optimieren", "text": "Nutze das Feedback, um dein nächstes Wort gezielt zu wählen. Du hast 6 Versuche."}
+      ]
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { align-items: flex-start; }
+        .article-container { max-width: 760px; width: 100%; margin: 0 auto; padding: 30px 20px 60px; }
+        .article-header { text-align: center; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 2px solid var(--border-color); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-primary); text-decoration: none; font-size: 0.95rem; font-weight: 600; margin-bottom: 24px; transition: var(--transition); }
+        .back-link:hover { color: var(--accent-hover); }
+        .logo-link { text-decoration: none; }
+        .logo-heading { font-size: 1.6rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 12px; }
+        .logo-icon { background: var(--accent-primary); color: white; border-radius: 8px; padding: 2px 8px; margin-right: 6px; }
+        .article-title { font-size: 2rem; font-weight: 800; color: var(--text-primary); line-height: 1.3; margin-bottom: 16px; }
+        .article-intro { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin: 36px 0 14px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 600; color: var(--accent-primary); margin: 24px 0 10px; }
+        .article-body p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .article-body strong { color: var(--text-primary); }
+        .step-list { list-style: none; padding: 0; margin: 20px 0; }
+        .step-list li { display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 12px; }
+        .step-number { background: var(--accent-primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+        .step-content strong { display: block; color: var(--text-primary); font-size: 1rem; margin-bottom: 4px; }
+        .step-content span { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .highlight-box { background: var(--bg-secondary); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-primary); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .highlight-box p { margin-bottom: 0; }
+        .color-demo { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+        .color-row { display: flex; align-items: center; gap: 14px; }
+        .color-tile { width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; flex-shrink: 0; }
+        .tile-green { background: var(--correct); }
+        .tile-yellow { background: var(--present); }
+        .tile-gray { background: var(--absent); }
+        .color-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5; }
+        .example-board { display: flex; flex-direction: column; gap: 6px; margin: 20px auto; max-width: 260px; }
+        .example-row { display: flex; gap: 6px; justify-content: center; }
+        .ex-tile { width: 48px; height: 48px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; color: white; border: 2px solid transparent; }
+        .ex-empty { background: var(--bg-secondary); border-color: var(--border-color); color: var(--text-secondary); }
+        .nav-links { margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+        .nav-links h3 { font-size: 1rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+        .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+        .nav-card-link { display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 0.9rem; transition: var(--transition); }
+        .nav-card-link:hover { border-color: var(--accent-primary); color: var(--accent-primary); transform: translateY(-2px); }
+        .play-btn { display: inline-block; margin-top: 30px; background: var(--accent-primary); color: white; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: var(--transition); }
+        .play-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <a href="/de/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Zurück zum Spiel
+            </a>
+            <a href="/de/" class="logo-link">
+                <div class="logo-heading"><span class="logo-icon">W</span> Wordify</div>
+            </a>
+            <h1 class="article-title">Wie spiele ich Wordify? Die vollständige Spielanleitung</h1>
+            <p class="article-intro">Wordify ist einfach zu erlernen, aber schwerer zu meistern. Diese Anleitung erklärt dir Schritt für Schritt, wie du Wordify spielst – von der ersten Eingabe bis zum siegreichen Grün.</p>
+        </div>
+
+        <div class="article-body">
+
+            <h2>Die Grundregeln – Wordify in 30 Sekunden erklärt</h2>
+            <p>Wordify dreht sich um ein einziges Ziel: Errate das geheime <strong>5-Buchstaben-Wort</strong> in maximal <strong>6 Versuchen</strong>. Nach jedem Versuch erhältst du farbiges Feedback, das dir sagt, welche Buchstaben korrekt sind. Das Spiel endet, wenn du das Wort errätst – oder wenn du alle 6 Versuche aufgebraucht hast.</p>
+
+            <div class="highlight-box">
+                <p>📋 <strong>Kurzzusammenfassung:</strong> 5-Buchstaben-Wort eingeben → Enter drücken → Farbfeedback auswerten → wiederholen – bis zu 6 Mal.</p>
+            </div>
+
+            <h2>Schritt für Schritt: So spielst du Wordify</h2>
+
+            <ul class="step-list">
+                <li>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Die Seite öffnen</strong>
+                        <span>Rufe <a href="/de/" style="color: var(--accent-primary);">wordify.pages.dev/de/</a> im Browser auf. Du siehst das leere 6×5 Spielfeld und die Bildschirmtastatur. Keine Anmeldung, kein Ladebalken – sofort spielbereit.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Ein 5-Buchstaben-Wort eingeben</strong>
+                        <span>Tippe ein beliebiges deutsches Wort mit genau 5 Buchstaben. Du kannst die Bildschirmtastatur nutzen oder deine Hardware-Tastatur. Jeder Buchstabe erscheint direkt in der ersten Zeile des Spielfelds.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Eingabe bestätigen</strong>
+                        <span>Drücke die <strong>Enter-Taste</strong> (oder den Enter-Button auf der Bildschirmtastatur). Das Wort muss im Wörterbuch von Wordify vorkommen – sonst erscheint eine Fehlermeldung und du kannst einen anderen Begriff eingeben.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Das Farbfeedback auswerten</strong>
+                        <span>Jeder Buchstabe deines Wortes wird nun eingefärbt. Grün = richtige Position, Gelb = im Wort, aber falsche Stelle, Grau = nicht im Wort. Deine Tastatur aktualisiert sich entsprechend.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>Nächsten Versuch wählen</strong>
+                        <span>Überlege auf Basis des Feedbacks, welches Wort du als nächstes eingibst. Nutze grüne Buchstaben an der gleichen Stelle, probiere gelbe Buchstaben an anderen Positionen und vermeide graue Buchstaben.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <strong>Weitermachen – bis zu 6 Versuche</strong>
+                        <span>Wiederhole die Schritte 2–5 bis das Wort vollständig grün leuchtet oder du 6 Versuche verbraucht hast. Hast du das Wort erraten? Herzlichen Glückwunsch! Falls nicht, wird dir das Wort am Ende enthüllt.</span>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>Das Farbsystem im Detail</h2>
+            <p>Das wichtigste Element von Wordify ist das Farbfeedback. Lass uns jeden Farbtyp an einem Beispiel erklären. Angenommen, das gesuchte Wort ist <strong>STERN</strong> und du gibst <strong>RATEN</strong> ein:</p>
+
+            <div class="color-demo">
+                <div class="color-row">
+                    <div class="color-tile tile-gray">R</div>
+                    <div class="color-text">Das <strong>R</strong> von RATEN erscheint <span style="color: var(--absent)">grau</span> – falsch! Das R steht in RATEN an Position 1, aber in STERN an Position 4. Moment – STERN hat ein R! Warum ist es dann grau? Weil Wordify prüft, ob der Buchstabe an <em>dieser</em> Position korrekt ist. <em>Gelb</em> wäre es, wenn R im Wort vorkommt, aber an falscher Stelle. In diesem Beispiel sei R tatsächlich nicht im gesuchten Wort – je nach Beispiel kann das variieren.</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-tile tile-yellow">A</div>
+                    <div class="color-text">Das <strong>A</strong> erscheint <span style="color: var(--present)">gelb</span>: Es kommt im gesuchten Wort vor, steht aber an der falschen Position. Probiere A an einer anderen Stelle.</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-tile tile-green">T</div>
+                    <div class="color-text">Das <strong>T</strong> erscheint <span style="color: var(--correct)">grün</span>: Richtig! T steht an dieser Position genau so auch im gesuchten Wort. Behalte es bei.</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-tile tile-yellow">E</div>
+                    <div class="color-text">Das <strong>E</strong> erscheint <span style="color: var(--present)">gelb</span>: E ist im Wort vorhanden, aber an der falschen Stelle. Versuche es woanders.</div>
+                </div>
+                <div class="color-row">
+                    <div class="color-tile tile-gray">N</div>
+                    <div class="color-text">Das <strong>N</strong> erscheint <span style="color: var(--absent)">grau</span>: N ist nicht im gesuchten Wort enthalten. Nutze N in zukünftigen Versuchen nicht mehr.</div>
+                </div>
+            </div>
+
+            <h2>Die Tastatursteuerung</h2>
+
+            <h3>Bildschirmtastatur</h3>
+            <p>Wordify zeigt unterhalb des Spielfelds eine vollständige Tastatur an. Auf der Bildschirmtastatur werden die bereits verwendeten Buchstaben ebenfalls eingefärbt, damit du auf einen Blick weißt, welche Buchstaben noch nicht getestet wurden, welche im Wort vorkommen und welche ausgeschlossen sind.</p>
+            <p>Du tippst durch einfaches Antippen der Buchstaben. Mit dem Rückpfeil-Symbol löschst du den letzten eingetippten Buchstaben. Mit dem Enter-Symbol bestätigst du dein Wort.</p>
+
+            <h3>Hardware-Tastatur</h3>
+            <p>Am Desktop oder Laptop kannst du auch deine Hardware-Tastatur nutzen. Tippe einfach die Buchstaben auf deiner Tastatur ein. Die <strong>Backspace-Taste</strong> löscht den letzten Buchstaben, die <strong>Enter-Taste</strong> bestätigt dein Wort. Umlaute (Ä, Ö, Ü) sind über die normalen Umlauttasten deiner Tastatur erreichbar.</p>
+
+            <h2>Was passiert, wenn das Wort nicht im Wörterbuch ist?</h2>
+            <p>Wordify akzeptiert nur echte, gültige deutsche Wörter. Wenn du ein Wort eingibst, das nicht in der Wortliste vorhanden ist, erscheint eine kurze Fehlermeldung wie "Unbekanntes Wort" und deine Eingabe wird zurückgesetzt. Du verlierst dadurch keinen Versuch – du kannst einfach ein anderes Wort eingeben.</p>
+            <p>Das bedeutet: Du kannst keine willkürlichen Buchstabenkombinationen eingeben, um schnell alle möglichen Buchstaben zu testen. Jeder Versuch muss ein echtes Wort sein. Das macht das Spiel herausfordernder, aber auch fairer.</p>
+
+            <h2>Tagesrätsel vs. Zufallsspiel</h2>
+            <p>Wordify bietet zwei Spielmodi:</p>
+            <p>Das <strong>Tagesrätsel</strong> ist das offizielle tägliche Wort, das für alle Spieler weltweit gleich ist. Jeden Tag um Mitternacht wird ein neues Tagesrätsel freigeschaltet. Das Tagesrätsel trägt zu deinen Statistiken bei und kann nur einmal pro Tag gespielt werden.</p>
+            <p>Der <strong>Zufallsmodus</strong> ermöglicht es dir, weitere Runden mit zufällig ausgewählten Wörtern zu spielen. Dieser Modus ist auf 5 Spiele pro 12 Stunden begrenzt, damit Wordify ein bewusstes tägliches Ritual bleibt statt einem endlosen Zeitvertreib.</p>
+
+            <h2>Wie funktionieren die Statistiken?</h2>
+            <p>Nach jedem abgeschlossenen Spiel werden deine Ergebnisse lokal in deinem Browser gespeichert. Über den Statistik-Button im Spielbereich kannst du deine persönliche Statistik aufrufen. Du siehst dort:</p>
+            <p><strong>Gespielte Spiele:</strong> Die Gesamtzahl aller abgeschlossenen Runden.</p>
+            <p><strong>Gewinnrate:</strong> Der Prozentsatz deiner gewonnenen Spiele. Ein guter Wert liegt über 80%.</p>
+            <p><strong>Aktuelle Streak:</strong> Wie viele Tage in Folge du mindestens einmal gewonnen hast.</p>
+            <p><strong>Maximale Streak:</strong> Deine persönliche Bestmarke an aufeinanderfolgenden Gewinntagen.</p>
+
+            <h2>Ergebnis teilen</h2>
+            <p>Hast du ein Rätsel abgeschlossen – egal ob gewonnen oder verloren –, erscheint ein Teilen-Button. Mit einem Klick wird eine kompakte, spoilerfreie Darstellung deines Spielverlaufs als farbige Emoji-Kacheln in deine Zwischenablage kopiert. Diese kannst du dann in WhatsApp, Telegram, Twitter oder wo immer du möchtest einfügen – ohne das gesuchte Wort zu verraten.</p>
+
+            <h2>Wordify auf dem Smartphone: Der mobile Modus</h2>
+            <p>Wordify ist vollständig für mobile Geräte optimiert. Das Spielfeld passt sich automatisch an kleinere Bildschirme an. Auf dem Smartphone wird die Bildschirmtastatur von Wordify empfohlen, da sie speziell auf das Spiel zugeschnitten ist und Umlaute direkt verfügbar macht.</p>
+            <p>Du kannst Wordify als PWA (Progressive Web App) zu deinem Homescreen hinzufügen. Tippe im Browser auf "Zur Startseite hinzufügen" – dann hast du Wordify wie eine App auf deinem Smartphone, ohne es aus einem App Store herunterladen zu müssen.</p>
+
+            <h2>Was tun, wenn ich verliere?</h2>
+            <p>Kein Grund zur Verzweiflung! Wenn du das Wort nicht innerhalb von 6 Versuchen errätst, wird dir die Lösung am Ende angezeigt. Notiere dir das Wort, schau es nach, und du hast automatisch etwas Neues gelernt. Morgen wartet bereits das nächste Rätsel.</p>
+            <p>Die meisten Wordify-Spieler verlieren im Laufe der Zeit seltener, weil sie durch Erfahrung lernen, welche Startwörter besonders effektiv sind und wie sie das Farbfeedback optimal auswerten. Mit etwas Übung wirst du das Wort regelmäßig in 3–4 Versuchen erraten.</p>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/de/" class="play-btn">🎮 Jetzt Wordify spielen</a>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <h3>Weitere Artikel über Wordify</h3>
+            <div class="nav-grid">
+                <a href="/de/was-ist-wordify.html" class="nav-card-link">→ Was ist Wordify?</a>
+                <a href="/de/warum-wordify-spielen.html" class="nav-card-link">→ Warum Wordify spielen?</a>
+                <a href="/de/tipps-und-strategien.html" class="nav-card-link">→ Tipps &amp; Strategien</a>
+                <a href="/de/wordify-5-sprachen.html" class="nav-card-link">→ Wordify in 5 Sprachen</a>
+                <a href="/de/haeufige-fragen.html" class="nav-card-link">→ Häufig gestellte Fragen</a>
+            </div>
+        </nav>
+
+        <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center;">
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">© 2026 powered by <a href="https://frame-sphere.vercel.app" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">FrameSphere</a> | <a href="/impressum.html" style="color: var(--accent-primary);">Impressum</a> | <a href="/datenschutz.html" style="color: var(--accent-primary);">Datenschutz</a></p>
+        </footer>
+    </div>
+    <script>
+        const savedTheme = localStorage.getItem('wordifyTheme');
+        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
