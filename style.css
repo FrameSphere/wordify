@@ -818,6 +818,78 @@ footer a:hover {
     font-weight: 600;
 }
 
+/* ========================================
+   SEO QUICK NAV CARD
+   ======================================== */
+.seo-quicknav {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 1.75rem 2rem;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 2px solid var(--border-color);
+}
+
+.seo-quicknav-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.01em;
+}
+
+.seo-quicknav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.seo-quicknav-btn {
+    display: block;
+    padding: 10px 14px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.seo-quicknav-btn:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+}
+
+.seo-quicknav-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .seo-quicknav {
+        margin: 1rem;
+        padding: 1.25rem;
+    }
+
+    .seo-quicknav-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .seo-quicknav-btn {
+        font-size: 0.85rem;
+        padding: 9px 10px;
+    }
+}
+
 .seo-content {
     max-width: 900px;
     margin: 3rem auto;
