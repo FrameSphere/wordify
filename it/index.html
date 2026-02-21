@@ -99,10 +99,29 @@
         </div>
 
         <section class="how-to-play">
-            <button class="how-to-play-toggle" onclick="toggleHowToPlay()"><h3 class="section-title" id="howToPlayTitle">Come funziona</h3></button>
+            <button class="how-to-play-toggle" onclick="toggleHowToPlay()" aria-expanded="false">
+                <h3 class="section-title" id="howToPlayTitle">Come funziona</h3>
+                <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
             <div class="instructions collapsed">
-                <div class="instruction-item"><span class="instruction-number">1</span><p id="instruction1">Inserisci una parola di 5 lettere</p></div>
-                <div class="instruction-item"><span class="instruction-number">2</span><p id="instruction2">I colori mostrano quanto sei vicino</p></div>
+                <div class="instruction-item">
+                    <span class="instruction-number">1</span>
+                    <p id="instruction1">Inserisci una parola di 5 lettere</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">2</span>
+                    <p id="instruction2">I colori mostrano quanto sei vicino</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">3</span>
+                    <p id="instruction3">Verde = corretto, Giallo = posizione sbagliata</p>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-number">4</span>
+                    <p id="instruction4">Hai 6 tentativi per indovinare</p>
+                </div>
             </div>
         </section>
 
