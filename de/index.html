@@ -122,11 +122,23 @@
                 </button>
             </div>
             <div style="text-align:center; margin-top: 10px;">
-                <a href="/de/wort-des-tages.html" class="btn" style="display:inline-flex; align-items:center; gap:8px; background: linear-gradient(135deg, #f59e0b, #d97706); color:white; text-decoration:none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(245,158,11,0.35); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 14px rgba(245,158,11,0.5)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(245,158,11,0.35)'">
+                <a id="wdtBtn" href="/de/wort-des-tages.html" class="btn" style="display:inline-flex; align-items:center; gap:8px; background: linear-gradient(135deg, #f59e0b, #d97706); color:white; text-decoration:none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(245,158,11,0.35); transition: background 0.3s, transform 0.15s, box-shadow 0.15s;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    Wort des Tages
+                    <span id="wdtBtnLabel">Wort des Tages</span>
                 </a>
             </div>
+            <script>
+            (function(){
+                var d = new Date();
+                var key = 'wdt_won_' + d.getUTCFullYear() + '-' + (d.getUTCMonth()+1) + '-' + d.getUTCDate();
+                if (localStorage.getItem(key) === '1') {
+                    var btn = document.getElementById('wdtBtn');
+                    var lbl = document.getElementById('wdtBtnLabel');
+                    if (btn) { btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)'; btn.style.boxShadow = '0 2px 8px rgba(34,197,94,0.4)'; }
+                    if (lbl) lbl.textContent = '✓ Wort des Tages';
+                }
+            })();
+            </script>
         </div>
 
         <!-- How to Play Section (Collapsible) -->
