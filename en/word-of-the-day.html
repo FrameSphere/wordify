@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word of the Day – Daily Word Puzzle | Wordify</title>
+    <meta name="description" content="The daily Word of the Day puzzle on Wordify. A new 5-letter English word every day for all players – guess it in 6 tries!">
+    <link rel="canonical" href="https://wordify.pages.dev/en/word-of-the-day.html">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/wdt-style.css">
+</head>
+<body
+    data-msg-short="Please enter a 5-letter word!"
+    data-msg-unknown="Unknown word!"
+    data-share-prefix="Wordify – Word of the Day 🗓️"
+    data-share-url="wordify.pages.dev/en/word-of-the-day.html"
+>
+
+<div class="wdt-page">
+
+    <div class="wdt-topbar">
+        <a href="/en/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to game
+        </a>
+        <button class="icon-btn" onclick="wdtToggleTheme()" aria-label="Toggle theme">
+            <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path class="sun-icon"  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <header class="wdt-header">
+        <div class="wdt-logo"><span class="wdt-logo-icon">W</span> Wordify</div>
+        <div class="wdt-title">🗓️ Word of the Day</div>
+        <div class="wdt-subtitle">One word for everyone – new every day at midnight</div>
+        <div class="wdt-date" id="todayDate"></div>
+        <div class="wdt-countdown">Next word in <span id="countdown">--:--:--</span></div>
+    </header>
+
+    <div id="wdtBanner" class="wdt-banner" hidden>
+        You've already played today's puzzle.<br>
+        <strong>The next word appears tomorrow at midnight.</strong>
+    </div>
+
+    <div class="game-container">
+        <div class="message" id="message"></div>
+        <div class="board"    id="board"></div>
+        <div class="keyboard" id="keyboard"></div>
+    </div>
+
+</div>
+
+<div class="win-modal-overlay" id="wdtModal" style="display:none;">
+    <div class="win-modal">
+
+        <div id="stateWin" hidden>
+            <div class="win-header">
+                <div class="win-icon">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="win-title">Fantastic!</div>
+                <div class="win-text">Guessed in <span id="attemptCount">?</span> of 6 tries</div>
+            </div>
+        </div>
+
+        <div id="stateLose" hidden>
+            <div class="win-header">
+                <div class="win-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b);box-shadow:0 8px 20px rgba(231,76,60,.3);">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div class="win-title">Too bad!</div>
+                <div class="win-text">No worries – try again tomorrow!</div>
+            </div>
+        </div>
+
+        <div class="win-stats">
+            <div class="win-stat"><div class="stat-label">Played</div><div class="stat-value" id="statPlayed">0</div></div>
+            <div class="win-stat"><div class="stat-label">Won</div><div class="stat-value" id="statWon">0%</div></div>
+            <div class="win-stat"><div class="stat-label">Streak</div><div class="stat-value" id="statStreak">0</div></div>
+            <div class="win-stat"><div class="stat-label">Max</div><div class="stat-value" id="statMax">0</div></div>
+        </div>
+
+        <div class="wdt-modal-word" id="modalWordBox">
+            <div class="wdt-modal-word-label">
+                <span id="wordLabelWon">The word of the day</span>
+                <span id="wordLabelLost" hidden>The answer was</span>
+            </div>
+            <div class="wdt-modal-word-value" id="modalWordValue"></div>
+        </div>
+
+        <div class="wdt-emoji-result" id="emojiResult"></div>
+
+        <div class="wdt-next">
+            Next word of the day in <strong><span id="modalCountdown">--:--:--</span></strong>
+        </div>
+
+        <div class="win-actions">
+            <button class="win-btn win-btn-primary" id="wdtShareBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Share result
+            </button>
+            <a href="/en/" class="win-btn win-btn-secondary" style="text-decoration:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                Back to normal game
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+window.WDT_CONFIG = {
+    lang: 'en',
+    keyboard: [
+        ['Q','W','E','R','T','Y','U','I','O','P'],
+        ['A','S','D','F','G','H','J','K','L'],
+        ['Enter','Z','X','C','V','B','N','M','⌫']
+    ],
+    dailyWords: [
+        "ABOUT","ABOVE","ABUSE","ACTOR","ACUTE","ADMIT","ADOPT","ADULT","AFTER","AGAIN",
+        "AGENT","AGREE","AHEAD","ALARM","ALBUM","ALERT","ALIEN","ALIGN","ALIKE","ALIVE",
+        "ALLEY","ALLOW","ALONE","ALONG","ALTER","AMBER","ANGEL","ANGER","ANGLE","ANKLE",
+        "APART","APPLE","APPLY","ARENA","ARGUE","ARISE","ARMOR","AROMA","AROSE","ARRAY",
+        "ARROW","ASIDE","ASSET","ATLAS","ATTIC","AUDIO","AUDIT","AVOID","AWAKE","AWARD",
+        "AWARE","AWFUL","BASIC","BASIS","BATCH","BEACH","BEARD","BEAST","BEGIN","BELOW",
+        "BENCH","BIBLE","BIRTH","BLACK","BLADE","BLAME","BLAND","BLANK","BLAST","BLAZE",
+        "BLEED","BLEND","BLESS","BLIND","BLOCK","BLOOD","BLOOM","BLOWN","BLUES","BLUNT",
+        "BOARD","BONUS","BOOST","BOOTH","BOUND","BOXED","BRACE","BRAIN","BRAND","BRAVE",
+        "BREAD","BREAK","BRICK","BRIDE","BRIEF","BRING","BROAD","BROKE","BROOK","BROWN",
+        "BRUSH","BUILD","BUILT","BUNCH","BURST","BUYER","CABIN","CABLE","CAMEL","CANDY",
+        "CARRY","CATCH","CAUSE","CHAIN","CHAIR","CHAOS","CHARM","CHASE","CHEAP","CHECK",
+        "CHEEK","CHESS","CHEST","CHIEF","CHILD","CHILL","CHOIR","CHORD","CLAIM","CLASH",
+        "CLASS","CLEAN","CLEAR","CLERK","CLICK","CLIFF","CLIMB","CLING","CLOCK","CLOSE",
+        "CLOUD","COACH","COAST","COMET","COMIC","COMMA","CORAL","COUNT","COURT","COVER",
+        "CRACK","CRAFT","CRANE","CRASH","CRAZY","CREAM","CREEK","CRIME","CRISP","CROSS",
+        "CROWD","CROWN","CRUSH","CURVE","CYCLE","DAILY","DANCE","DATUM","DEALT","DECAY",
+        "DECOY","DELAY","DELTA","DENSE","DEPTH","DERBY","DEVIL","DIARY","DISCO","DITCH",
+        "DIVER","DIZZY","DODGE","DOUBT","DOUGH","DRAFT","DRAIN","DRAMA","DRANK","DRAWL",
+        "DRAWN","DREAM","DRESS","DRIFT","DRILL","DRINK","DRIVE","DROVE","DRYER","DYING",
+        "EAGER","EARLY","EARTH","EIGHT","ELITE","EMPTY","ENEMY","ENJOY","ENTER","ENTRY",
+        "EQUAL","ERROR","ESSAY","EVENT","EVERY","EXACT","EXILE","EXTRA","FABLE","FAINT",
+        "FAIRY","FAITH","FALSE","FANCY","FATAL","FAULT","FEAST","FENCE","FERRY","FEVER",
+        "FIELD","FIERY","FIFTH","FIFTY","FIGHT","FINAL","FIRST","FIXED","FLAME","FLASH",
+        "FLEET","FLESH","FLOAT","FLOOD","FLOOR","FLOUR","FLUID","FLUTE","FOCUS","FORCE",
+        "FORGE","FORTH","FORUM","FOUND","FRAME","FRANK","FRAUD","FRESH","FRONT","FROST",
+        "FRUIT","FULLY","FUNNY","GIANT","GIVEN","GLAND","GLASS","GLOOM","GLORY","GLOSS",
+        "GLOVE","GOING","GRACE","GRADE","GRAIN","GRAND","GRANT","GRASP","GRASS","GRAVE",
+        "GREAT","GREEN","GREET","GRIEF","GRIND","GROAN","GROOM","GROSS","GROUP","GROVE",
+        "GROWN","GUARD","GUESS","GUEST","GUIDE","GUILD","GUILE","GUILT","GUISE","GULCH",
+        "HABIT","HAPPY","HARSH","HAVEN","HEART","HEAVY","HEIST","HERBS","HINGE","HONOR",
+        "HORSE","HOTEL","HOVEL","HUMAN","HUMID","HURRY","HYPER","IMAGE","IMPLY","INBOX",
+        "INNER","INPUT","INTRO","ISSUE","IVORY","JAZZY","JEWEL","JOINT","JOKER","JUDGE",
+        "JUICE","JUICY","JUMBO","KAYAK","KNIFE","KNOCK","KNOWN","LABEL","LANCE","LARGE",
+        "LASER","LATCH","LATER","LAUGH","LAYER","LEACH","LEARN","LEASE","LEAVE","LEGAL",
+        "LEVEL","LIGHT","LIMIT","LINEN","LINER","LIONS","LIVER","LLAMA","LOCAL","LODGE",
+        "LOGIC","LOOSE","LOVER","LOWER","LOYAL","LUCKY","LUNAR","LUNCH","LUSTY","LYING",
+        "MAGIC","MAJOR","MAKER","MANOR","MAPLE","MARCH","MATCH","MAYBE","MEDAL","MERCY",
+        "MERGE","MERRY","METAL","MIGHT","MINOR","MINUS","MIRTH","MIXED","MODEL","MONEY",
+        "MONTH","MORAL","MOUSE","MOUTH","MOVIE","MUSIC","NAIVE","NERVE","NIGHT","NOBLE",
+        "NOISE","NORTH","NOTED","NOVEL","NURSE","NYMPH","OCCUR","OCEAN","OFFER","OFTEN",
+        "OLIVE","ONSET","OPERA","ORBIT","ORDER","OTHER","OUGHT","OUTER","OXIDE","OZONE",
+        "PAINT","PANEL","PAPER","PARTY","PASTA","PATCH","PEACE","PEACH","PEARL","PENNY",
+        "PHASE","PHONE","PHOTO","PIANO","PIECE","PILOT","PINCH","PITCH","PIXEL","PIZZA",
+        "PLACE","PLAIN","PLANE","PLANT","PLATE","PLAZA","PLEAD","PLUCK","PLUMB","PLUME",
+        "PLUNGE","POINT","POLAR","POPPY","POSIT","POWER","PRESS","PRICE","PRIDE","PRIME",
+        "PRINT","PRIOR","PRIZE","PROBE","PRONE","PROOF","PROUD","PROVE","PROXY","PSALM",
+        "PULSE","PUNCH","PUPIL","PURSE","QUEEN","QUERY","QUEST","QUEUE","QUICK","QUIET",
+        "QUOTA","QUOTE","RADAR","RADIO","RAISE","RALLY","RANCH","RANGE","RAPID","RATIO",
+        "REACH","REACT","READY","REALM","REBEL","REIGN","RELAX","REMIX","REPAY","RIDER",
+        "RIDGE","RIFLE","RIGHT","RIGID","RISKY","RIVAL","RIVER","ROAST","ROBIN","ROBOT",
+        "ROCKY","ROUGE","ROUGH","ROUND","ROUTE","ROVER","ROYAL","RULER","RUSTY","SAINT",
+        "SALAD","SAUCE","SCALE","SCARE","SCENE","SCENT","SCOPE","SCORE","SCOUT","SEIZE",
+        "SENSE","SERVE","SETUP","SEVEN","SHADE","SHAFT","SHAKE","SHALL","SHAME","SHAPE",
+        "SHARE","SHARK","SHARP","SHELF","SHELL","SHIFT","SHINY","SHOCK","SHOOT","SHORT",
+        "SHOUT","SIGHT","SILLY","SINCE","SIXTH","SIXTY","SKILL","SKULL","SLATE","SLAVE",
+        "SLEEP","SLICE","SLIDE","SLIM","SLOPE","SMART","SMELL","SMILE","SMOKE","SNAKE",
+        "SOLAR","SOLID","SOLVE","SORRY","SOUTH","SPACE","SPARE","SPARK","SPEAK","SPEND",
+        "SPICE","SPILL","SPINE","SPITE","SPLIT","SPOKE","SPOON","SPRAY","SQUAD","STACK",
+        "STAFF","STAGE","STAIN","STALE","STALL","STAMP","STAND","STARE","START","STATE",
+        "STAYS","STEAM","STEEL","STEEP","STEER","STERN","STICK","STIFF","STILL","STING",
+        "STOCK","STOMP","STONE","STOOD","STORE","STORM","STORY","STOVE","STRAP","STRAW",
+        "STUDY","STUFF","STYLE","SUGAR","SUITE","SUNNY","SUPER","SURGE","SWAMP","SWEAR",
+        "SWEEP","SWEET","SWEPT","SWIFT","SWIRL","SWOOP","SWORD","TABLE","TASTE","TEACH",
+        "TEARS","TEETH","TEMPO","TENSE","TENTH","THEIR","THEME","THERE","THESE","THICK",
+        "THING","THINK","THIRD","THORN","THOSE","THREE","THREW","THROW","THUMB","TIGER",
+        "TIGHT","TIMER","TIRED","TITLE","TODAY","TOKEN","TOPIC","TOTAL","TOUCH","TOWEL",
+        "TOWER","TOXIC","TRACK","TRADE","TRAIL","TRAIN","TRAIT","TRAMP","TRASH","TRIAL",
+        "TRIBE","TRICK","TRIED","TROOP","TROTH","TRUCK","TRULY","TRUST","TRUTH","TUMOR",
+        "TUNER","TWIST","ULTRA","UNCLE","UNDER","UNIFY","UNION","UNITY","UNTIL","UPPER",
+        "UPSET","USAGE","USHER","USUAL","UTTER","VALID","VALUE","VALVE","VENUE","VICAR",
+        "VIGOR","VINYL","VIRAL","VISIT","VISTA","VITAL","VIVID","VOCAL","VOICE","VOTER",
+        "WAGON","WASTE","WATCH","WATER","WEARY","WEAVE","WEDGE","WEIGH","WEIRD","WHALE",
+        "WHEAT","WHERE","WHICH","WHILE","WHITE","WHOLE","WHOSE","WIDER","WIELD","WITCH",
+        "WORLD","WORRY","WORSE","WORST","WORTH","WOULD","WOUND","WRATH","WRITE","WRONG",
+        "YACHT","YIELD","YOUNG","YOUTH","ZEBRA","ZONAL"
+    ],
+    getValidWords: function () {
+        return (typeof WORDS_EN !== 'undefined' && Array.isArray(WORDS_EN)) ? WORDS_EN : null;
+    }
+};
+</script>
+<script src="/words/words_en.js"></script>
+<script src="/wdt-script.js"></script>
+</body>
+</html>

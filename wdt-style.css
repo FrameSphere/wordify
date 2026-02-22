@@ -1,0 +1,101 @@
+/* Page layout */
+body { align-items: flex-start; }
+.wdt-page { max-width: 600px; width: 100%; margin: 0 auto; padding: 0 0 60px; }
+
+/* Back link */
+.wdt-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 4px 0;
+    margin-bottom: 4px;
+}
+.back-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: var(--accent-primary); text-decoration: none;
+    font-size: 0.9rem; font-weight: 600;
+    transition: var(--transition);
+}
+.back-link:hover { color: var(--accent-hover); }
+
+/* Header */
+.wdt-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.wdt-logo {
+    font-size: 1.4rem; font-weight: 800;
+    color: var(--accent-primary); margin-bottom: 6px;
+}
+.wdt-logo-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 8px; color: white; font-weight: 900; font-size: 1.1rem;
+    margin-right: 6px; vertical-align: middle;
+}
+.wdt-title {
+    font-size: 1.6rem; font-weight: 800;
+    color: var(--text-primary); margin-bottom: 4px;
+}
+.wdt-subtitle { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px; }
+.wdt-date {
+    display: inline-block; font-size: 0.8rem; font-weight: 700;
+    color: var(--accent-primary); background: var(--bg-secondary);
+    border: 1px solid var(--border-color); border-radius: 20px; padding: 3px 14px;
+    margin-bottom: 4px;
+}
+.wdt-countdown {
+    font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;
+}
+.wdt-countdown span {
+    font-weight: 700; color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Already-played banner */
+.wdt-banner {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 12px; padding: 12px 18px;
+    text-align: center; margin-bottom: 16px;
+    font-size: 0.9rem; color: var(--text-secondary);
+}
+.wdt-banner strong { color: var(--text-primary); }
+
+/* Win / Lose Modal – reuse win-modal-overlay styles from style.css */
+.wdt-modal-word {
+    margin: 25px 0 20px;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 15px; text-align: center;
+}
+.wdt-modal-word.lost {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+.wdt-modal-word-label {
+    font-size: 0.85rem; color: rgba(255,255,255,.8);
+    margin: 0 0 6px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em;
+}
+.wdt-modal-word-value {
+    font-size: 2rem; font-weight: 900; color: white;
+    letter-spacing: .15em; text-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+.wdt-emoji-result {
+    font-size: 1.3rem; line-height: 1.6; letter-spacing: 2px;
+    background: var(--bg-tertiary); border-radius: 10px;
+    padding: 12px; margin-bottom: 16px;
+}
+.wdt-next {
+    font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;
+}
+.wdt-next strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+/* Shake animation */
+.shake { animation: wdtShake .4s ease; }
+@keyframes wdtShake {
+    0%,100%{transform:translateX(0)}
+    20%,60%{transform:translateX(-6px)}
+    40%,80%{transform:translateX(6px)}
+}

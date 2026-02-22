@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mot du Jour – Jeu de mots quotidien | Wordify</title>
+    <meta name="description" content="Le Mot du Jour sur Wordify. Un nouveau mot français de 5 lettres chaque jour pour tous les joueurs – devinez-le en 6 essais !">
+    <link rel="canonical" href="https://wordify.pages.dev/fr/mot-du-jour.html">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/wdt-style.css">
+</head>
+<body
+    data-msg-short="Veuillez saisir un mot de 5 lettres !"
+    data-msg-unknown="Mot inconnu !"
+    data-share-prefix="Wordify – Mot du Jour 🗓️"
+    data-share-url="wordify.pages.dev/fr/mot-du-jour.html"
+>
+
+<div class="wdt-page">
+
+    <div class="wdt-topbar">
+        <a href="/fr/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Retour au jeu
+        </a>
+        <button class="icon-btn" onclick="wdtToggleTheme()" aria-label="Changer le thème">
+            <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path class="sun-icon"  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                <path class="moon-icon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <header class="wdt-header">
+        <div class="wdt-logo"><span class="wdt-logo-icon">W</span> Wordify</div>
+        <div class="wdt-title">🗓️ Mot du Jour</div>
+        <div class="wdt-subtitle">Un mot pour tous – nouveau chaque jour à minuit</div>
+        <div class="wdt-date" id="todayDate"></div>
+        <div class="wdt-countdown">Prochain mot dans <span id="countdown">--:--:--</span></div>
+    </header>
+
+    <div id="wdtBanner" class="wdt-banner" hidden>
+        Vous avez déjà joué le puzzle d'aujourd'hui.<br>
+        <strong>Le prochain mot apparaît demain à minuit.</strong>
+    </div>
+
+    <div class="game-container">
+        <div class="message" id="message"></div>
+        <div class="board"    id="board"></div>
+        <div class="keyboard" id="keyboard"></div>
+    </div>
+
+</div>
+
+<div class="win-modal-overlay" id="wdtModal" style="display:none;">
+    <div class="win-modal">
+
+        <div id="stateWin" hidden>
+            <div class="win-header">
+                <div class="win-icon">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="win-title">Fantastique !</div>
+                <div class="win-text">Trouvé en <span id="attemptCount">?</span> essais sur 6</div>
+            </div>
+        </div>
+
+        <div id="stateLose" hidden>
+            <div class="win-header">
+                <div class="win-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b);box-shadow:0 8px 20px rgba(231,76,60,.3);">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div class="win-title">Dommage !</div>
+                <div class="win-text">Pas de souci – réessayez demain !</div>
+            </div>
+        </div>
+
+        <div class="win-stats">
+            <div class="win-stat"><div class="stat-label">Joués</div><div class="stat-value" id="statPlayed">0</div></div>
+            <div class="win-stat"><div class="stat-label">Gagnés</div><div class="stat-value" id="statWon">0%</div></div>
+            <div class="win-stat"><div class="stat-label">Série</div><div class="stat-value" id="statStreak">0</div></div>
+            <div class="win-stat"><div class="stat-label">Max</div><div class="stat-value" id="statMax">0</div></div>
+        </div>
+
+        <div class="wdt-modal-word" id="modalWordBox">
+            <div class="wdt-modal-word-label">
+                <span id="wordLabelWon">Le mot du jour</span>
+                <span id="wordLabelLost" hidden>Le mot était</span>
+            </div>
+            <div class="wdt-modal-word-value" id="modalWordValue"></div>
+        </div>
+
+        <div class="wdt-emoji-result" id="emojiResult"></div>
+
+        <div class="wdt-next">
+            Prochain mot du jour dans <strong><span id="modalCountdown">--:--:--</span></strong>
+        </div>
+
+        <div class="win-actions">
+            <button class="win-btn win-btn-primary" id="wdtShareBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Partager le résultat
+            </button>
+            <a href="/fr/" class="win-btn win-btn-secondary" style="text-decoration:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                Retour au jeu normal
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+window.WDT_CONFIG = {
+    lang: 'fr',
+    keyboard: [
+        ['A','Z','E','R','T','Y','U','I','O','P'],
+        ['Q','S','D','F','G','H','J','K','L','M'],
+        ['Enter','W','X','C','V','B','N','É','⌫']
+    ],
+    dailyWords: [
+        "ABIME","ABORD","ABOUT","ABRIS","ACHAT","ACIDE","ACIER","ACORD","ACTIF","ACUTE",
+        "ADIEU","ADMET","ADOBE","ADOPTE","ADORE","ADOUX","AGILE","AGITE","AGONI","AGORA",
+        "AIGLE","AIMER","AIRER","ALEAS","ALENE","ALGER","ALIBI","ALIEN","ALOES","ALORS",
+        "AMBRE","AMOUR","ANCRE","ANIME","ANNEE","APOGE","APPEL","ARBRE","ARDEU","ARENE",
+        "ARMET","AROBE","AROMI","ARRET","ASILE","ATLAS","ATROX","AUDIO","AVIDE","AVOIR",
+        "BAGUE","BAILE","BARRE","BASER","BASME","BATIR","BAUME","BAZAR","BERCE","BIBLE",
+        "BILAN","BLASE","BLEME","BLERE","BLOCS","BOITE","BOMBE","BONNE","BORDE","BOTTE",
+        "BOULE","BOVIN","BRAVE","BREVE","BRIDE","BRUME","BRUIT","BULLE","CABLE","CACHE",
+        "CALME","CARRE","CARTE","CAUSE","CHAMP","CHAOS","CHAUD","CHENE","CHERE","CHIEN",
+        "CHOIX","CIBLE","CITEE","CIVISME","CLAME","CLAIR","CLONE","COEUR","COLME","COMTE",
+        "CONGE","CONTE","CORPS","CORSE","COULE","COUPE","COURS","COURT","CRANE","CREDO",
+        "CRIME","CRIRE","CROIS","CROIS","CUIRE","CYCLE","DANSE","DEBUT","DECOR","DELTA",
+        "DENSE","DEPOT","DESIR","DETTE","DEVOT","DIETE","DIGNE","DROIT","ECLAT","ECOLE",
+        "EGALE","EGLOB","ELEVE","EMAIL","EMOTE","EMULE","EPAIS","EPICE","EPOUX","ERRER",
+        "ESSAI","ETANG","ETAPE","ETOIL","EVEIL","EXACT","EXIGE","EXILE","EXTRA","FABLE",
+        "FACET","FAITE","FALSE","FARCE","FARDE","FAUTE","FICHE","FIERE","FILET","FIXED",
+        "FLEAU","FLECHE","FLORE","FLUET","FOLIE","FORCE","FORGE","FORET","FORME","FORTE",
+        "FOSSE","FOYER","FRANC","FRONT","FUGUE","FUMEE","GAINE","GENRE","GLACE","GLOBE",
+        "GLOIRE","GORGE","GRACE","GRADE","GRAIN","GREVE","GRIEF","GRIPE","GROND","GROPE",
+        "GUETE","GUISE","GUSTO","HEROS","HIVER","HOULE","HUILE","HUMAN","IDEAL","IMAGE",
+        "INDUE","INERT","INTIME","IRATE","JOUER","JOLIE","JOUER","JUGEM","KARMA","LABEL",
+        "LANCE","LARGE","LASER","LAURE","LECON","LEGER","LEVRE","LIANE","LIEGE","LIMER",
+        "LINGE","LISTE","LIVRE","LOGER","LOURD","LOYAL","LUEUR","LUTTE","MAGIE","MALIN",
+        "MARCE","MARGE","MARIN","MASSE","MECHE","MELEE","METAL","METIS","METRE","MITRE",
+        "MIXTE","MONDE","MONTE","MORAL","MORSE","MORTE","MOTIF","MOULIN","MOULE","MOUSSE",
+        "NAIVE","NAPPE","NOBLE","NOIRE","NORME","NOTER","NOYER","NUAGE","NUIRE","NYLON",
+        "OBJET","OCEAN","ODEUR","OFFRE","OMBLE","OPERE","ORDRE","ORGUE","ORNER","OZONE",
+        "PALME","PANNE","PAPEL","PARCE","PAROI","PATTE","PAUSE","PECHE","PENTE","PETIT",
+        "PIEUX","PIEGE","PILIER","PISTE","PIVOT","PLAGE","PLAIN","PLEIN","PLIER","PLOMB",
+        "POIDS","POINT","POIRE","POMME","PORTE","POSER","POSTE","POUDR","PRISE","PROBE",
+        "PROSE","PROUE","PRUNE","PULSE","QUETE","QUEUE","QUITE","RABOT","RADAR","RAMPE",
+        "RASER","RATIF","RAYON","REGLE","REINS","REJET","RENEW","REPAS","RESTE","REVEL",
+        "REVUE","RIDER","RONDE","ROUGE","ROUTE","RUSER","SABLE","SACRE","SAIGE","SAINT",
+        "SANTE","SAUGE","SAULE","SAVON","SCENE","SEING","SENSE","SERIE","SIGNE","SIRLO",
+        "SOBRE","SOEUR","SOINS","SOIREE","SOLAR","SONDE","SORTE","SOUDE","SOUCI","SOUPE",
+        "STADE","STYLE","SUITE","SUJET","TABLE","TACHE","TAPIS","TEMPE","TENUE","THESE",
+        "TIEDE","TIMBRE","TITRE","TOMBE","TONNE","TOTEM","TOUER","TOUET","TOUGH","TOWER",
+        "TRACE","TRAIN","TRAIT","TRAME","TREMP","TRIAL","TRIBU","TRISTE","TRONE","TROPE",
+        "TROUS","TROUV","TUILE","ULCER","UNIR","UNITE","USAGE","USINE","UTILE","VALSE",
+        "VALVE","VARIER","VENUE","VERGE","VERRE","VERSE","VERTU","VESTE","VIDER","VIGNE",
+        "VIPER","VIRAL","VISER","VITRE","VOIRE","VOLET","VOTER","VOUER","VOYOU","ZEBRE"
+    ],
+    getValidWords: function () {
+        return (typeof WORDS_FR !== 'undefined' && Array.isArray(WORDS_FR)) ? WORDS_FR : null;
+    }
+};
+</script>
+<script src="/words/words_fr.js"></script>
+<script src="/wdt-script.js"></script>
+</body>
+</html>
