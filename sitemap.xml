@@ -72,6 +72,499 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/en/"/>
   </url>
 
+  <!--SEO Pages-->
+  <!--Wort des Tages DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/wort-des-tages.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wort-des-tages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/word-of-the-day.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/palabra-del-dia.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/mot-du-jouer.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/parola-del-giorno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Wort des Tages EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/word-of-the-day.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wort-des-tages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/word-of-the-day.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/palabra-del-dia.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/mot-du-jouer.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/parola-del-giorno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Wort des Tages ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/palabra-del-dia.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wort-des-tages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/word-of-the-day.html"/>
+    <xhtml:linkrel="alternate" hreflang="es" href="https://wordify.pages.dev/es/palabra-del-dia.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/mot-du-jouer.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/parola-del-giorno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Wort des Tages FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/mot-du-jouer.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wort-des-tages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/word-of-the-day.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/palabra-del-dia.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/mot-du-jouer.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/parola-del-giorno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Wort des Tages IT-->
+  <url>
+    <loc>https://wordify.pages.dev/it/parola-del-giorno.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wort-des-tages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/word-of-the-day.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/palabra-del-dia.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/mot-du-jouer.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/parola-del-giorno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--FAQ DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/haeufige-fragen.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/haeufige-fragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/preguntas-frecuentes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/questions-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--FAQ EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/faq.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+      <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/haeufige-fragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/preguntas-frecuentes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/questions-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+
+  </url>
+
+  <!--FAQ ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/depreguntas-frecuentes.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/haeufige-fragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/preguntas-frecuentes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/questions-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--FAQ FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/questions-frequentes.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/haeufige-fragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/preguntas-frecuentes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/questions-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--FAQ IT-->
+  <url>
+    <loc>https://wordify.pages.dev/it/domande-frequenti.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/haeufige-fragen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/preguntas-frecuentes.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/questions-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/domande-frequenti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Tipps und Strategien DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/tipps-und-strategien.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/tipps-und-strategien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/tips-and-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/consejos-y-estrategias.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/conseils-et-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/consigli-e-strategie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Tipps und Strategien EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/tipps-und-strategien.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/tipps-und-strategien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/tips-and-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/consejos-y-estrategias.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/conseils-et-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/consigli-e-strategie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Tipps und Strategien ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/tipps-und-strategien.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/tipps-und-strategien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/tips-and-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/consejos-y-estrategias.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/conseils-et-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/consigli-e-strategie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Tipps und Strategien FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/tipps-und-strategien.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/tipps-und-strategien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/tips-and-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/consejos-y-estrategias.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/conseils-et-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/consigli-e-strategie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Tipps und Strategien IT-->
+  <url>
+    <loc>https://wordify.pages.dev/it/tipps-und-strategien.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/tipps-und-strategien.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/tips-and-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/consejos-y-estrategias.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/conseils-et-strategies.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/consigli-e-strategie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Warum Wordify spielen DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/warum-wordify-spielen.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/warum-wordify-spielen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/why-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/por-que-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/pourquoi-jouer-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/perche-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Warum Wordify spielen EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/why-play-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/warum-wordify-spielen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/why-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/por-que-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/pourquoi-jouer-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/perche-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Warum Wordify spielen ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/por-que-jugar-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/warum-wordify-spielen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/why-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/por-que-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/pourquoi-jouer-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/perche-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Warum Wordify spielen FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/pourquoi-jouer-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/warum-wordify-spielen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/why-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/por-que-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/pourquoi-jouer-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/perche-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Warum Wordify spielen IT-->
+  <url>
+    <loc>https://wordify.pages.dev/de/perche-giocare-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/warum-wordify-spielen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/why-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/por-que-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/pourquoi-jouer-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/perche-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Was ist Wordify DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/was-ist-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/was-ist-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/whhat-is-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/que-es--wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/qu-est-ce-que-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/cos-e-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Was ist Wordify EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/what-is-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/was-ist-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/whhat-is-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/que-es--wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/qu-est-ce-que-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/cos-e-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Was ist Wordify ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/que-es-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/was-ist-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/whhat-is-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/que-es--wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/qu-est-ce-que-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/cos-e-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Was ist Wordify FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/qu-est-ce-que-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/was-ist-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/whhat-is-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/que-es--wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/qu-est-ce-que-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/cos-e-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Was ist Wordify IT-->
+  <url>
+    <loc>https://wordify.pages.dev/it/cos-e-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/was-ist-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/whhat-is-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/que-es--wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/qu-est-ce-que-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/cos-e-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Wie spiele ich wordify DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/wie-spiele-ich-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/how-to-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/como-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/comment-jouer.wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/come-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+
+  <!--Wie spiele ich wordify EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/how-to-play-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/how-to-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/como-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/comment-jouer.wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/come-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Wie spiele ich wordify ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/como-jugar-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/how-to-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/como-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/comment-jouer.wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/come-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Wie spiele ich wordify FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/comment-jouer-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/how-to-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/como-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/comment-jouer.wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/come-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Wie spiele ich wordify IT-->
+  <url>
+    <loc>https://wordify.pages.dev/it/come-giocare-wordify.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wie-spiele-ich-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/how-to-play-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/como-jugar-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/comment-jouer.wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/come-giocare-wordify.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Wordify 5 Sprachen DE-->
+  <url>
+    <loc>https://wordify.pages.dev/de/wordify-5-sprachen.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wordify-5-sprachen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/wordify-5-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/wordify-5-idiomas.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/wordify-5-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/wordify-5-lingue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Wordify 5 Sprachen EN-->
+  <url>
+    <loc>https://wordify.pages.dev/en/wordify-5-languages.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wordify-5-sprachen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/wordify-5-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/wordify-5-idiomas.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/wordify-5-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/wordify-5-lingue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+  <!--Wordify 5 Sprachen ES-->
+  <url>
+    <loc>https://wordify.pages.dev/es/wordify-5-idiomas.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wordify-5-sprachen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/wordify-5-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/wordify-5-idiomas.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/wordify-5-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/wordify-5-lingue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+    <!--Wordify 5 Sprachen FR-->
+  <url>
+    <loc>https://wordify.pages.dev/fr/wordify-5-idiomas.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wordify-5-sprachen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/wordify-5-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/wordify-5-idiomas.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/wordify-5-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/wordify-5-lingue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
+      <!--Wordify 5 Sprachen IT-->
+  <url>
+    <loc>https://wordify.pages.dev/it/wordify-5-lingue.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</changefreq>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/wordify-5-sprachen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/wordify-5-languages.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/wordify-5-idiomas.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/wordify-5-langues.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/wordify-5-lingue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wordify.pages.dev/"/>
+  </url>
+
   <!-- Main page -->
   <url>
     <loc>https://wordify.pages.dev/</loc>
