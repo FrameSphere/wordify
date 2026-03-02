@@ -77,6 +77,9 @@ const TRANSLATIONS = {
         maxStreak: 'Max Streak',
         notEnough: 'Nicht genug Buchstaben!',
         notInList: 'Wort nicht in der Liste!',
+        requestWord: 'Wort vorschlagen',
+        requestSent: '✓ Vorschlag gesendet!',
+        requestError: 'Fehler beim Senden',
         won: 'Gewonnen!',
         lost: 'Das Wort war: ',
         newGameStarted: 'Neues Spiel gestartet!',
@@ -113,6 +116,9 @@ const TRANSLATIONS = {
         maxStreak: 'Max Streak',
         notEnough: 'Not enough letters!',
         notInList: 'Word not in list!',
+        requestWord: 'Suggest word',
+        requestSent: '✓ Suggestion sent!',
+        requestError: 'Error sending',
         won: 'You won!',
         lost: 'The word was: ',
         newGameStarted: 'New game started!',
@@ -149,6 +155,9 @@ const TRANSLATIONS = {
         maxStreak: 'Racha Máx',
         notEnough: '¡No hay suficientes letras!',
         notInList: '¡Palabra no está en la lista!',
+        requestWord: 'Sugerir palabra',
+        requestSent: '✓ Sugerencia enviada!',
+        requestError: 'Error al enviar',
         won: '¡Ganaste!',
         lost: 'La palabra era: ',
         newGameStarted: '¡Nuevo juego iniciado!',
@@ -185,6 +194,9 @@ const TRANSLATIONS = {
         maxStreak: 'Série Max',
         notEnough: 'Pas assez de lettres!',
         notInList: 'Mot pas dans la liste!',
+        requestWord: 'Proposer ce mot',
+        requestSent: '✓ Proposition envoyée!',
+        requestError: "Erreur d'envoi",
         won: 'Vous avez gagné!',
         lost: 'Le mot était: ',
         newGameStarted: 'Nouveau jeu commencé!',
@@ -221,6 +233,9 @@ const TRANSLATIONS = {
         maxStreak: 'Serie Max',
         notEnough: 'Non abbastanza lettere!',
         notInList: 'Parola non nella lista!',
+        requestWord: 'Suggerisci parola',
+        requestSent: '✓ Suggerimento inviato!',
+        requestError: 'Errore di invio',
         won: 'Hai vinto!',
         lost: 'La parola era: ',
         newGameStarted: 'Nuovo gioco iniziato!',
@@ -505,7 +520,7 @@ function submitGuess() {
 
     const words = WORD_LISTS[currentLanguage];
     if (!words.includes(guess)) {
-        showMessage(t.notInList, 'error');
+        showMessageWithRequest(t.notInList, guess, currentLanguage);
         return;
     }
 
@@ -1087,6 +1102,86 @@ function closeFailModal() {
     if (modal) {
         modal.classList.add('closing');
         setTimeout(() => modal.remove(), 300);
+    }
+}
+
+// ========== WORT-ANFRAGE AN DASHBOARD ==========
+
+const DASHBOARD_API = 'https://webcontrol-hq-api.karol-paschek.workers.dev';
+
+// Zeigt Fehlermeldung + kleinen Anfrage-Button nebeneinander
+function showMessageWithRequest(text, word, language) {
+    const t = TRANSLATIONS[currentLanguage];
+
+    // Alten Timeout sicher löschen
+    if (message._hideTimeout) clearTimeout(message._hideTimeout);
+
+    // Inline: Text + Button
+    message.innerHTML = '';
+    message.className = 'message error';
+
+    const span = document.createElement('span');
+    span.textContent = text;
+
+    const btn = document.createElement('button');
+    btn.textContent = t.requestWord;
+    btn.style.cssText = [
+        'margin-left:10px',
+        'padding:2px 10px',
+        'font-size:0.75em',
+        'border:1px solid currentColor',
+        'border-radius:12px',
+        'background:transparent',
+        'color:inherit',
+        'cursor:pointer',
+        'opacity:0.85',
+        'transition:opacity 0.15s',
+        'vertical-align:middle',
+        'white-space:nowrap',
+    ].join(';');
+    btn.onmouseenter = () => btn.style.opacity = '1';
+    btn.onmouseleave = () => btn.style.opacity = '0.85';
+    btn.onclick = () => requestWord(word, language, btn);
+
+    message.appendChild(span);
+    message.appendChild(btn);
+
+    // Auto-hide nach 5 Sekunden (etwas länger wegen Button)
+    message._hideTimeout = setTimeout(() => {
+        message.innerHTML = '';
+        message.className = 'message';
+    }, 5000);
+}
+
+async function requestWord(word, language, btn) {
+    const t = TRANSLATIONS[currentLanguage];
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+
+    try {
+        const resp = await fetch(DASHBOARD_API + '/api/words', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                word:      word,
+                language:  language,
+                requested_at: new Date().toISOString(),
+            }),
+        });
+
+        if (resp.ok) {
+            // Erfolg: Button durch Checkmark ersetzen
+            btn.textContent = t.requestSent;
+            btn.style.opacity = '1';
+        } else {
+            btn.textContent = t.requestError;
+            btn.disabled = false;
+            btn.style.opacity = '0.85';
+        }
+    } catch (e) {
+        btn.textContent = t.requestError;
+        btn.disabled = false;
+        btn.style.opacity = '0.85';
     }
 }
 
