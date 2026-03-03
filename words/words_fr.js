@@ -1,5 +1,5 @@
-// French 5-letter words (Quest/Solution words)
-const WORDS_FR_QUEST = [
+// French 5-letter words
+const WORDS_FR = [
   'ABORD','ABEAU','ABIME','ABORD','ACIDE','ACIER','ACTIF','ADIEU','ADMET','AGILE',
   'AIDER','AIRER','ALLER','ALPHA','AMOUR','ANCRE','ANGLE','ANIME','APPEL','ARBRE',
   'ARDUE','ARGOT','ARMES','ARMER','ARTIC','ASSIS','ASTRE','ATOUT','AUDIO','AUSSI',

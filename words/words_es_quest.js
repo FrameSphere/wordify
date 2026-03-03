@@ -1,5 +1,5 @@
-// Spanish 5-letter words
-const WORDS_ES = [
+// Spanish 5-letter words (Quest/Solution words)
+const WORDS_ES_QUEST = [
   'ABAJO','ACABO','ACEBO','ACERO','ACIDO','ACTUA','ACTOR','AGUDA','AGUDO','ALCAN',
   'ALDEA','ALIAS','ALMAS','ALZAR','AMIGO','AMPLO','ANDAR','ANEXO','ANGEL','ANIMA',
   'ANIMO','ANOTA','APEGO','APOYO','ARBOL','ARENA','ARMAS','ARTES','ASADO','ASILO',

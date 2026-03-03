@@ -1,5 +1,5 @@
-// Italian 5-letter words (Quest/Solution words)
-const WORDS_IT_QUEST = [
+// Italian 5-letter words
+const WORDS_IT = [
   'AMORE','AMICI','ACQUA','AROMA','ABITO','AZZUR','BANCO',
   'BELLA','BRAVO','BREVE','BUONO','BASTA','BELLO','BOTTE','BOSCO','CALDO',
   'CAMPO','CANTO','CARRO','CARTA','CIELO','CORSA','CUORE','CASSA','CERCO',
