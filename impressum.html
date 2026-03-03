@@ -45,6 +45,59 @@
             background: var(--accent-hover);
             transform: translateY(-2px);
         }
+        /* Contact form section */
+        .contact-section {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color, rgba(255,255,255,0.1));
+        }
+        .contact-section h2 {
+            margin-top: 0;
+        }
+        .contact-section p {
+            margin-bottom: 20px;
+        }
+        #wfy-contact-name,
+        #wfy-contact-msg {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color, rgba(255,255,255,0.15));
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        #wfy-contact-name:focus,
+        #wfy-contact-msg:focus {
+            border-color: var(--accent-primary);
+        }
+        #wfy-contact-msg { resize: vertical; min-height: 120px; }
+        #wfy-contact-counter {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: right;
+            margin-bottom: 12px;
+        }
+        #wfy-contact-btn {
+            padding: 12px 28px;
+            border-radius: 12px;
+            background: var(--accent-primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: opacity 0.15s, transform 0.15s;
+        }
+        #wfy-contact-btn:hover:not(:disabled) { opacity: 0.85; transform: translateY(-1px); }
+        #wfy-contact-btn:disabled { opacity: 0.55; cursor: default; }
+        #wfy-contact-status { margin-top: 12px; font-size: 13px; min-height: 20px; }
     </style>
 </head>
 <body>
@@ -91,8 +144,98 @@
                 zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
             </p>
 
-            <a href="index.html" class="back-link">← Zurück zum Spiel</a>
+            <!-- Kontaktformular -->
+            <div class="contact-section" id="kontakt">
+                <h2 id="contact-heading">Kontakt &amp; Feedback</h2>
+                <p id="contact-desc">
+                    Hast du einen Fehler gefunden, einen Vorschlag oder eine Frage? Schreib uns direkt!
+                </p>
+                <input
+                    id="wfy-contact-name"
+                    type="text"
+                    placeholder="Dein Name (optional)"
+                    maxlength="60"
+                >
+                <textarea
+                    id="wfy-contact-msg"
+                    placeholder="Deine Nachricht…"
+                    maxlength="1000"
+                ></textarea>
+                <div id="wfy-contact-counter">0 / 1000</div>
+                <button id="wfy-contact-btn" onclick="wordifySubmitContact()">Senden</button>
+                <div id="wfy-contact-status"></div>
+            </div>
+
+            <a href="index.html" class="back-link" id="back-link">← Zurück zum Spiel</a>
         </div>
     </div>
+
+    <script src="/wordify-tracker.js"></script>
+    <script>
+        // Detect language from URL or referrer (/de/, /en/, etc.)
+        (function() {
+            var lang = 'de';
+            var match = document.referrer.match(/\/([a-z]{2})\//)
+                     || window.location.search.match(/[?&]lang=([a-z]{2})/);
+            if (match) lang = match[1];
+            // Override localStorage if present
+            var ls = localStorage.getItem('wordifyLanguage');
+            if (ls && ['de','en','es','fr','it'].includes(ls)) lang = ls;
+
+            // Localise static text
+            var strings = {
+                de: {
+                    heading: 'Kontakt &amp; Feedback',
+                    desc:    'Hast du einen Fehler gefunden, einen Vorschlag oder eine Frage? Schreib uns direkt!',
+                    name:    'Dein Name (optional)',
+                    msg:     'Deine Nachricht…',
+                    back:    '← Zurück zum Spiel'
+                },
+                en: {
+                    heading: 'Contact &amp; Feedback',
+                    desc:    'Found a bug, have a suggestion or a question? Write to us directly!',
+                    name:    'Your name (optional)',
+                    msg:     'Your message…',
+                    back:    '← Back to the game'
+                },
+                es: {
+                    heading: 'Contacto &amp; Feedback',
+                    desc:    '¿Encontraste un error, tienes una sugerencia o pregunta? ¡Esuírbenos directamente!',
+                    name:    'Tu nombre (opcional)',
+                    msg:     'Tu mensaje…',
+                    back:    '← Volver al juego'
+                },
+                fr: {
+                    heading: 'Contact &amp; Feedback',
+                    desc:    'Vous avez trouvé un bug, une suggestion ou une question ? Écrivez-nous directement !',
+                    name:    'Votre nom (optionnel)',
+                    msg:     'Votre message…',
+                    back:    '← Retour au jeu'
+                },
+                it: {
+                    heading: 'Contatto &amp; Feedback',
+                    desc:    'Hai trovato un errore, hai un suggerimento o una domanda? Scrivici direttamente!',
+                    name:    'Il tuo nome (facoltativo)',
+                    msg:     'Il tuo messaggio…',
+                    back:    '← Torna al gioco'
+                }
+            };
+            var s = strings[lang] || strings.de;
+            document.getElementById('contact-heading').innerHTML = s.heading;
+            document.getElementById('contact-desc').textContent  = s.desc;
+            document.getElementById('wfy-contact-name').placeholder = s.name;
+            document.getElementById('wfy-contact-msg').placeholder  = s.msg;
+            document.getElementById('back-link').textContent = s.back;
+
+            // Store so tracker picks up the right language
+            localStorage.setItem('wordifyLanguage', lang);
+
+            // Char counter
+            document.getElementById('wfy-contact-msg').addEventListener('input', function() {
+                document.getElementById('wfy-contact-counter').textContent =
+                    this.value.length + ' / 1000';
+            });
+        }());
+    </script>
 </body>
 </html>
