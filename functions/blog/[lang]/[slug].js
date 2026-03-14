@@ -107,6 +107,7 @@ function renderHTML(post, lang, m) {
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/style.css">
+  <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();<\/script>
 
   <style>
     body { background: var(--bg-primary); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: block !important; align-items: unset !important; justify-content: unset !important; padding: 0 !important; }
@@ -168,7 +169,10 @@ function renderHTML(post, lang, m) {
 
     <nav class="blog-nav" aria-label="Breadcrumb">
       <a href="${m.home}"><span class="logo-icon">W</span> Wordify</a>
-      <a href="${m.blogHome}">${m.backBlog}</a>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onclick="(function(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);})()" style="background:none;border:1px solid var(--border-color);color:var(--text-secondary);padding:4px 9px;border-radius:6px;cursor:pointer;font-size:16px;line-height:1" title="Theme">🌓</button>
+        <a href="${m.blogHome}">${m.backBlog}</a>
+      </div>
     </nav>
 
     <header>

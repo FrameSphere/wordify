@@ -8,6 +8,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/style.css">
+  <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
   <style>
     body { background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: block !important; align-items: unset !important; justify-content: unset !important; padding: 0 !important; }
 
@@ -57,6 +58,7 @@
     <span class="logo-icon">W</span> Wordify
   </a>
   <div class="header-right">
+    <button onclick="(function(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);})()" style="background:none;border:1px solid var(--border-color);color:var(--text-secondary);padding:4px 9px;border-radius:6px;cursor:pointer;font-size:16px;line-height:1" title="Theme wechseln">🌓</button>
     <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
       <option value="de">🇩🇪 DE</option>
       <option value="en">🇬🇧 EN</option>
