@@ -109,7 +109,7 @@ function renderHTML(post, lang, m) {
   <link rel="stylesheet" href="/style.css">
 
   <style>
-    body { background: var(--bg-primary); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background: var(--bg-primary); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: block !important; align-items: unset !important; justify-content: unset !important; padding: 0 !important; }
 
     .blog-post-page { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 
