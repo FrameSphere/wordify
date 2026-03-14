@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Wordify</title>
+  <meta name="description" content="Tipps, Strategien und News rund um Wordify – das tägliche 5-Buchstaben Worträtsel.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654554314003005" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body { background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+    /* ── Header ── */
+    .blog-header { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .blog-logo { font-size: 20px; font-weight: 800; color: var(--accent-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .blog-logo .logo-icon { background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); color: #fff; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; }
+    .header-right { display: flex; align-items: center; gap: 14px; }
+    .back-link { color: var(--text-secondary); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .back-link:hover { color: var(--accent-primary); }
+    .lang-select { background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 4px 8px; border-radius: 6px; font-size: 13px; cursor: pointer; font-family: inherit; }
+    .lang-select option { background: var(--bg-secondary); }
+
+    /* ── Hero ── */
+    .blog-hero { text-align: center; padding: 48px 24px 28px; background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); }
+    .blog-hero h1 { font-size: 32px; font-weight: 800; color: var(--accent-primary); margin-bottom: 8px; }
+    .blog-hero p { color: var(--text-secondary); font-size: 15px; }
+
+    /* ── Filters ── */
+    .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 14px 24px; max-width: 860px; margin: 0 auto; }
+    .filter-btn { padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-secondary); font-size: 13px; cursor: pointer; transition: all .2s; font-family: inherit; }
+    .filter-btn:hover { border-color: var(--accent-primary); color: var(--text-primary); }
+    .filter-btn.active { background: var(--accent-primary); color: #fff; border-color: var(--accent-primary); }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 20px 24px 60px; }
+    #blog-loading, #blog-error, #blog-empty { text-align: center; padding: 60px 24px; color: var(--text-secondary); font-size: 15px; }
+    .posts-grid { display: flex; flex-direction: column; gap: 18px; }
+    .post-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 26px; transition: border-color .2s, transform .2s; text-decoration: none; color: inherit; display: block; }
+    .post-card:hover { border-color: var(--accent-primary); transform: translateY(-2px); }
+    .post-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+    .post-tag { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 20px; background: rgba(88,101,242,.15); color: var(--accent-primary); }
+    .post-date { font-size: 12px; color: var(--text-secondary); }
+    .post-title { font-size: 19px; font-weight: 700; margin-bottom: 5px; line-height: 1.35; }
+    .post-excerpt { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+    footer { text-align: center; padding: 28px 24px; color: var(--text-secondary); font-size: 13px; border-top: 1px solid var(--border-color); }
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    footer a:hover { color: var(--accent-primary); }
+    .sep { margin: 0 8px; }
+  </style>
+</head>
+<body>
+
+<header class="blog-header">
+  <a href="/de/" class="blog-logo" id="home-link">
+    <span class="logo-icon">W</span> Wordify
+  </a>
+  <div class="header-right">
+    <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
+      <option value="de">🇩🇪 DE</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+      <option value="it">🇮🇹 IT</option>
+    </select>
+    <a href="/de/" class="back-link" id="back-link">← Zum Spiel</a>
+  </div>
+</header>
+
+<div class="blog-hero">
+  <h1>📝 Blog</h1>
+  <p id="hero-sub">Tipps, Strategien und News rund um Wordify</p>
+</div>
+
+<div class="filters" id="filters">
+  <button class="filter-btn active" data-tag="all" id="filter-all">Alle</button>
+</div>
+
+<main>
+  <div id="blog-loading">Lädt Artikel…</div>
+  <div id="blog-error"   style="display:none"></div>
+  <div id="blog-empty"   style="display:none"></div>
+  <div id="posts-grid"   class="posts-grid" style="display:none"></div>
+</main>
+
+<footer>
+  <a href="/de/" id="footer-home">Wordify</a>
+  <span class="sep">·</span>
+  <a href="/impressum.html" id="footer-impressum">Impressum</a>
+  <span class="sep">·</span>
+  <a href="/datenschutz.html" id="footer-privacy">Datenschutz</a>
+  <p style="margin-top:10px">© 2026 Wordify · powered by <a href="https://frame-sphere.vercel.app">FrameSphere</a></p>
+</footer>
+
+<script>
+(function () {
+  const T = {
+    de: { back:'← Zum Spiel', heroSub:'Tipps, Strategien und News rund um Wordify', filterAll:'Alle',
+          loading:'Lädt Artikel…', error:'Fehler beim Laden. Bitte später versuchen.',
+          empty:'Noch keine Artikel – komm bald wieder!', impressum:'Impressum',
+          privacy:'Datenschutz', home:'/de/' },
+    en: { back:'← Back to Game', heroSub:'Tips, strategies and news about Wordify', filterAll:'All',
+          loading:'Loading articles…', error:'Failed to load. Please try again later.',
+          empty:'No articles yet – check back soon!', impressum:'Imprint',
+          privacy:'Privacy', home:'/en/' },
+    fr: { back:'← Retour au jeu', heroSub:'Conseils, stratégies et actualités sur Wordify', filterAll:'Tous',
+          loading:'Chargement…', error:'Échec du chargement. Réessayez plus tard.',
+          empty:'Aucun article pour l\'instant – revenez bientôt !', impressum:'Mentions légales',
+          privacy:'Confidentialité', home:'/fr/' },
+    es: { back:'← Volver al juego', heroSub:'Consejos, estrategias y noticias sobre Wordify', filterAll:'Todos',
+          loading:'Cargando…', error:'Error al cargar. Inténtalo más tarde.',
+          empty:'Aún no hay artículos – ¡vuelve pronto!', impressum:'Aviso legal',
+          privacy:'Privacidad', home:'/es/' },
+    it: { back:'← Torna al gioco', heroSub:'Consigli, strategie e notizie su Wordify', filterAll:'Tutti',
+          loading:'Caricamento…', error:'Caricamento fallito. Riprova più tardi.',
+          empty:'Nessun articolo ancora – torna presto!', impressum:'Note legali',
+          privacy:'Privacy', home:'/it/' },
+  };
+
+  function detectLang() {
+    const stored = localStorage.getItem('wordifyLanguage');
+    if (stored && T[stored]) return stored;
+    const nav = (navigator.language || '').slice(0, 2).toLowerCase();
+    return T[nav] ? nav : 'de';
+  }
+
+  let lang = detectLang();
+  let allPosts = [];
+  let activeTag = 'all';
+
+  function applyTranslations() {
+    const t = T[lang];
+    document.documentElement.lang = lang;
+    document.getElementById('back-link').textContent = t.back;
+    document.getElementById('back-link').href = t.home;
+    document.getElementById('home-link').href = t.home;
+    document.getElementById('hero-sub').textContent = t.heroSub;
+    document.getElementById('filter-all').textContent = t.filterAll;
+    document.getElementById('blog-loading').textContent = t.loading;
+    document.getElementById('blog-error').textContent = t.error;
+    document.getElementById('blog-empty').textContent = t.empty;
+    document.getElementById('footer-impressum').textContent = t.impressum;
+    document.getElementById('footer-privacy').textContent = t.privacy;
+    document.getElementById('footer-home').href = t.home;
+    document.getElementById('langSelect').value = lang;
+  }
+
+  window.setLang = function(l) {
+    if (!T[l]) return;
+    lang = l;
+    localStorage.setItem('wordifyLanguage', l);
+    applyTranslations();
+    loadPosts();
+  };
+
+  function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function fmtDate(d) {
+    const loc = { de:'de-DE', en:'en-GB', fr:'fr-FR', es:'es-ES', it:'it-IT' };
+    return new Date(d).toLocaleDateString(loc[lang]||'en-GB', {year:'numeric',month:'long',day:'numeric'});
+  }
+
+  function renderPosts(tag) {
+    activeTag = tag;
+    const grid  = document.getElementById('posts-grid');
+    const empty = document.getElementById('blog-empty');
+    const langPosts  = allPosts.filter(p => (p.lang || 'de') === lang);
+    const filtered = tag === 'all' ? langPosts : langPosts.filter(p => p.tags && p.tags.includes(tag));
+    if (!filtered.length) { grid.style.display='none'; empty.style.display=''; return; }
+    empty.style.display = 'none';
+    grid.style.display  = '';
+    grid.innerHTML = filtered.map(p => `
+      <a class="post-card" href="/blog/${lang}/${esc(p.slug||'')}">
+        <div class="post-meta">
+          ${(p.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="post-tag">${esc(t)}</span>`).join('')}
+          <span class="post-date">${fmtDate(p.created_at)}</span>
+        </div>
+        <div class="post-title">${esc(p.title)}</div>
+        ${p.excerpt ? `<div class="post-excerpt">${esc(p.excerpt)}</div>` : ''}
+      </a>`).join('');
+  }
+
+  function buildTagFilters() {
+    const tagSet = new Set();
+    allPosts.filter(p=>(p.lang||'de')===lang).forEach(p => {
+      (p.tags||'').split(',').forEach(t => { const s=t.trim(); if(s) tagSet.add(s); });
+    });
+    const container = document.getElementById('filters');
+    container.querySelectorAll('.filter-btn:not([data-tag="all"])').forEach(b => b.remove());
+    tagSet.forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn'; btn.dataset.tag = tag; btn.textContent = tag;
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active'); renderPosts(tag);
+      });
+      container.appendChild(btn);
+    });
+    document.getElementById('filter-all').onclick = function() {
+      container.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active'); renderPosts('all');
+    };
+  }
+
+  async function loadPosts() {
+    document.getElementById('blog-loading').style.display = '';
+    document.getElementById('blog-error').style.display   = 'none';
+    document.getElementById('blog-empty').style.display   = 'none';
+    document.getElementById('posts-grid').style.display   = 'none';
+    try {
+      const res = await fetch(`https://webcontrol-hq-api.karol-paschek.workers.dev/api/blog/published?site_id=wordify&lang=${lang}`);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      allPosts = await res.json();
+      document.getElementById('blog-loading').style.display = 'none';
+      if (!allPosts.length) { document.getElementById('blog-empty').style.display=''; return; }
+      buildTagFilters();
+      renderPosts('all');
+    } catch(e) {
+      document.getElementById('blog-loading').style.display = 'none';
+      document.getElementById('blog-error').style.display = '';
+    }
+  }
+
+  applyTranslations();
+  loadPosts();
+})();
+</script>
+</body>
+</html>

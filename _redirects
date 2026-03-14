@@ -1,0 +1,18 @@
+# ── Blog ──────────────────────────────────────────────────────────
+/blog/                   /blog/index.html        200
+/blog                    /blog/index.html        200
+
+# ── Language subdirectories ────────────────────────────────────────
+/de/                     /de/index.html          200
+/de/*                    /de/:splat              200
+/en/                     /en/index.html          200
+/en/*                    /en/:splat              200
+/fr/                     /fr/index.html          200
+/fr/*                    /fr/:splat              200
+/es/                     /es/index.html          200
+/es/*                    /es/:splat              200
+/it/                     /it/index.html          200
+/it/*                    /it/:splat              200
+
+# ── Root redirect ─────────────────────────────────────────────────
+/                        /de/                    302

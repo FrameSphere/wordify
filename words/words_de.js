@@ -140,7 +140,7 @@ const WORDS_DE = [
     'GESEN', 'GESTE', 'GETAN', 'GIBST', 'GIGAN', 'GIPFEL', 'GLANZ',
     'GLAUB', 'GLEIS', 'GLIED', 'GLÜCK', 'GNEIS', 'GOLDE', 'GOTTE',
     'GRABE', 'GRABS', 'GRASS', 'GRAUS', 'GREIF', 'GRIFF', 'GRILL',
-    'GRUND', 'GRÜNE', 'GUBEN', 'GUTEN',
+    'GRUND', 'GRÜNE', 'GUBEN', 'GUTEN', 'GALLE',
 
     'GÄNSE', 'GABEL', 'GAGEN', 'GALLS', 'GAMBE', 'GANGS', 'GARDE',
     'GASEN', 'GASTS', 'GEBEN', 'GEBOT', 'GEDEN', 'GELBE', 'GELEN',
@@ -321,7 +321,7 @@ const WORDS_DE = [
     'SANDT', 'SANDS', 'SAPPE', 'SARDE', 'SÄUFE', 'SÄUGE', 'SAUEN',
     'SAUGE', 'SAUMS', 'SAUNA', 'SCHAR', 'SCHEI', 'SCHEL', 'SCHER',
     'SCHLU', 'SCHMA', 'SCHOB', 'SCHOT', 'SCHUB', 'SCHUH', 'SCHUL',
-    'SCHUR',
+    'SCHUR', 'SUPER',
     'SEGEN', 'SEHEN', 'SEIDE', 'SEILS', 'SEITE', 'SEMME', 'SENDE',
     'SENSE', 'SENSE', 'SENKE', 'SENSE', 'SENTI', 'SEPEL', 'SERIE',
     'SERUM', 'SETZE', 'SEULE', 'SEXTE', 'SICHT', 'SIEBE', 'SIEHT',
