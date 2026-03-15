@@ -43,7 +43,31 @@ function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-const FB_API = 'https://webcontrol-hq-api.karol-paschek.workers.dev/api/blog/feedback';
+const FB_API  = 'https://webcontrol-hq-api.karol-paschek.workers.dev/api/blog/feedback';
+const ANA_API = 'https://webcontrol-hq-api.karol-paschek.workers.dev/api/blog/analytics';
+
+function blogAnalyticsScript(postId, postSlug, lang, siteId) {
+  return `<script>
+(function(){
+  var ANA='${ANA_API}';
+  var SID=localStorage.getItem('_ba_sid');
+  if(!SID){SID=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('_ba_sid',SID);}
+  var DEV=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?'mobile':'desktop';
+  var REF=document.referrer||'';
+  var START=Date.now();
+  var sent=false;
+  fetch(ANA,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({site_id:'${siteId}',post_id:${postId},post_slug:'${postSlug}',lang:'${lang}',event:'pageview',referrer:REF,device:DEV,session_id:SID})}).catch(function(){});
+  var maxScroll=0;
+  var milestones={25:false,50:false,75:false,100:false};
+  function onScroll(){var el=document.querySelector('.blog-post-body,.post-body');if(!el)return;var r=el.getBoundingClientRect();var pct=Math.min(100,Math.round((window.innerHeight-r.top)/(r.height||1)*100));if(pct>maxScroll)maxScroll=pct;[25,50,75,100].forEach(function(m){if(!milestones[m]&&maxScroll>=m){milestones[m]=true;fetch(ANA,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({site_id:'${siteId}',post_id:${postId},post_slug:'${postSlug}',lang:'${lang}',event:'scroll',scroll_depth:m,session_id:SID})}).catch(function(){});}});}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  function sendTime(){if(sent)return;sent=true;var sec=Math.round((Date.now()-START)/1000);if(sec<2)return;navigator.sendBeacon(ANA,JSON.stringify({site_id:'${siteId}',post_id:${postId},post_slug:'${postSlug}',lang:'${lang}',event:'leave',time_on_page:sec,scroll_depth:maxScroll,session_id:SID}));}
+  window.addEventListener('pagehide',sendTime);
+  window.addEventListener('beforeunload',sendTime);
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')sendTime();});
+})();
+<\/script>`;
+}
 
 function feedbackWidget(postId, postSlug, lang, siteId) {
   const labels = {
@@ -272,6 +296,7 @@ ${xDefault}
     <p style="margin-top:10px">\u00a9 2026 Wordify \u00b7 powered by <a href="https://frame-sphere.vercel.app">FrameSphere</a></p>
   </footer>
 
+  ${blogAnalyticsScript(post.id, post.slug, lang, SITE_ID)}
 </body>
 </html>`;
 }
