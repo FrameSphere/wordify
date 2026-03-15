@@ -43,6 +43,56 @@ function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+const FB_API = 'https://webcontrol-hq-api.karol-paschek.workers.dev/api/blog/feedback';
+
+function feedbackWidget(postId, postSlug, lang, siteId) {
+  const labels = {
+    question: { de:'War dieser Artikel hilfreich?', en:'Was this article helpful?', fr:'Cet article \u00e9tait-il utile\u00a0?', es:'\u00bfFue \u00fatil este art\u00edculo?', it:'Questo articolo ti \u00e8 stato utile?' },
+    yes:      { de:'Ja', en:'Yes', fr:'Oui', es:'S\u00ed', it:'S\u00ec' },
+    no:       { de:'Nein', en:'No', fr:'Non', es:'No', it:'No' },
+    thanks:   { de:'\uD83D\uDE4F Danke f\u00fcr dein Feedback!', en:'\uD83D\uDE4F Thanks for your feedback!', fr:'\uD83D\uDE4F Merci pour ton retour\u00a0!', es:'\uD83D\uDE4F \u00a1Gracias por tu opini\u00f3n!', it:'\uD83D\uDE4F Grazie per il tuo feedback!' },
+  };
+  const q = (labels.question[lang] || labels.question.en);
+  const y = (labels.yes[lang]      || labels.yes.en);
+  const n = (labels.no[lang]       || labels.no.en);
+  const t = (labels.thanks[lang]   || labels.thanks.en);
+  const key = `fb_${postId}_${lang}`;
+  return `
+<div id="feedback-widget" style="margin-top:2rem;padding:1.25rem 1.5rem;border:1px solid rgba(88,101,242,.2);border-radius:12px;background:rgba(88,101,242,.04);display:none;text-align:center">
+  <p id="fb-question" style="font-size:.88rem;color:var(--text-secondary);margin:0 0 .9rem">${q}</p>
+  <div id="fb-buttons" style="display:flex;gap:.75rem;justify-content:center">
+    <button onclick="sendFeedback(true)" style="padding:8px 24px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--text-secondary);cursor:pointer;font-size:.88rem;transition:all .2s;font-family:inherit" onmouseover="this.style.background='rgba(34,197,94,.12)';this.style.borderColor='rgba(34,197,94,.3)';this.style.color='#4ade80'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,.12)';this.style.color='var(--text-secondary)'">\uD83D\uDC4D ${y}</button>
+    <button onclick="sendFeedback(false)" style="padding:8px 24px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--text-secondary);cursor:pointer;font-size:.88rem;transition:all .2s;font-family:inherit" onmouseover="this.style.background='rgba(239,68,68,.10)';this.style.borderColor='rgba(239,68,68,.25)';this.style.color='#f87171'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,.12)';this.style.color='var(--text-secondary)'">\uD83D\uDC4E ${n}</button>
+  </div>
+  <p id="fb-thanks" style="display:none;font-size:.88rem;color:#4ade80;margin:0">${t}</p>
+</div>
+<script>
+(function(){
+  var KEY='${key}';
+  if(localStorage.getItem(KEY))return;
+  var body=document.querySelector('.post-body');
+  if(!body)return;
+  var shown=false;
+  function check(){
+    if(shown)return;
+    var r=body.getBoundingClientRect();
+    if((window.innerHeight-r.top)/r.height>=0.6){shown=true;document.getElementById('feedback-widget').style.display='block';}
+  }
+  window.addEventListener('scroll',check,{passive:true});
+  check();
+})();
+function sendFeedback(helpful){
+  var KEY='${key}';
+  if(localStorage.getItem(KEY))return;
+  localStorage.setItem(KEY,'1');
+  document.getElementById('fb-buttons').style.display='none';
+  document.getElementById('fb-question').style.display='none';
+  document.getElementById('fb-thanks').style.display='block';
+  fetch('${FB_API}',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({site_id:'${siteId}',post_id:${postId},post_slug:'${postSlug}',lang:'${lang}',helpful:helpful?1:0})}).catch(function(){});
+}
+<\/script>`;
+}
+
 function renderHTML(post, lang, m, siblings) {
   const tags        = (post.tags||'').split(',').map(t=>t.trim()).filter(Boolean);
   const dateStr     = fmtDate(post.published_at || post.created_at, lang);
@@ -206,6 +256,8 @@ ${xDefault}
       <a href="${m.blogHome}" class="back-btn">\u2190 ${m.readMore}</a>
       <a href="${m.home}" class="play-btn">${m.play}</a>
     </div>
+
+    ${feedbackWidget(post.id, post.slug, lang, SITE_ID)}
 
   </article>
 
