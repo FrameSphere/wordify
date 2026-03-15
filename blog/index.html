@@ -175,7 +175,7 @@
       <a class="post-card" href="/blog/${lang}/${esc(p.slug||'')}">
         <div class="post-meta">
           ${(p.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="post-tag">${esc(t)}</span>`).join('')}
-          <span class="post-date">${fmtDate(p.created_at)}</span>
+          <span class="post-date">${fmtDate(p.published_at || p.created_at)}</span>
         </div>
         <div class="post-title">${esc(p.title)}</div>
         ${p.excerpt ? `<div class="post-excerpt">${esc(p.excerpt)}</div>` : ''}
