@@ -27,7 +27,7 @@ const WORDS_DE = [
     'BEINE', 'BERGE', 'BESEN', 'BETEN', 'BETON', 'BLICK', 'BLUME',
     'BLUTS', 'BOGEN', 'BOMBE', 'BÖDEN', 'BÖGEN', 'BRAND', 'BRAUN',
     'BREIT', 'BRETT', 'BRIEF', 'BRING', 'BRUCH', 'BRUST', 'BUCHE',
-    'BUDEN', 'BÜHNE', 'BUNTE', 'BUTTE',
+    'BUDEN', 'BÜHNE', 'BUNTE', 'BUTTE', 'BLATT',
 
     'BACKE', 'BADET', 'BAKED', 'BANDE', 'BARKE', 'BASIS', 'BATZE',
     'BEAMT', 'BEDAR', 'BEETE', 'BEGIN', 'BEHUT', 'BELAG', 'BERUF',
@@ -431,5 +431,7 @@ const WORDS_DE = [
     'RASEN', 'RAUCH', 'RAUPE', 'RECHT', 'RECKE', 'REDEN', 'REGEL', 'REGEN', 'REIBE', 'REICH',
     'REIHE', 'REIME', 'REINE', 'REISE', 'REITE', 'REIZE', 'RESTE', 'RETTE', 'RIESE',
     'RINDE', 'RINGE', 'RINNE', 'RIPPE', 'RISSE', 'RITZE', 'ROBBE', 'ROHRE', 'ROLLE',
-    'ROSSE', 'ROSTE', 'ROTTE', 'RUDER', 'RUFEN', 'RUINE', 'RUNDE', 'RUTEN', 'SACHE', 'SAGEN'
+    'ROSSE', 'ROSTE', 'ROTTE', 'RUDER', 'RUFEN', 'RUINE', 'RUNDE', 'RUTEN', 'SACHE', 'SAGEN',
+
+    'KLUGE', 'TANZE', 'WOLKE', 'HERZT',
 ];
