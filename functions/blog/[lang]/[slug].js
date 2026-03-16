@@ -139,11 +139,6 @@ function renderHTML(post, lang, m, siblings) {
   <title>${esc(post.title)} \u2013 Wordify Blog</title>
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${canonical}">
-  <link rel="alternate" hreflang="de" href="https://wordify.pages.dev/de/">
-  <link rel="alternate" hreflang="en" href="https://wordify.pages.dev/en/">
-  <link rel="alternate" hreflang="fr" href="https://wordify.pages.dev/fr/">
-  <link rel="alternate" hreflang="es" href="https://wordify.pages.dev/es/">
-  <link rel="alternate" hreflang="it" href="https://wordify.pages.dev/it/">
 
   <meta property="og:type"        content="article">
   <meta property="og:title"       content="${esc(post.title)}">
