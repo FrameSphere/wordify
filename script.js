@@ -535,6 +535,18 @@ function submitGuess() {
         stats.maxStreak = Math.max(stats.maxStreak, stats.currentStreak);
         saveStats();
         updateStats();
+        // Gewinn ans Dashboard melden
+        fetch(DASHBOARD_API + '/api/game-wins', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                game_type: 'classic',
+                word: targetWord,
+                language: currentLanguage,
+                date: new Date().toISOString().slice(0, 10),
+                attempts: currentRow + 1,
+            }),
+        }).catch(() => {}); // fire-and-forget
         // Win Modal anzeigen statt einfache Nachricht
         setTimeout(() => {
             showWinModal(currentRow + 1, elapsedTime, targetWord);

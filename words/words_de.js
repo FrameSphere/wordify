@@ -433,5 +433,5 @@ const WORDS_DE = [
     'RINDE', 'RINGE', 'RINNE', 'RIPPE', 'RISSE', 'RITZE', 'ROBBE', 'ROHRE', 'ROLLE',
     'ROSSE', 'ROSTE', 'ROTTE', 'RUDER', 'RUFEN', 'RUINE', 'RUNDE', 'RUTEN', 'SACHE', 'SAGEN',
 
-    'KLUGE', 'TANZE', 'WOLKE', 'HERZT',
+    'KLUGE', 'TANZE', 'WOLKE', 'HERZT', 'BIRNE', 'ZEBRA', 'KANNE'
 ];

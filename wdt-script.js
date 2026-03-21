@@ -187,6 +187,8 @@
                 won = true; gameOver = true;
                 saveResult(true, currentRow + 1);
                 markButtonGreen();
+                // Win an API melden
+                trackWin('daily', ANSWER, LANG, UTC_DATE, currentRow + 1);
                 setTimeout(function () { openModal(true); }, 500);
             } else {
                 currentRow++;
@@ -404,6 +406,15 @@
     }, 1000);
 
     // ─── Init (async – fetches word first) ───────────────────────────────────
+    // ─── Win Tracking ───────────────────────────────────────────────────
+    function trackWin(gameType, word, language, date, attempts) {
+        fetch(DASHBOARD_API + '/api/game-wins', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ game_type: gameType, word: word, language: language, date: date, attempts: attempts }),
+        }).catch(function () {}); // fire-and-forget
+    }
+
     async function init() {
         var theme = localStorage.getItem('wordifyTheme') || 'light';
         document.documentElement.setAttribute('data-theme', theme);

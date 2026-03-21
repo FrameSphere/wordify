@@ -32,5 +32,5 @@ const WORDS_FR = [
   'VOLER','VOTRE','VUELO','YACHT','ZESTE','ZINCÉ','ZONEE','ZORRO',
 
   'LIVRE', 'REVER', 'TABLE', 'NOIRS', 'LUMES', 'SOLAR', 'RIVES',
-  'ÉTOIL', 'CÔTEL', 'ROSES', 'LUNES', 'POMME', 'VITES'
+  'ÉTOIL', 'CÔTEL', 'ROSES', 'LUNES', 'POMME', 'VITES', 'VILLE', 'SALON', 'FROID'
 ];
