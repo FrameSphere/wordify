@@ -210,7 +210,7 @@
             <a href="/es/consejos-y-estrategias.html" class="seo-quicknav-btn">Consejos y estrategias</a>
             <a href="/es/wordify-5-idiomas.html" class="seo-quicknav-btn">Wordify en 5 idiomas</a>
             <a href="/es/preguntas-frecuentes.html" class="seo-quicknav-btn">Preguntas frecuentes (FAQ)</a>
-            <a href="/blog/" class="seo-quicknav-btn">📝 Blog</a>
+            <a href="/blog/" class="seo-quicknav-btn" id="blog-nav-btn" style="position:relative">📝 Blog</a>
         </div>
     </div>
 
@@ -327,6 +327,33 @@
     <script src="/share-timer.js"></script>
     <script src="/wordify-tracker.js"></script>
     <script src="/script.js"></script>
+    <script>
+    (function(){
+      var API='https://webcontrol-hq-api.karol-paschek.workers.dev';
+      var LS_KEY='wordify_blog_last_seen';
+      fetch(API+'/api/blog/published?site_id=wordify')
+        .then(function(r){return r.json();})
+        .then(function(posts){
+          if(!posts||!posts.length)return;
+          var newest=posts.reduce(function(a,b){
+            return (a.published_at||a.created_at)>(b.published_at||b.created_at)?a:b;
+          });
+          var newestTs=newest.published_at||newest.created_at||'';
+          var lastSeen=localStorage.getItem(LS_KEY)||'0';
+          if(newestTs>lastSeen){
+            var btn=document.getElementById('blog-nav-btn');
+            if(!btn)return;
+            var badge=document.createElement('span');
+            badge.style.cssText='position:absolute;top:-7px;right:-7px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.35);z-index:1;';
+            badge.textContent='1';
+            btn.appendChild(badge);
+            btn.addEventListener('click',function(){
+              localStorage.setItem(LS_KEY,newestTs);
+            });
+          }
+        }).catch(function(){});
+    })();
+    </script>
     <script>function closeAboutModal(){document.getElementById('aboutModal').style.display='none';}function toggleHowToPlay(){const i=document.querySelector('.how-to-play .instructions'),t=document.querySelector('.how-to-play-toggle');i.classList.toggle('collapsed');t.setAttribute('aria-expanded',t.getAttribute('aria-expanded')==='true'?'false':'true');}function toggleSEOContent(){const s=document.querySelector('.seo-sections'),t=document.querySelector('.seo-toggle');s.classList.toggle('collapsed');t.setAttribute('aria-expanded',t.getAttribute('aria-expanded')==='true'?'false':'true');}</script>
 </body>
 </html>
