@@ -117,10 +117,34 @@ function sendFeedback(helpful){
 <\/script>`;
 }
 
+// Normalize meta_keywords or longtail_keywords (array or JSON-string or plain string) → array
+function parseKwField(raw) {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw.filter(Boolean).map(k => k.trim());
+  if (typeof raw === 'string') {
+    const s = raw.trim();
+    if (s.charAt(0) === '[') {
+      try { const arr = JSON.parse(s); return arr.filter(Boolean).map(k => k.trim()); } catch(e) {}
+    }
+    return s.split(',').map(k => k.trim()).filter(Boolean);
+  }
+  return [];
+}
+
+// Kombiniert Short-Keywords + Long-Tails; Short-Keywords zuerst, dann Long-Tails (dedupliziert)
+function getKwString(raw, rawLongtail) {
+  const shorts  = parseKwField(raw);
+  const longs   = parseKwField(rawLongtail);
+  const seen    = new Set(shorts.map(k => k.toLowerCase()));
+  const deduped = longs.filter(k => !seen.has(k.toLowerCase()));
+  return shorts.concat(deduped).join(', ');
+}
+
 function renderHTML(post, lang, m, siblings) {
   const tags        = (post.tags||'').split(',').map(t=>t.trim()).filter(Boolean);
   const dateStr     = fmtDate(post.published_at || post.created_at, lang);
   const description = post.meta_description || post.excerpt || post.title;
+  const kwString    = getKwString(post.meta_keywords, post.longtail_keywords);
   const canonical   = `https://wordify.pages.dev/blog/${lang}/${post.slug}`;
   const BASE = 'https://wordify.pages.dev';
   const hreflangs = siblings.map(s =>
@@ -138,7 +162,7 @@ function renderHTML(post, lang, m, siblings) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(post.title)} \u2013 Wordify Blog</title>
   <meta name="description" content="${esc(description)}">
-  ${post.meta_keywords ? `<meta name="keywords" content="${esc(post.meta_keywords)}">` : ''}
+  ${kwString ? `<meta name="keywords" content="${esc(kwString)}">` : ''}
   <link rel="canonical" href="${canonical}">
 
   <meta property="og:type"        content="article">
